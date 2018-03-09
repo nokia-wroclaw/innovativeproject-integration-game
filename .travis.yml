@@ -2,3 +2,16 @@ language: node_js
 node_js:
  - "8"
  - "7"
+ 
+jobs:
+ include:
+  -stage: test
+   script:
+    - cd Frontend
+    - npm install
+    - npm test
+    - npm run build
+   script:
+    - cd Mobile
+    - npm install 
+    - npm test
