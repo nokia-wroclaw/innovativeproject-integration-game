@@ -4,7 +4,9 @@ import { Container } from '../../utils/styledComponents';
 class App extends Component {
   render() {
     return (
-        <Container></Container>
+        <Container>
+            Hello!
+        </Container>
     );
   }
 }
