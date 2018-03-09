@@ -15,3 +15,6 @@ jobs:
     script:
      - npm install
      - npm test
+
+notifications:
+ slack: innoprojectsummer2018:Me0KNpSZ1ES1OnWrwTUoD2Y7
