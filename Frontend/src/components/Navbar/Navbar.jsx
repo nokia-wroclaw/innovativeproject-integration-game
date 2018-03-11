@@ -9,8 +9,11 @@ class Navbar extends Component {
                 <Link to="/categories">
                     Categories
                 </Link>
-                <Link to="/">
-                    Home
+                <Link to="/categories/add">
+                    Add category
+                </Link>
+                <Link to="/categories/edit">
+                    Edit category
                 </Link>
             </Container>
         );
