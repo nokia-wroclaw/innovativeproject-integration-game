@@ -6,15 +6,21 @@ class Navbar extends Component {
     render() {
         return (
             <Container>
-                <Link to="/categories">
-                    Categories
-                </Link>
-                <Link to="/categories/add">
-                    Add category
-                </Link>
-                <Link to="/categories/edit">
-                    Edit category
-                </Link>
+                <div class="ui secondary pointing menu">
+                    <div class="right menu">
+                        <Link to="/categories" class="ui item">
+                            Categories
+                        </Link>
+            
+                        <Link to="/categories/add" class="ui item">
+                            Add category
+                        </Link>
+
+                        <Link to="/categories/edit" class="ui item">
+                            Edit category
+                        </Link>
+                    </div>
+                </div>
             </Container>
         );
     }
