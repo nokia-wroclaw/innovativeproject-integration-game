@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import { Container } from '../../utils/styledComponents';
-// import { NavLink } from 'react-router-dom';
+import { Wrapper } from './Navbar_styles';
 import Link from '../Link/Link';
 
 class Navbar extends Component {
     render() {
         return (
             <Container>
-                <div class="ui secondary pointing menu">
-                    <div class="right menu">
-                        <Link to="/categories/display" content="Categories" />
-                        <Link to="/categories/add" content="Add category" />                            
-                        <Link to="/categories/edit" content="Edit category" />
+                <Wrapper>
+                    <div class="ui secondary pointing menu">
+                        <div class="right menu">
+                            <Link to="/categories/display" content="Categories" />
+                            <Link to="/categories/add" content="Add category" />                            
+                            <Link to="/categories/edit" content="Edit category" />
+                        </div>
                     </div>
-                </div>
+                </Wrapper>
             </Container>
         );
     }
