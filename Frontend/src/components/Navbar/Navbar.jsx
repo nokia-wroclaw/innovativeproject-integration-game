@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from '../../utils/styledComponents';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Navbar extends Component {
     render() {
@@ -8,17 +8,16 @@ class Navbar extends Component {
             <Container>
                 <div class="ui secondary pointing menu">
                     <div class="right menu">
-                        <Link to="/categories" class="ui item">
-                            Categories
-                        </Link>
-            
-                        <Link to="/categories/add" class="ui item">
+                        <NavLink to="/categories/add" className="ui item" activeClassName="item active">
                             Add category
-                        </Link>
+                        </NavLink>
 
-                        <Link to="/categories/edit" class="ui item">
+                        <NavLink to="/categories/edit" className="ui item" activeClassName="item active">
                             Edit category
-                        </Link>
+                        </NavLink>
+                        <NavLink to="/categories/display" className="ui item" activeClassName="item active">
+                            Categories
+                        </NavLink>
                     </div>
                 </div>
             </Container>

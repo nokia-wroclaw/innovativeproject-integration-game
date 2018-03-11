@@ -16,7 +16,7 @@ ReactDOM.render(
             <Switch>
                 <Route path="/categories/edit" component={EditCategory} />
                 <Route path="/categories/add" component={AddCategory} />
-                <Route path="/categories" component={Categories} />
+                <Route path="/categories/display" component={Categories} />
                 <Route path="/" component={Home} />
             </Switch>
         </div>
