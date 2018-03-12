@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from '../../utils/styledComponents';
-import { Input, Form, Button } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import { Wrapper1 } from './AddCategory_styles';
 
 
