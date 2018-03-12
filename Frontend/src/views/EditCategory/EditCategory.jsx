@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { Container } from '../../utils/styledComponents';
 import { Form } from 'semantic-ui-react'
 
-const options = [
-  { key: 'm', text: 'Male', value: 'male'},
-  { key: 'f', text: 'Female', value: 'female' },
-]
 
 class EditCategory extends Component {
     render() {
