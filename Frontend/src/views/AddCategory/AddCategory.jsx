@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from '../../utils/styledComponents';
 import { Form, Button } from 'semantic-ui-react'
 import { Wrapper1 } from './AddCategory_styles';
-import { TitlePage } from './AddCategory_styles';
+import { TitlePage1 } from './AddCategory_styles';
 
 
 
@@ -11,9 +11,9 @@ class AddCategory extends Component {
         return (
             <Container>
             <Wrapper1>
-            <TitlePage>
+            <TitlePage1>
                 Add Categories & Charakters
-            </TitlePage>
+            </TitlePage1>
                 <Form>
                     <Form.Group widths='equal'>
                     <Form.Input fluid id='form-subcomponent-shorthand-input-categories' label='Categories' placeholder='Categories' />
