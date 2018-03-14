@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container } from '../../utils/styledComponents';
 import { Form, Button } from 'semantic-ui-react'
 import { Wrapper1 } from './AddCategory_styles';
+import { TitlePage } from './AddCategory_styles';
 
 
 
@@ -10,7 +11,9 @@ class AddCategory extends Component {
         return (
             <Container>
             <Wrapper1>
+            <TitlePage>
                 Add Categories & Charakters
+            </TitlePage>
                 <p>
                 You can add all informations about chcarakters
                 </p>
