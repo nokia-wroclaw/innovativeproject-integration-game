@@ -17,6 +17,8 @@ matrix:
           - tools
           - android-25
           - build-tools-25.0.3
+      before_install:
+        - yes | sudo sdkmanager --licenses
       before_script:
         - cd Mobile
       script:
