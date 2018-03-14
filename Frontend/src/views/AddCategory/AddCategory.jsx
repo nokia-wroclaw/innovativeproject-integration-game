@@ -14,9 +14,6 @@ class AddCategory extends Component {
             <TitlePage>
                 Add Categories & Charakters
             </TitlePage>
-                <p>
-                You can add all informations about chcarakters
-                </p>
                 <Form>
                     <Form.Group widths='equal'>
                     <Form.Input fluid id='form-subcomponent-shorthand-input-categories' label='Categories' placeholder='Categories' />
@@ -27,6 +24,7 @@ class AddCategory extends Component {
                     <Form.Input fluid id='form-subcomponent-shorthand-input-nick-name' label='Nick Name' placeholder='Nick Name' />
                     </Form.Group>
                  <Button type='Add'>Add</Button>
+                 <Button class='ui icon plus icon button'><i class='plus icon'></i></Button>
                 </Form>
             </Wrapper1>
             </Container>
