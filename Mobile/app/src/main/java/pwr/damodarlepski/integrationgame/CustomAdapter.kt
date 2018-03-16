@@ -41,7 +41,7 @@ class CustomAdapter(private val context: Context, private val categories: List<S
             } else {
                 // set cheek mark drawable and set checked property to true
                 value = "Checked"
-                simpleCheckedTextView.setCheckMarkDrawable(R.drawable.ic_check_box_black_24dp)
+                simpleCheckedTextView.setCheckMarkDrawable(R.drawable.ic_check_black_24dp)
                 simpleCheckedTextView.isChecked = true
             }
             Toast.makeText(context, value, Toast.LENGTH_SHORT).show()
