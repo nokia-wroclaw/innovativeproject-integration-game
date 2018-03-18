@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { Container } from '../../utils/styledComponents';
+import { Container, Wrapper, List } from './EditCategory_styles';
+import CategoriesList from '../../components/CategoriesList/CategoriesList';
 
 class EditCategory extends Component {
     render() {
         return (
             <Container>
-                Edit
+                <List>
+                    <CategoriesList />
+                </List>
+                <Wrapper />
             </Container>
         );
     }
