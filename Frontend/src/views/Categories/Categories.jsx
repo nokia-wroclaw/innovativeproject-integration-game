@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from '../../utils/styledComponents';
 import { Wrapper } from './Categories_styles';
+import { TitlePage2 } from './Categories_styles';
+
 
 import { Accordion, Icon } from 'semantic-ui-react'
 
@@ -22,7 +24,9 @@ class Categories extends Component {
         return (
             <Container>
                 <Wrapper>
+                <TitlePage2>
                 Categories
+                </TitlePage2>
                     <Accordion styled>
                       <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
                        <Icon name='dropdown' />
