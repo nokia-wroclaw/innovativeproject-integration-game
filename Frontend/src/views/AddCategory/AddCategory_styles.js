@@ -12,6 +12,7 @@ export const Wrapper1 = styled.div`
 export const TitlePage1 = styled.div`
     text-align: center;
     text-transform: uppercase;
+    font-size: 20px;
     padding: 1em;
     background: papayawhip;
     color: black;
@@ -29,7 +30,7 @@ export const Button1 = styled.button`
     cursor: pointer;
     display: inline-block;
     font-family: "Roboto Slab", serif;
-    font-size: 0.75em;
+    font-size: 13px;
     font-weight: 700;
     height: 4em;
     letter-spacing: 0.075em;
