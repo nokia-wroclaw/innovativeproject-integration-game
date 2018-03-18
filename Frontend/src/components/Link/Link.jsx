@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
+import { Item } from './Link_styles';
 
-class Link extends Component {
+export default class Link extends Component {
+    state = { activeItem: "" }
+
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
     render() {
+        const { activeItem } = this.state;
+
         return (
-            <NavLink 
-                to={this.props.to} 
-                className="ui item" 
-                activeClassName="item active">
-                {this.props.content}
-            </NavLink>
+            <div></div>
         );
     }
 }
-
-export default Link;
