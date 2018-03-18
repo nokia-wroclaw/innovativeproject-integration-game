@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../utils/styles';
 
 export const Container = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ export const Container = styled.div`
 export const List = styled.div`
     height: 100vh;
     width: 25%;
-    // background-color: pink;
+    background-color: ${colors.blue};
 `;
 
 export const Wrapper = styled.div`
