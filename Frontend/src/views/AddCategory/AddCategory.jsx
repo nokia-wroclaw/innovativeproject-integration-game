@@ -3,6 +3,8 @@ import { Container } from '../../utils/styledComponents';
 import { Form, Button, TextArea } from 'semantic-ui-react'
 import { Wrapper1 } from './AddCategory_styles';
 import { TitlePage1 } from './AddCategory_styles';
+import { Button1 } from './AddCategory_styles';
+
 
 
 
@@ -26,8 +28,10 @@ class AddCategory extends Component {
                     <Form.Group widths='equal'>
                     <Form.Input fluid id='form-subcomponent-shorthand-input-description' control={TextArea} label='Description' placeholder='Description' />
                     </Form.Group>
-                 <Button type='Add'>Add</Button>
-                 <Button class='ui icon plus icon button'><i class='plus icon'></i></Button>
+
+                 <Button1 type='Add'>Add</Button1>
+                 <Button1 class='ui icon plus icon button'><i class='plus icon'></i></Button1>
+
                 </Form>
             </Wrapper1>
             </Container>
