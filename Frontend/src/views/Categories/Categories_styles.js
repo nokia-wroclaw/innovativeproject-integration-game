@@ -16,8 +16,8 @@ export const TitlePage2 = styled.div`
   margin: 0em;
   background: papayawhip;
   color: black;
-  
+
 `
 ;
 
-  
+

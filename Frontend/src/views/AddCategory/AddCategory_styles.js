@@ -13,11 +13,11 @@ export const TitlePage1 = styled.div`
     text-align: center;
     text-transform: uppercase;
     font-size: 20px;
-    padding: 1em;
-    background: papayawhip;
     color: black;
     margin-bottom:35px
     font-family: "Roboto Slab", serif;
+    border-bottom: solid 5px #f56a6a;
+    padding: 20px;
 
 `
 
@@ -42,7 +42,6 @@ export const Button1 = styled.button`
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
-
 }
 `
 ;
