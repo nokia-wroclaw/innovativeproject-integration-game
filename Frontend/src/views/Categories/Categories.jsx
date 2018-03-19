@@ -19,19 +19,21 @@ export default class Categories extends Component {
     renderCategories() {
         return (
 
-            this.state.data.map((rowdata,index)=>
+            this.state.data.map((rowdata, index) =>
                 <div>
                     {
-                        <AccordionElement activeIndex={index} index={index} name={rowdata.category} names={rowdata.people.map((subRowData,k)=>
-                            {return   subRowData.name + " " + subRowData.surname+ " " + ((subRowData.nickname==null)?("\n"):(subRowData.nickname + "\n"))}
-                        )}/>
+                        <AccordionElement activeIndex={index} index={index} name={rowdata.category}
+                                          names={rowdata.people.map((subRowData, k) => {
+                                                  return subRowData.name + " " + subRowData.surname + " " + ((subRowData.nickname == null) ? ("\n") : (subRowData.nickname + "\n"))
+                                              }
+                                          )}/>
 
 
                     }
                 </div>)
         )
     }
-    
+
     render() {
         return (
             <Container>
