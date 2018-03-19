@@ -1,0 +1,145 @@
+[
+  {
+    "category": "Actor",
+    "people":
+    [{
+      "id": 1,
+      "name": "Jon",
+      "surname": "Lawrence",
+      "nickname": null
+    },
+      {
+        "id": 2,
+        "name": "Allison",
+        "surname": "McMahon",
+        "nickname": "Chan"
+      },
+      {
+        "id": 3,
+        "name": "Eddie",
+        "surname": "McCormick",
+        "nickname": null
+      },
+      {
+        "id": 4,
+        "name": "Dorothy",
+        "surname": "Carver",
+        "nickname": "Carlton"
+      },
+      {
+        "id": 5,
+        "name": "Gayle",
+        "surname": "Craig",
+        "nickname": "Beatty"
+      }
+    ]
+  }
+,
+  {
+    "category": "Sport",
+    "people":
+    [{
+      "id": 1,
+      "name": "Jon",
+      "surname": "Lawrence",
+      "nickname": "Sellers"
+    },
+      {
+        "id": 2,
+        "name": "Allison",
+        "surname": "McMahon",
+        "nickname": "Chan"
+      },
+      {
+        "id": 3,
+        "name": "Eddie",
+        "surname": "McCormick",
+        "nickname": "Davis"
+      },
+      {
+        "id": 4,
+        "name": "Dorothy",
+        "surname": "Carver",
+        "nickname": "Carlton"
+      },
+      {
+        "id": 5,
+        "name": "Gayle",
+        "surname": "Craig",
+        "nickname": "Beatty"
+      }
+    ]
+  },
+  {
+    "category": "Musicians",
+    "people":
+    [{
+      "id": 1,
+      "name": "Jon",
+      "surname": "Lawrence",
+      "nickname": "Sellers"
+    },
+      {
+        "id": 2,
+        "name": "Allison",
+        "surname": "McMahon",
+        "nickname": "Chan"
+      },
+      {
+        "id": 3,
+        "name": "Eddie",
+        "surname": "McCormick",
+        "nickname": "Davis"
+      },
+      {
+        "id": 4,
+        "name": "Dorothy",
+        "surname": "Carver",
+        "nickname": "Carlton"
+      },
+      {
+        "id": 5,
+        "name": "Gayle",
+        "surname": "Craig",
+        "nickname": "Beatty"
+      }
+    ]
+  },
+  {
+    "category": "Writers",
+    "people":
+    [{
+      "id": 1,
+      "name": "Jon",
+      "surname": "Lawrence",
+      "nickname": "Sellers"
+    },
+      {
+        "id": 2,
+        "name": "Allison",
+        "surname": "McMahon",
+        "nickname": "Chan"
+      },
+      {
+        "id": 3,
+        "name": "Eddie",
+        "surname": "McCormick",
+        "nickname": "Davis"
+      },
+      {
+        "id": 4,
+        "name": "Dorothy",
+        "surname": "Carver",
+        "nickname": "Carlton"
+      },
+      {
+        "id": 5,
+        "name": "Gayle",
+        "surname": "Craig",
+        "nickname": "Beatty"
+      }
+    ]
+  }
+
+
+]
