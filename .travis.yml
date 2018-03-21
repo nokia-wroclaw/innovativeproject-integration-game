@@ -1,29 +1,44 @@
-matrix:
-  include:
-    - language: node_js
-      node_js:
-       - "8"
-      before_script:
-        - cd Frontend
-      script:
-        - npm install
-        - npm test
-        - npm run build
+language: android
+android:
+  components:
+    # The BuildTools version used by your project
+    - build-tools-26.0.2
 
-    - language: android
-      jdk: oraclejdk8
-      android:
-        components:
-          - tools
-          - android-25
-          - build-tools-25.0.3
-      before_install:
-        - mkdir "$ANDROID_HOME/licenses" || true
-        - cp ./licenses/* "$ANDROID_HOME/licenses/"
-      before_script:
-        - cd Mobile
-      script:
-        - ./gradlew build connectedCheck
+    # The SDK version used to compile your project
+    - android-26
 
-notifications:
- slack: innoprojectsummer2018:Me0KNpSZ1ES1OnWrwTUoD2Y7
+    # Additional components
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-26
+
+    # Specify at least one system image,
+    # if you need to run emulator(s) during your tests
+    - sys-img-armeabi-v7a-android-26
+    - sys-img-armeabi-v7a-android-17
+
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
+  before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+  cache:
+    directories:
+      - $HOME/.gradle/caches/
+      - $HOME/.gradle/wrapper/
+      - $HOME/.android/build-cache
+
+  before_script:
+    - cd Mobile
+    - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+    - emulator -avd test -no-audio -no-window &
+    - android-wait-for-emulator
+    - adb shell input keyevent 82 &
+    
+  script:
+    - ./gradlew build connectedCheck
