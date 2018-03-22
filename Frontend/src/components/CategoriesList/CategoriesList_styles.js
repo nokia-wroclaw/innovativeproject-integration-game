@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { Accordion } from 'semantic-ui-react';
 import { colors } from '../../utils/styles';
-import AccordionElement from '../AccordionElement/AccordionElement';
 
 export const Header = styled.h1`
     color: #fefefa;
@@ -40,19 +38,3 @@ export const CharacterFlexbox = styled.div`
     align-items: center;
     margin: 10px;
 `;
-
-// export const StyledAccordion = styled(Accordion)`
-//    width: 70%;
-//    margin: 0 auto;
-//    height: 50px;
-
-//    &:hover {
-       
-//    }
-// `;
-
-// export const StyledAccordionElement = styled(AccordionElement)`
-//     &:hover {
-//         margin-left: 100px;
-//     }
-// `;

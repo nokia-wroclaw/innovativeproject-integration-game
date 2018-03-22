@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import { Accordion } from 'semantic-ui-react';
-// import AccordionElement from '../../components/AccordionElement/AccordionElement';
 import { Header, CategoryName, Character, Wrapper, CategoryFlexbox, CharacterFlexbox } from './CategoriesList_styles';
 import Modifier from '../../components/Modifier/Modifier';
 
@@ -18,10 +16,6 @@ class Navbar extends Component {
         return (
             <div>
                 <Header>List of categories</Header>
-                {/* <StyledAccordion>
-                    <StyledAccordionElement activeIndex="0" index="0" name="Actors" names={this.state.actors} />
-                    <StyledAccordionElement activeIndex="1" index="1" name="Sportsmen" names={this.state.sportsmen} />
-                </StyledAccordion> */}
                 <Wrapper>
                     {
                         Object.keys(this.state).map((category) => (
