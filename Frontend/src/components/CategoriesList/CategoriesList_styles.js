@@ -13,18 +13,46 @@ export const Header = styled.h1`
     border-bottom: 3px solid ${colors.orange};
 `;
 
-export const StyledAccordion = styled(Accordion)`
-   width: 70%;
-   margin: 0 auto;
-   height: 50px;
+export const Wrapper = styled.div`
+    width: 70%;
+    margin: 40px auto 0 auto;
+    color: #fefefa;
+`;
 
-   &:hover {
+export const Character = styled.p`
+    margin-right: 10%;
+    font-size: 90%;
+`;
+
+export const CategoryName = styled.h1`
+    font-size: 130%;
+    font-weight: 600;
+    margin-right: 10%;
+`;
+
+export const CategoryFlexbox = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const CharacterFlexbox = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 10px;
+`;
+
+// export const StyledAccordion = styled(Accordion)`
+//    width: 70%;
+//    margin: 0 auto;
+//    height: 50px;
+
+//    &:hover {
        
-   }
-`;
+//    }
+// `;
 
-export const StyledAccordionElement = styled(AccordionElement)`
-    &:hover {
-        margin-left: 100px;
-    }
-`;
+// export const StyledAccordionElement = styled(AccordionElement)`
+//     &:hover {
+//         margin-left: 100px;
+//     }
+// `;

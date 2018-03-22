@@ -16,5 +16,10 @@ export const List = styled.div`
 export const Wrapper = styled.div`
     height: 100vh;
     width: 75%;
-    // background-color: yellow;
+`;
+
+export const Form = styled.div`
+    height: 50px;
+    width: 90%;
+    margin: 50px auto 0 auto;
 `;

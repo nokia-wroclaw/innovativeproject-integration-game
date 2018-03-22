@@ -6,8 +6,8 @@ class Navbar extends Component {
     render() {
         return (
             <Wrapper>
-                <div class="ui secondary pointing menu">
-                    <div class="right menu">
+                <div className="ui secondary pointing menu">
+                    <div className="right menu">
                         <Link to="/categories/display" content="Categories" />
                         <Link to="/categories/add" content="Add category" />                            
                         <Link to="/categories/edit" content="Edit category" />
