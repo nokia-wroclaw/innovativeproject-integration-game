@@ -17,17 +17,6 @@ export const Wrapper = styled.div`
     color: #fefefa;
 `;
 
-export const Character = styled.p`
-    margin-right: 10%;
-    font-size: 90%;
-`;
-
-export const CategoryName = styled.h1`
-    font-size: 130%;
-    font-weight: 600;
-    margin-right: 10%;
-`;
-
 export const CategoryFlexbox = styled.div`
     display: flex;
     align-items: center;

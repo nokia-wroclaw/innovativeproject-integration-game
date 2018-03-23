@@ -8,10 +8,10 @@ class EditCategory extends Component {
         return (
             <Container>
                 <List>
-                    <CategoriesList renderEtw={this.renderEtw} />
+                    <CategoriesList />
                 </List>
                 <Wrapper>
-                    <Header label="Edit categories and charakters" />
+                    <Header label="Edit categories and characters" />
                     <Form />
                 </Wrapper>
             </Container>

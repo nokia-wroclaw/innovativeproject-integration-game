@@ -10,7 +10,8 @@ export const Container = styled.div`
 export const List = styled.div`
     height: 100vh;
     width: 25%;
-    background-color: ${colors.blue};
+    background-color: ${colors.darkBlue};
+    border-right: 1px solid #246770;
 `;
 
 export const Wrapper = styled.div`
