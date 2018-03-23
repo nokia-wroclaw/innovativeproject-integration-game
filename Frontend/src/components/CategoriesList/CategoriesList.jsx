@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Header, Wrapper } from './CategoriesList_styles';
-import Modifier from '../../components/Modifier/Modifier';
 
 class Navbar extends Component {
     constructor(props) {
