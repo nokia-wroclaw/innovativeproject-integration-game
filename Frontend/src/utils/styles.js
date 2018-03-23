@@ -4,6 +4,7 @@ export const colors = {
     orange: '#ff9c00',
     lightBlue: '#99d4e2',
     blue: '#68abb3',
+    darkBlue: '#357880',
 };
 
 export const typography = {
