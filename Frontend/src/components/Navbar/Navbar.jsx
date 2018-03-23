@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Wrapper } from './Navbar_styles';
-import Link from '../Link/Link';
 import { Menu } from 'semantic-ui-react';
 
 export default class Navbar extends Component {
