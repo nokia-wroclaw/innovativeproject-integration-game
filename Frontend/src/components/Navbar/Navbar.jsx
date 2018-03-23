@@ -1,21 +1,33 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Wrapper } from './Navbar_styles';
-import Link from '../Link/Link';
+import { Menu } from 'semantic-ui-react';
 
-class Navbar extends Component {
-    render() {
-        return (
-            <Wrapper>
-                <div className="ui secondary pointing menu">
-                    <div className="right menu">
-                        <Link to="/categories/display" content="Categories" />
-                        <Link to="/categories/add" content="Add category" />                            
-                        <Link to="/categories/edit" content="Edit category" />
-                    </div>
-                </div>
-            </Wrapper>
-        );
-    }
+export default class Navbar extends Component {
+  state = { activeItem: "" }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  render() {
+    const { activeItem } = this.state;
+    
+    return (
+      <Wrapper>
+        <Menu secondary>
+          <Menu.Menu position='right'>
+            <NavLink to="/categories/display"> 
+                  <Menu.Item name="Categories" active={activeItem === "Categories"} onClick={this.handleItemClick} />
+              </NavLink>
+
+              <NavLink to="/categories/add"> 
+                  <Menu.Item name="Add category" active={activeItem === "Add category"} onClick={this.handleItemClick} />
+              </NavLink>
+              
+              <NavLink to="/categories/edit"> 
+                  <Menu.Item name="Edit category" active={activeItem === "Edit category"} onClick={this.handleItemClick} />
+              </NavLink>
+          </Menu.Menu>
+       </Menu>
+      </Wrapper>
+    )
+  }
 }
-
-export default Navbar;
