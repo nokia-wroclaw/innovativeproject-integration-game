@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { Header, Wrapper } from './CategoriesList_styles';
+import ListStore from '../../stores/listStore';
 
 class Navbar extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            actors: ["Brad Pitt", "Leonardo DiCaprio", "Al Pacino"],
-            sportsmen: ["Justyna Kowalczyk", "Adam Małysz", "Kamil Stoch"],
-        };
+        this.state = ListStore.getAll();
     }
 
     render() {
@@ -16,7 +14,17 @@ class Navbar extends Component {
             <div>
                 <Header>List of categories</Header>
                 <Wrapper>
-                   
+                    {
+                        Object.keys(this.state).map((category) => {
+                            return <div>
+                                        <h1>{category}</h1>
+                                        {this.state[category].map((character) => {
+                                            return <p>{character}</p>
+                                        })}
+                                        <br/>
+                                    </div>
+                        })
+                    }
                 </Wrapper>
             </div>
         );
