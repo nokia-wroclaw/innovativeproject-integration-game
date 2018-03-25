@@ -28,7 +28,6 @@ class Navbar extends Component {
         return (
             <div>
                 <Header>List of categories</Header>
-                <button onClick={this.createCharacter.bind(this)}>Create!</button>
                 <Wrapper>
                     {
                         Object.keys(this.state.categoriesList).map((category) => {

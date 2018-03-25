@@ -11,9 +11,7 @@ class ListStore extends EventEmmiter {
     }
 
     createCharacter(name) {
-        console.log("character is added: " + name);
-
-        
+        console.log("character is added: " + name);      
 
         this.emit("change");
     }
