@@ -24,6 +24,7 @@ class ListStore extends EventEmmiter {
         switch(action.type) {
             case "CREATE_CHARACTER": {
                 this.createCharacter(action.text);
+                break;
             }
             default: {
                 console.log("Choose another option");
