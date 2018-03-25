@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
 import { Header, Wrapper } from './CategoriesList_styles';
+import ListStore from '../../stores/listStore';
+import * as ListActions from '../../actions/ListActions';
 
 class Navbar extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            actors: ["Brad Pitt", "Leonardo DiCaprio", "Al Pacino"],
-            sportsmen: ["Justyna Kowalczyk", "Adam Małysz", "Kamil Stoch"],
-        };
+            categoriesList: ListStore.getAll(),
+        }
+    }
+
+    componentWillMount() {
+        ListStore.on("change", () => {
+            this.setState({
+                categoriesList: ListStore.getAll(),
+            });
+        });
+    }
+
+    createCharacter() {
+        ListActions.createCharacter(Date.now());
     }
 
     render() {
@@ -16,7 +29,17 @@ class Navbar extends Component {
             <div>
                 <Header>List of categories</Header>
                 <Wrapper>
-                   
+                    {
+                        Object.keys(this.state.categoriesList).map((category) => {
+                            return <div>
+                                        <h1>{category}</h1>
+                                        {this.state.categoriesList[category].map((character) => {
+                                            return <p>{character}</p>
+                                        })}
+                                        <br/>
+                                    </div>
+                        })
+                    }
                 </Wrapper>
             </div>
         );
