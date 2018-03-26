@@ -1,0 +1,20 @@
+{
+"category": [
+{
+"id": 1,
+"name": "Actors"
+},
+{
+"id": 2,
+"name": "SportPeople"
+},
+{
+"id": 3,
+"name": "Musicians"
+},
+{
+"id": 4,
+"name": "Writers"
+}
+]
+}

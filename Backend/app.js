@@ -1,16 +1,19 @@
- var pg = require('pg');
- pg.defaults.ssl = true;
+const express = require('express');
+const router = express.Router();
+const pg = require('pg');
+const path = require('path');
+pg.defaults.ssl = true;
 
 const env = require('env2')('env.json');
 
- const Sequelize = require('sequelize');
- const sequelize = new Sequelize(process.env.DB_BASE, process.env.DB_USER, process.env.DB_PASS, {
-  host: process.env.DB_HOST,
-  dialect: 'postgres',
-  operatorsAliases: false
- });
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize(process.env.DB_BASE, process.env.DB_USER, process.env.DB_PASS, {
+    host: process.env.DB_HOST,
+    dialect: 'postgres',
+    operatorsAliases: false
+});
 
- sequelize.authenticate().then(function () {
+sequelize.authenticate().then(function () {
         console.log("CONNECTED! ");
     })
     .catch(function (err) {
@@ -18,7 +21,9 @@ const env = require('env2')('env.json');
     })
     .done();
 
-    const People = sequelize.define('people', {
+//var DataTypes = require('sequelize/lib/data-types');
+
+const people = sequelize.define('people', {
     id: {
         type: Sequelize.INTEGER,
         field: 'id',
@@ -36,11 +41,11 @@ const env = require('env2')('env.json');
         type: Sequelize.STRING,
         field: 'nickname'
     }
-  }, {
+}, {
     timestamps: false
-  });
+});
 
-  const Category = sequelize.define('category', {
+const category = sequelize.define('category', {
     id: {
         type: Sequelize.INTEGER,
         field: 'id',
@@ -50,47 +55,102 @@ const env = require('env2')('env.json');
         type: Sequelize.STRING,
         field: 'name'
     }
-  }, {
+}, {
     timestamps: false
-  });
+});
 
-  //TABLE WHICH JOIN PEOPLE AND CATEGORY
-  const People_Category = sequelize.define('people_category', {
-    id_people: {
+
+const peopleCategory = sequelize.define('peopleCategory', {
+    idPeople: {
         type: Sequelize.INTEGER,
-        field: 'id_people',
+        field: 'idPeople',
         primaryKey: true
     },
-    id_category: {
+    idCategory: {
         type: Sequelize.INTEGER,
-        field: 'id_category',
+        field: 'idCategory',
         primaryKey: true
     }
-  }
-    , {
+}, {
     timestamps: false
-  });
+});
 
-  //foreignKey
-  People_Category.belongsTo(People, {foreignKey: 'id_people', targetKey: 'id'});
-  People_Category.belongsTo(Category, {foreignKey: 'id_category', targetKey: 'id'});
+//foreignKey
+peopleCategory.belongsTo(people, {
+    foreignKey: 'idPeople',
+    targetKey: 'id'
+});
+peopleCategory.belongsTo(category, {
+    foreignKey: 'idCategory',
+    targetKey: 'id'
+});
 
-  //Create new People
-  sequelize.sync()
-    .then(() => People.create({
-      id: 1,
-      name: 'Robert',
-      surname: 'Lewandowski'
+sequelize.sync()
+    .then(() => peopleCategory.destroy({
+        where: {},
+        truncate: {
+            cascade: true
+        }
     }))
+    .then(() => category.destroy({
+        where: {},
+        truncate: {
+            cascade: true
+        }
+    }))
+    .then(() => people.destroy({
+        where: {},
+        truncate: {
+            cascade: true
+        }
+    }))
+    .then(() => insertPeople())
+    .then(() => insertCategory())
+    .then(() => insertPeopleCategory())
 
-    sequelize.sync()
-      .then(() => Category.create({
-        id: 1,
-        name: 'Sports_people'
-      }))
+function insertPeople() {
+    var fsPeople = require("fs");
+    var contentsPeople = fsPeople.readFileSync("people.json");
+    var jsonContentPeople = JSON.parse(contentsPeople);
 
-      sequelize.sync()
-        .then(() => People_Category.create({
-          id_people: 1,
-          id_category: 1
-        }))
+    for (var i = 0; i < jsonContentPeople.people.length; i++) {
+        people.create({
+            id: jsonContentPeople.people[i].id,
+            name: jsonContentPeople.people[i].name,
+            surname: jsonContentPeople.people[i].surname,
+            nickname: jsonContentPeople.people[i].nickname
+
+        })
+    }
+
+}
+
+function insertCategory() {
+var fsCategory = require("fs");
+var contentsCategory = fsCategory.readFileSync("category.json");
+var jsonContentCategory = JSON.parse(contentsCategory);
+
+
+    for (var i = 0; i < jsonContentCategory.category.length; i++) {
+        category.create({
+            id: jsonContentCategory.category[i].id,
+            name: jsonContentCategory.category[i].name
+
+        })
+    }
+}
+
+function insertPeopleCategory() {
+var fsPeopleCategory = require("fs");
+var contentsPeopleCategory = fsPeopleCategory.readFileSync("peopleCategory.json");
+var jsonContentPeopleCategory = JSON.parse(contentsPeopleCategory);
+
+
+    for (var i = 0; i < jsonContentPeopleCategory.peopleCategory.length; i++) {
+        peopleCategory.create({
+            idPeople: jsonContentPeopleCategory.peopleCategory[i].idPeople,
+            idCategory: jsonContentPeopleCategory.peopleCategory[i].idCategory
+
+        })
+    }
+}
