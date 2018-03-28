@@ -6,3 +6,9 @@ export function createCharacter(name) {
         text: name,
     });
 }
+
+export function editCharacter() {
+    dispatcher.dispatch({
+        type: "EDIT_CHARACTER",
+    });
+}

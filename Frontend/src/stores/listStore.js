@@ -16,6 +16,16 @@ class ListStore extends EventEmmiter {
         this.emit("change");
     }
 
+    // editCharacter() {
+    //     this.setState.bind(this, {
+    //         actors: ["sb else"],
+    //         sportsmen: ["sb else 2"],
+    //     });
+
+    //     // console.log("it doesnt work");
+    //     this.emit("change");
+    // }
+
     getAll() {
         return this.state;
     }
@@ -24,6 +34,10 @@ class ListStore extends EventEmmiter {
         switch(action.type) {
             case "CREATE_CHARACTER": {
                 this.createCharacter(action.text);
+                break;
+            }
+            case "EDIT_CHARACTER": {
+                this.editCharacter();
                 break;
             }
             default: {

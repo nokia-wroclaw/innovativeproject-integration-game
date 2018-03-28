@@ -24,10 +24,15 @@ class Navbar extends Component {
         ListActions.createCharacter(Date.now());
     }
 
+    editCharacter() {
+        ListActions.editCharacter();
+    }
+
     render() {
         return (
             <div>
                 <Header>List of categories</Header>
+                <button onClick={this.editCharacter.bind(this)}>Edit!</button>
                 <Wrapper>
                     {
                         Object.keys(this.state.categoriesList).map((category) => {
