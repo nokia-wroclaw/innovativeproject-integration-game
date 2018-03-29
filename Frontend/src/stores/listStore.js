@@ -1,5 +1,5 @@
 import dispatcher from '../dispatcher';
-const EventEmmiter = require('events');
+import EventEmmiter from 'events';
 
 class ListStore extends EventEmmiter {
     constructor(props) {
@@ -10,21 +10,24 @@ class ListStore extends EventEmmiter {
         };
     }
 
+    setState = (state) => {
+        this.state = {...this.state, ...state}
+    }
+
     createCharacter(name) {
         console.log("character is added: " + name);      
 
         this.emit("change");
     }
 
-    // editCharacter() {
-    //     this.setState.bind(this, {
-    //         actors: ["sb else"],
-    //         sportsmen: ["sb else 2"],
-    //     });
+    editCharacter = () => {
+        console.log(this.setState);
+        this.setState({
+            actors: ["sb else"],
+        });
 
-    //     // console.log("it doesnt work");
-    //     this.emit("change");
-    // }
+        this.emit("change");
+    }
 
     getAll() {
         return this.state;
