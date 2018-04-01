@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Wrapper } from './CategoriesList_styles';
+import { Header, Wrapper, Category } from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
 
@@ -24,20 +24,23 @@ class Navbar extends Component {
         ListActions.createCharacter(Date.now());
     }
 
-    editCharacter() {
-        ListActions.editCharacter();
+    editCharacter = () => {
+        ListActions.editCharacter("katherine zeta johnes");
     }
+
+
+
 
     render() {
         return (
             <div>
                 <Header>List of categories</Header>
-                <button onClick={this.editCharacter}>Edit!</button>
+                {/* <button onClick={this.editCharacter}>Edit!</button> */}
                 <Wrapper>
                     {
                         Object.keys(this.state.categoriesList).map((category) => {
                             return <div>
-                                        <h1>{category}</h1>
+                                        <Category>{category}</Category>
                                         {this.state.categoriesList[category].map((character) => {
                                             return <p>{character}</p>
                                         })}

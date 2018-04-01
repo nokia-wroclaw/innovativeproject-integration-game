@@ -5,8 +5,8 @@ class ListStore extends EventEmmiter {
     constructor(props) {
         super(props)
         this.state = {
-            actors: ["Bradd Pitt", "ktos"],
-            sportsmen: ["Lance Armstrong", "ktos"],
+            actors: ["Bradd Pitt", "Johny Deep"],
+            sportsmen: ["Lance Armstrong", "Leo Messi"],
         };
     }
 
@@ -20,10 +20,9 @@ class ListStore extends EventEmmiter {
         this.emit("change");
     }
 
-    editCharacter = () => {
-        console.log(this.setState);
+    editCharacter(name) {
         this.setState({
-            actors: ["sb else"],
+            actors: [name],
         });
 
         this.emit("change");
@@ -40,7 +39,7 @@ class ListStore extends EventEmmiter {
                 break;
             }
             case "EDIT_CHARACTER": {
-                this.editCharacter();
+                this.editCharacter(action.name);
                 break;
             }
             default: {

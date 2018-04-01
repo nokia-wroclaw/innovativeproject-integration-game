@@ -20,7 +20,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Form = styled.div`
-    height: 50px;
     width: 90%;
     margin: 50px auto 0 auto;
 `;

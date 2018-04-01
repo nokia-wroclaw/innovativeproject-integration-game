@@ -7,8 +7,9 @@ export function createCharacter(name) {
     });
 }
 
-export function editCharacter() {
+export function editCharacter(name) {
     dispatcher.dispatch({
         type: "EDIT_CHARACTER",
+        name,
     });
 }
