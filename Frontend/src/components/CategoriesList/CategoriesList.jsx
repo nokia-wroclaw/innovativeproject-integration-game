@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Header, Wrapper, Category } from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
+import * as ComponentActions from '../../actions/ComponentActions';
+import InputForm from '../../components/InputForm/InputForm';
 
 class Navbar extends Component {
     constructor(props) {
@@ -20,6 +22,10 @@ class Navbar extends Component {
         });
     }
 
+    editComponent = () => {
+        ComponentActions.editComponent(<InputForm />);
+    }
+
     createCharacter() {
         ListActions.createCharacter(Date.now());
     }
@@ -28,14 +34,11 @@ class Navbar extends Component {
         ListActions.editCharacter("katherine zeta johnes");
     }
 
-
-
-
     render() {
         return (
             <div>
                 <Header>List of categories</Header>
-                {/* <button onClick={this.editCharacter}>Edit!</button> */}
+                <button onClick={this.editComponent}>Edit component</button>
                 <Wrapper>
                     {
                         Object.keys(this.state.categoriesList).map((category) => {

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Container, Wrapper, List, Form } from './EditCategory_styles';
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import Header from '../../components/Header/Header';
-import InputForm from '../../components/InputForm/InputForm';
+
 import ComponentStore from '../../stores/componentStore';
-import * as ComponentActions from '../../actions/ComponentActions';
+
 
 class EditCategory extends Component {
     constructor(props) {
@@ -23,9 +23,7 @@ class EditCategory extends Component {
         });
     }
 
-    editComponent = () => {
-        ComponentActions.editComponent(<InputForm/>);
-    }
+    
 
     render() {
         return (
@@ -36,7 +34,7 @@ class EditCategory extends Component {
                 <Wrapper>
                     <Header label="Edit categories and characters" />
                     <Form>
-                    <button onClick={this.editComponent}>Edit component</button>
+                    
                     {/* {Object.keys(this.state.content).map((component) => {
                             return <div>
                                        {this.state.content[component]}

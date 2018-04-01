@@ -31,7 +31,6 @@ class ComponentStore extends EventEmmiter {
         switch(action.type) {
             case "EDIT_COMPONENT": {
                 this.editComponent(action.name);
-                console.log("edit");
                 break;
             }
             default: {
