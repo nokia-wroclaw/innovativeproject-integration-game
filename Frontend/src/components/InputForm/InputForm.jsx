@@ -11,7 +11,7 @@ class InputForm extends Component {
     render() {  
         return (
             <div>
-                <input value={this.state.character} placeholder="change the name" />
+                <input value={this.state.character} />
             </div>
         );
     }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Container, Wrapper, List, Form } from './EditCategory_styles';
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import Header from '../../components/Header/Header';
-
 import ComponentStore from '../../stores/componentStore';
 
 
@@ -34,12 +33,6 @@ class EditCategory extends Component {
                 <Wrapper>
                     <Header label="Edit categories and characters" />
                     <Form>
-                    
-                    {/* {Object.keys(this.state.content).map((component) => {
-                            return <div>
-                                       {this.state.content[component]}
-                                    </div>
-                        })} */}
                         {console.log(this.state.component.component)}
                         {this.state.component.component}
                     </Form>
