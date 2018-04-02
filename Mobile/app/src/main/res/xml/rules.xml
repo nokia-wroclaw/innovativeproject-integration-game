@@ -7,16 +7,14 @@
         android:summary="@string/rules_custom_summary"
         android:title="@string/rules_custom_switch_title" />
     <PreferenceCategory
-        android:title="@string/rules_storage_title"
-        android:key="rules_storage">
-        <PreferenceScreen
+        android:key="rules_storage"
+        android:title="@string/rules_storage_title">
+
+        <MultiSelectListPreference
+            android:dependency="custom_rules"
             android:key="categories"
             android:summary="@string/rules_categories_summary"
-            android:dependency="custom_rules"
-            android:title="@string/rules_categories_title"
-            android:persistent="false">
-
-        </PreferenceScreen>
+            android:title="@string/rules_categories_title" />
 
         <ListPreference
             android:defaultValue="30"
@@ -24,19 +22,18 @@
             android:entries="@array/rules_time_for_guessing_list_titles"
             android:entryValues="@array/rules_time_for_guessing_list_values"
             android:key="time_for_guessing"
-            android:summary="@string/rules_time_for_guessing_summary"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
+            android:summary="@string/rules_time_for_guessing_summary"
             android:title="@string/rules_time_for_guessing_title" />
 
-        <PreferenceScreen
+        <MultiSelectListPreference
+            android:dependency="custom_rules"
+            android:entries="@array/rules_rounds_list_titles"
+            android:entryValues="@array/rules_rounds_list_values"
             android:key="rounds"
             android:summary="@string/rules_rounds_summary"
-            android:dependency="custom_rules"
-            android:title="@string/rules_rounds_title"
-            android:persistent="false">
-
-        </PreferenceScreen>
+            android:title="@string/rules_rounds_title" />
 
         <ListPreference
             android:defaultValue="2"
@@ -44,9 +41,9 @@
             android:entries="@array/rules_number_of_skipped_cards_list_titles"
             android:entryValues="@array/rules_number_of_skipped_cards_list_values"
             android:key="number_of_skipped_cards"
-            android:summary="@string/rules_number_of_skipped_cards_summary"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
+            android:summary="@string/rules_number_of_skipped_cards_summary"
             android:title="@string/rules_number_of_skipped_cards_title" />
 
         <ListPreference
@@ -55,9 +52,9 @@
             android:entries="@array/rules_total_number_of_cards_list_titles"
             android:entryValues="@array/rules_total_number_of_cards_list_values"
             android:key="total_number_of_cards"
-            android:summary="@string/rules_total_number_of_cards_summary"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
+            android:summary="@string/rules_total_number_of_cards_summary"
             android:title="@string/rules_total_number_of_cards_title" />
 
     </PreferenceCategory>

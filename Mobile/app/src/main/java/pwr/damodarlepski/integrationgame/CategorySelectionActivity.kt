@@ -1,9 +1,9 @@
 package pwr.damodarlepski.integrationgame
 
-import android.support.v7.app.AppCompatActivity
+// Not needed anymore
+
 import android.os.Bundle
-import android.view.View
-import android.widget.ListView
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_category_selection.*
 
 class CategorySelectionActivity : AppCompatActivity() {

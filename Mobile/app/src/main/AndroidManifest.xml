@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".CategorySelectionActivity" />
-        <activity android:name=".RulesActivity"></activity>
+        <activity
+            android:name=".RulesActivity"
+            android:label="@string/rules" />
     </application>
 
 </manifest>

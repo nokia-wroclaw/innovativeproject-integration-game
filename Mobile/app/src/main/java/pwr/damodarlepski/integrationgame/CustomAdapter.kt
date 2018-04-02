@@ -1,17 +1,18 @@
 package pwr.damodarlepski.integrationgame
 
+// Not needed anymore
+
 import android.content.Context
-import android.widget.BaseAdapter
-import android.widget.Toast
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
+import android.widget.Toast
 import kotlinx.android.synthetic.main.list_items.view.*
-
 
 class CustomAdapter(private val context: Context, private val categories: List<String>) :BaseAdapter() {
 
-    private val inflter = (LayoutInflater.from(context))
+    private val inflater = (LayoutInflater.from(context))
 
     override fun getCount(): Int {
         return categories.count()
@@ -28,7 +29,7 @@ class CustomAdapter(private val context: Context, private val categories: List<S
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
 
         var value: String
-        val inflatedView: View = inflter.inflate(R.layout.list_items, null)
+        val inflatedView: View = inflater.inflate(R.layout.list_items, null)
         val simpleCheckedTextView = inflatedView.simpleCheckedTextView
         simpleCheckedTextView.text = categories[position] //??
         // perform on Click Event Listener on CheckedTextView
