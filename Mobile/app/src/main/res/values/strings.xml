@@ -10,64 +10,17 @@
     <string name="rules_categories_summary">Select categories from which characters will be chosen</string>
 
     <string name="rules_time_for_guessing_title">Time</string>
-    <string-array name="rules_time_for_guessing_list_titles">
-        <item>60 sec</item>
-        <item>45 sec</item>
-        <item>30 sec</item>
-        <item>15 sec</item>
-    </string-array>
-    <string-array name="rules_time_for_guessing_list_values">
-        <item>60</item>
-        <item>45</item>
-        <item>30</item>
-        <item>15</item>
-    </string-array>
     <string name="rules_time_for_guessing_summary">Select time for guessing</string>
 
     <string name="rules_rounds_title">Rounds</string>
-    <string-array name="rules_rounds_list_titles">
-        <item>4</item>
-        <item>3</item>
-        <item>2</item>
-        <item>1</item>
-    </string-array>
-    <string-array name="rules_rounds_list_values">
-        <item>4</item>
-        <item>3</item>
-        <item>2</item>
-        <item>1</item>
-    </string-array>
     <string name="rules_rounds_summary">Select desired stages of a game</string>
 
     <string name="rules_number_of_skipped_cards_title">Skipped cards</string>
-    <string-array name="rules_number_of_skipped_cards_list_titles">
-        <item>4</item>
-        <item>3</item>
-        <item>2</item>
-        <item>1</item>
-    </string-array>
-    <string-array name="rules_number_of_skipped_cards_list_values">
-        <item>4</item>
-        <item>3</item>
-        <item>2</item>
-        <item>1</item>
-    </string-array>
     <string name="rules_number_of_skipped_cards_summary">Select number of skipped cards per player</string>
 
     <string name="rules_total_number_of_cards_title">Total cards</string>
-    <string-array name="rules_total_number_of_cards_list_titles">
-        <item>60</item>
-        <item>50</item>
-        <item>40</item>
-        <item>30</item>
-    </string-array>
-    <string-array name="rules_total_number_of_cards_list_values">
-        <item>60</item>
-        <item>50</item>
-        <item>40</item>
-        <item>30</item>
-    </string-array>
     <string name="rules_total_number_of_cards_summary">Select number of card left after skipping</string>
+
     <string name="rules">Rules</string>
 
 </resources>
