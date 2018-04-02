@@ -19,7 +19,7 @@ class ComponentStore extends EventEmmiter {
         this.setState({
             component: name,
         });
-
+        
         this.emit("change");
     }
 

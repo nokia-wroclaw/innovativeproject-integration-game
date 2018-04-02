@@ -40,8 +40,8 @@ class EditCategory extends Component {
                                        {this.state.content[component]}
                                     </div>
                         })} */}
+                        {console.log(this.state.component.component)}
                         {this.state.component.component}
-                        {console.log(this.state)}
                     </Form>
                 </Wrapper>
             </Container>

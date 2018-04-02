@@ -4,8 +4,9 @@ import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
 import * as ComponentActions from '../../actions/ComponentActions';
 import InputForm from '../../components/InputForm/InputForm';
+import Character from '../../components/Character/Character';
 
-class Navbar extends Component {
+class categoriesList extends Component {
     constructor(props) {
         super(props);
 
@@ -23,7 +24,7 @@ class Navbar extends Component {
     }
 
     editComponent = () => {
-        ComponentActions.editComponent(<InputForm />);
+        ComponentActions.editComponent(<InputForm/>);
     }
 
     createCharacter() {
@@ -45,7 +46,7 @@ class Navbar extends Component {
                             return <div>
                                         <Category>{category}</Category>
                                         {this.state.categoriesList[category].map((character) => {
-                                            return <p>{character}</p>
+                                            return <Character character={character} />;
                                         })}
                                         <br/>
                                     </div>
@@ -57,4 +58,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+export default categoriesList;
