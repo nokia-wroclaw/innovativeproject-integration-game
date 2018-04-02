@@ -14,6 +14,7 @@ ReactDOM.render(
         <div>
             <Navbar />
             <Switch>
+                <Route path="/categories/edit/:category/:id" component={EditCategory} />
                 <Route path="/categories/edit" component={EditCategory} />
                 <Route path="/categories/add" component={AddCategory} />
                 <Route path="/categories/display" component={Categories} />
