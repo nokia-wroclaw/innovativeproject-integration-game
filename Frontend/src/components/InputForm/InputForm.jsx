@@ -12,6 +12,7 @@ class InputForm extends Component {
         return (
             <div>
                 <input value={this.state.character} />
+                <button>Save</button>
             </div>
         );
     }

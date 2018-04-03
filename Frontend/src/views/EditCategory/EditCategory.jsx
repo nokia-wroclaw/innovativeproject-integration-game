@@ -22,7 +22,14 @@ class EditCategory extends Component {
         });
     }
 
-    
+    // log(component) {
+    //     document.getElementById('form').innerHTML = component;
+    //   }
+
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log(nextState);
+    //     this.log(nextState.component.component);
+    //   }
 
     render() {
         return (
@@ -32,8 +39,7 @@ class EditCategory extends Component {
                 </List>
                 <Wrapper>
                     <Header label="Edit categories and characters" />
-                    <Form>
-                        {console.log(this.state.component.component)}
+                    <Form id="form">
                         {this.state.component.component}
                     </Form>
                 </Wrapper>
