@@ -9,22 +9,22 @@ class EditCategory extends Component {
     return (
       data.map((rowdata, index) => {
         if(rowdata.category === this.props.match.params.category)
-	 return (
-	   rowdata.people.map((subRowData, k) => {
-             if(parseInt(subRowData.id) === parseInt(this.props.match.params.id))
+	  return (
+	    rowdata.people.map((subRowData, k) => {
+            if(parseInt(subRowData.id) === parseInt(this.props.match.params.id))
                return (
-	       <div>
-	        <p>{'Personal data (' + rowdata.category + ')'}</p>
-		<br />
-		<p>{'Name:' + subRowData.name}</p>
-		<p>{'Surname:' + subRowData.surname}</p>
-		<p>{'Nickname:' + subRowData.nickname}</p>
-		<p>{'Description:' + subRowData.description}</p>
-	       </div>
-	       )
-	   })
-	 )
-       })
+	            <div>
+	              <p>{'Personal data (' + rowdata.category + ')'}</p>
+		          <br />
+		          <p>{'Name: ' + subRowData.name}</p>
+		          <p>{'Surname: ' + subRowData.surname}</p>
+		          <p>{'Nickname: ' + ((subRowData.nickname == null) ? ("\n" + ' ---') : (subRowData.nickname + "\n"))}</p>
+		          <p>{'Description: ' + ((subRowData.description == null) ? ("\n" + ' ---') : (subRowData.description + "\n"))}</p>
+	            </div>
+	           )
+	    })
+	  )
+      })
     )
   }
        
@@ -37,13 +37,14 @@ class EditCategory extends Component {
                 <Wrapper>
                     <Header label="Edit categories and characters" />
 		    
-		    {this.props.match.params.category && this.props.match.params.id ? (
+		            {this.props.match.params.category && this.props.match.params.id ? (
 
-                   <div>
-                    {this.renderData()}
-                   </div>
-      ) : (<div></div>
-            )}
+                    <div>
+                     {this.renderData()}
+                    </div>
+                    ) : (<div></div>
+                    )}
+
                     <Form />
                 </Wrapper>
             </Container>

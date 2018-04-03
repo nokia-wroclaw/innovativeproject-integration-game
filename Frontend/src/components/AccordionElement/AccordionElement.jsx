@@ -17,10 +17,6 @@ export default class AccordionElement extends Component {
     render() {
         const { activeIndex } = this.state
 
- const rootPanels = [
-            {title: Accordion.Title, content:Accordion.Content}
-            ]
-
 
         return (
             <div>
@@ -33,12 +29,10 @@ export default class AccordionElement extends Component {
                 </Accordion.Title>
 
                 <Accordion.Content
-                 active={activeIndex === this.props.activeIndex}
-                 index={this.props.index}
-                 onClick={this.handleClick}>
-                 {this.props.names.map((name) => {
-                 return <p>{name}</p>;
-                 })}
+                    active={activeIndex === this.props.activeIndex}>
+                    {this.props.names.map((name) => {
+                    return <p>{name}</p>;
+                    })}
                 </Accordion.Content>
             </div>
        );
