@@ -12,7 +12,7 @@ class Character extends Component {
     }
 
     editComponent = () => {
-        ComponentActions.editComponent(<InputForm character={this.state.character} />);
+        ComponentActions.editComponent(this.state.character);
     }
 
 

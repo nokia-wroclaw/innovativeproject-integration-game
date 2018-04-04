@@ -22,14 +22,14 @@ class EditCategory extends Component {
         });
     }
 
-    // log(component) {
-    //     document.getElementById('form').innerHTML = component;
-    //   }
+    log(component) {
+        document.getElementById('input').value = component;
+      }
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     console.log(nextState);
-    //     this.log(nextState.component.component);
-    //   }
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log(nextState);
+        this.log(nextState.component.component);
+      }
 
     render() {
         return (
@@ -40,6 +40,7 @@ class EditCategory extends Component {
                 <Wrapper>
                     <Header label="Edit categories and characters" />
                     <Form id="form">
+                        <input id="input" />
                         {this.state.component.component}
                     </Form>
                 </Wrapper>
