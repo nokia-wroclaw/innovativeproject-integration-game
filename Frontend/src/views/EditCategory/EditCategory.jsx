@@ -10,25 +10,25 @@ class EditCategory extends Component {
         super(props);
 
         this.state = {
-            component: ComponentStore.getAll(),
+            value: ComponentStore.getAll(),
         }
     }
 
     componentWillMount() {
         ComponentStore.on("change", () => {
             this.setState({
-                component: ComponentStore.getAll(),
+                value: ComponentStore.getAll(),
             });
         });
     }
 
-    log(component) {
-        document.getElementById('input').value = component;
+    log(value) {
+        document.getElementById('input').value = value;
       }
 
     shouldComponentUpdate(nextProps, nextState) {
         console.log(nextState);
-        this.log(nextState.component.component);
+        this.log(nextState.value.value);
       }
 
     render() {
@@ -40,8 +40,9 @@ class EditCategory extends Component {
                 <Wrapper>
                     <Header label="Edit categories and characters" />
                     <Form id="form">
+                        <label>{Object.keys(this.state.value)[0]}</label>
                         <input id="input" />
-                        {this.state.component.component}
+                        <button>Save</button>
                     </Form>
                 </Wrapper>
             </Container>

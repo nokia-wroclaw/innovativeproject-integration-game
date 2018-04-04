@@ -1,8 +1,8 @@
 import dispatcher from '../dispatcher';
 
-export function editComponent(name) {
+export function editComponent(value) {
     dispatcher.dispatch({
         type: "EDIT_COMPONENT",
-        name,
+        value,
     });
 }

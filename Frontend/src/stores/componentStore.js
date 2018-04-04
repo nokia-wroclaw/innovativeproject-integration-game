@@ -1,13 +1,12 @@
 import dispatcher from '../dispatcher';
 import React from 'react';
 import EventEmmiter from 'events';
-import InputForm from '../components/InputForm/InputForm';
 
 class ComponentStore extends EventEmmiter {
     constructor(props) {
         super(props)
         this.state = {
-            component: " ",
+            value: " ",
         };
     }
 
@@ -15,9 +14,9 @@ class ComponentStore extends EventEmmiter {
         this.state = {...this.state, ...state}
     }
 
-    editComponent(name) {
+    editComponent(value) {
         this.setState({
-            component: name,
+            value: value,
         });
         
         this.emit("change");
@@ -30,7 +29,7 @@ class ComponentStore extends EventEmmiter {
     handleActions(action) {
         switch(action.type) {
             case "EDIT_COMPONENT": {
-                this.editComponent(action.name);
+                this.editComponent(action.value);
                 break;
             }
             default: {

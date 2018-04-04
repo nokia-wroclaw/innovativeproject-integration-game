@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import InputForm from '../../components/InputForm/InputForm';
 import * as ComponentActions from '../../actions/ComponentActions';
 
 class Character extends Component {
