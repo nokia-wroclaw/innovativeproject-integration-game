@@ -43,22 +43,21 @@ class EditCategory extends Component {
         }
     }
 
+    log(value) {
+        document.getElementById('name').value = value.name;
+        document.getElementById('surname').value = value.surname;
+        document.getElementById('nickname').value = value.nickname;
+        document.getElementById('description').value = value.description;
+      }
+
     componentWillMount() {
         ComponentStore.on("change", () => {
             this.setState({
                 char: ComponentStore.getAll(),
             });
+            this.log(ComponentStore.getAll());
         });
     }
-
-    log(value) {
-        document.getElementById('name').value =value.name;
-      }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        this.log(nextState.char);
-        console.log("state" + nextState.char.name);
-      }
 
     render() {
         return (
