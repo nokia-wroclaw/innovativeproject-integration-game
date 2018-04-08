@@ -1,13 +1,15 @@
 import dispatcher from '../dispatcher';
 import React from 'react';
 import EventEmmiter from 'events';
+import data from "../components/CategoriesList/data";
 
 class ComponentStore extends EventEmmiter {
     constructor(props) {
         super(props)
+        //this.state = data;
         this.state = {
-            value: " ",
-        };
+            data: " state",
+        }
     }
 
     setState = (state) => {
@@ -15,9 +17,9 @@ class ComponentStore extends EventEmmiter {
     }
 
 
-    editComponent(value) {
+    editComponent(data) {
         this.setState({
-            value: value,
+            data: data,
         });
 
         this.emit("change");
@@ -32,13 +34,13 @@ class ComponentStore extends EventEmmiter {
     }
 
     getAll() {
-        return this.state;
+        return this.state.data;
     }
 
     handleActions(action) {
         switch(action.type) {
             case "EDIT_COMPONENT": {
-                this.editComponent(action.value);
+                this.editComponent(action.data);
                 break;
             }
             case "ADD_COMPONENT": {

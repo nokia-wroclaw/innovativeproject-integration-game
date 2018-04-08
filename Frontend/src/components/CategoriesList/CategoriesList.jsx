@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Accordion } from 'semantic-ui-react'
 import AccordionElement from '../../components/AccordionElement/AccordionElement';
-import data from './data.json';
 import { Header, Wrapper, Category } from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
@@ -14,8 +13,7 @@ class categoriesList extends Component {
         super(props);
 
         this.state = {
-            data: data,
-            categoriesList: ListStore.getAll(),
+            data: ListStore.getAll(),
         }
     }
     
@@ -24,8 +22,11 @@ class categoriesList extends Component {
             this.state.data.map((rowdata, index) =>
                 <div>{
                     <AccordionElement activeIndex={index} index={index} name={rowdata.category}
-                        names={rowdata.people.map((subRowData, k) => {
-	                    return <a href={'/categories/edit/' + rowdata.category + '/' + subRowData.id}>{subRowData.name + " " + subRowData.surname}</a>
+                        characters={rowdata.people.map((subRowData, k) => {
+	                    return <div>
+                            <Character cos={subRowData} />
+                            {/* <a href={'/categories/edit/' + rowdata.category + '/' + subRowData.id}>{subRowData.name + " " + subRowData.surname}</a> */}
+                        </div>
                     })}
                 />
             }</div>)
@@ -60,8 +61,8 @@ class categoriesList extends Component {
                     <Accordion>
                     {this.renderCategories()}
                     </Accordion>
-                    {
-                        Object.keys(this.state.categoriesList).map((category) => {
+                    {/* {
+                        Object.keys(this.state.data).map((category) => {
                             return <div>
                                         <Category>{category}</Category>
                                         {this.state.categoriesList[category].map((character) => {
@@ -70,7 +71,7 @@ class categoriesList extends Component {
                                         <br/>
                                     </div>
                         })
-                    }
+                    } */}
                 </Wrapper>
             </div>
         );
