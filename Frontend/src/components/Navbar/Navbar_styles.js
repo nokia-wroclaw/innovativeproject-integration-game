@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    width: 23.5%;
-    margin-right: 213px;
+    padding: 15px 40px 0 0;
     position: absolute;
-    left: 70%;
-    top: 2%;
+    left: 73%;
 `;
 
