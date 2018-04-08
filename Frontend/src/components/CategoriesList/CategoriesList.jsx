@@ -6,8 +6,6 @@ import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
 import Character from '../../components/Character/Character';
 
-
-
 class categoriesList extends Component {
     constructor(props) {
         super(props);
@@ -25,7 +23,7 @@ class categoriesList extends Component {
                         characters={rowdata.people.map((subRowData, k) => {
 	                    return <div>
                             <Character character={subRowData} category={rowdata.category}/>
-                            {/* <a href={'/categories/edit/' + rowdata.category + '/' + subRowData.id}>{subRowData.name + " " + subRowData.surname}</a> */}
+                            <a href={'/categories/edit/' + rowdata.category + '/' + subRowData.id}><button>opis</button></a>
                         </div>
                     })}
                 />
