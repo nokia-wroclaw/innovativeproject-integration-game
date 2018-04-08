@@ -30,8 +30,8 @@ export default class AccordionElement extends Component {
 
                 <Accordion.Content
                     active={activeIndex === this.props.activeIndex}>
-                    {this.props.names.map((name) => {
-                    return <p>{name}</p>;
+                    {this.props.characters.map((character) => {
+                    return <p>{character}</p>;
                     })}
                 </Accordion.Content>
             </div>

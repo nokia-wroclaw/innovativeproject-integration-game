@@ -1,13 +1,11 @@
 import dispatcher from '../dispatcher';
 import EventEmmiter from 'events';
+import data from '../components/CategoriesList/data';
 
 class ListStore extends EventEmmiter {
     constructor(props) {
         super(props)
-        this.state = {
-            actors: ["Bradd Pitt", "Johny Deep"],
-            sportsmen: ["Lance Armstrong", "Leo Messi"],
-        };
+        this.state = data;
     }
 
     setState = (state) => {
