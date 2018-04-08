@@ -43,7 +43,8 @@ class EditCategory extends Component {
         }
     }
 
-    log(value) {
+    log(value, category) {
+        document.getElementById('category').value = category;
         document.getElementById('name').value = value.name;
         document.getElementById('surname').value = value.surname;
         document.getElementById('nickname').value = value.nickname;
@@ -55,7 +56,7 @@ class EditCategory extends Component {
             this.setState({
                 char: ComponentStore.getAll(),
             });
-            this.log(ComponentStore.getAll());
+            this.log(ComponentStore.getAll().data, ComponentStore.getAll().category);
         });
     }
 

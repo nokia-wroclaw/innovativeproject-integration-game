@@ -7,12 +7,13 @@ class Character extends Component {
 
         this.state = {
             // character: this.props.character,
-            character: this.props.cos,
+            character: this.props.character,
+            category: this.props.category,
         }
     }
 
     editComponent = () => {
-        ComponentActions.editComponent(this.state.character);
+        ComponentActions.editComponent(this.state.character, this.state.category);
     }
 
     addComponent = () => {

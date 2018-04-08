@@ -9,6 +9,7 @@ class ComponentStore extends EventEmmiter {
         //this.state = data;
         this.state = {
             data: " state",
+            category: "category",
         }
     }
 
@@ -17,9 +18,10 @@ class ComponentStore extends EventEmmiter {
     }
 
 
-    editComponent(data) {
+    editComponent(data, category) {
         this.setState({
             data: data,
+            category: category,
         });
 
         this.emit("change");
@@ -34,13 +36,13 @@ class ComponentStore extends EventEmmiter {
     }
 
     getAll() {
-        return this.state.data;
+        return this.state;
     }
 
     handleActions(action) {
         switch(action.type) {
             case "EDIT_COMPONENT": {
-                this.editComponent(action.data);
+                this.editComponent(action.data, action.category);
                 break;
             }
             case "ADD_COMPONENT": {

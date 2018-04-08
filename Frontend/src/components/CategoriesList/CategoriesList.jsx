@@ -24,7 +24,7 @@ class categoriesList extends Component {
                     <AccordionElement activeIndex={index} index={index} name={rowdata.category}
                         characters={rowdata.people.map((subRowData, k) => {
 	                    return <div>
-                            <Character cos={subRowData} />
+                            <Character character={subRowData} category={rowdata.category}/>
                             {/* <a href={'/categories/edit/' + rowdata.category + '/' + subRowData.id}>{subRowData.name + " " + subRowData.surname}</a> */}
                         </div>
                     })}
