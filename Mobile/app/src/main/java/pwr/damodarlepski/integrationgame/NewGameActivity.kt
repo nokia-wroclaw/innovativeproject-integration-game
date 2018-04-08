@@ -14,21 +14,21 @@ class NewGameActivity : AppCompatActivity() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
         val categories = prefs.getStringSet("categories", null)
+        categories.iterator()
         val buildCategories = StringBuilder()
         for (element in categories) {
-            buildCategories.append(element)
-            buildCategories.append(", ")
+            buildCategories.append(element + " ")
         }
         textView_categories_value.text = buildCategories
 
         val time = prefs.getString("time_for_guessing", null)
-        textView_time_value.text = time
+        val buildTime = StringBuilder(time + " sec")
+        textView_time_value.text = buildTime
 
         val rounds = prefs.getStringSet("rounds", null)
         val buildRounds = StringBuilder()
         for (element in rounds) {
-            buildRounds.append(element)
-            buildRounds.append(", ")
+            buildRounds.append(element + " ")
         }
         textView_rounds_value.text = buildRounds
     }
