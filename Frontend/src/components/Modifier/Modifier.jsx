@@ -5,6 +5,8 @@ class Modifier extends Component {
     render() {
         return (
             <Paragraph onClick={this.props.onClick}>{this.props.label}</Paragraph>
+
+
         );
     }
 }

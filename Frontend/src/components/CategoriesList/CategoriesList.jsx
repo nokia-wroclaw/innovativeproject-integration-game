@@ -1,15 +1,35 @@
 import React, { Component } from 'react';
-import { Header, Wrapper } from './CategoriesList_styles';
+import { Accordion } from 'semantic-ui-react'
+import AccordionElement from '../../components/AccordionElement/AccordionElement';
+import data from './data.json';
+import { Header, Wrapper, Category } from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
+import Character from '../../components/Character/Character';
 
-class Navbar extends Component {
+
+
+class categoriesList extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            data: data,
             categoriesList: ListStore.getAll(),
         }
+    }
+    
+    renderCategories() {
+        return (
+            this.state.data.map((rowdata, index) =>
+                <div>{
+                    <AccordionElement activeIndex={index} index={index} name={rowdata.category}
+                        names={rowdata.people.map((subRowData, k) => {
+	                    return <a href={'/categories/edit/' + rowdata.category + '/' + subRowData.id}>{subRowData.name + " " + subRowData.surname}</a>
+                    })}
+                />
+            }</div>)
+        )
     }
 
     componentWillMount() {
@@ -24,17 +44,28 @@ class Navbar extends Component {
         ListActions.createCharacter(Date.now());
     }
 
+    editCharacter = () => {
+        ListActions.editCharacter("katherine zeta johnes");
+    }
+
+    addCharacter = () => {
+            ListActions.addCharacter("katherine zeta johnes");
+        }
+
     render() {
         return (
             <div>
                 <Header>List of categories</Header>
                 <Wrapper>
+                    <Accordion>
+                    {this.renderCategories()}
+                    </Accordion>
                     {
                         Object.keys(this.state.categoriesList).map((category) => {
                             return <div>
-                                        <h1>{category}</h1>
+                                        <Category>{category}</Category>
                                         {this.state.categoriesList[category].map((character) => {
-                                            return <p>{character}</p>
+                                            return <Character character={character} />;
                                         })}
                                         <br/>
                                     </div>
@@ -46,4 +77,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+export default categoriesList;

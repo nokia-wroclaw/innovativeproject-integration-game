@@ -12,22 +12,26 @@ export default class AccordionElement extends Component {
     this.setState({ activeIndex: newIndex })
     }
 
+
+
     render() {
         const { activeIndex } = this.state
 
+
         return (
             <div>
-                <Accordion.Title 
-                    active={activeIndex === this.props.activeIndex} 
-                    index={this.props.index} 
+                <Accordion.Title
+                    active={activeIndex === this.props.activeIndex}
+                    index={this.props.index}
                     onClick={this.handleClick}>
                     <Icon name='dropdown' />
                     {this.props.name}
                 </Accordion.Title>
-                <Accordion.Content 
+
+                <Accordion.Content
                     active={activeIndex === this.props.activeIndex}>
                     {this.props.names.map((name) => {
-                        return <p>{name}</p>;
+                    return <p>{name}</p>;
                     })}
                 </Accordion.Content>
             </div>
