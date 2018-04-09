@@ -23,9 +23,12 @@ export default class AccordionElement extends Component {
                 <Accordion.Title
                     active={activeIndex === this.props.activeIndex}
                     index={this.props.index}
+
                     onClick={this.handleClick}>
                     <Icon name='dropdown' />
                     {this.props.name}
+
+
                 </Accordion.Title>
 
                 <Accordion.Content

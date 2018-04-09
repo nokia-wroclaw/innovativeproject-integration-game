@@ -14,3 +14,10 @@ export function addComponent(value) {
         value,
     });
 }
+
+export function deleteComponent(value) {
+    dispatcher.dispatch({
+        type: "DELETE_COMPONENT",
+        value,
+    });
+}
