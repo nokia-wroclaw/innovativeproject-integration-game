@@ -1,5 +1,6 @@
 package pwr.damodarlepski.integrationgame
 
+import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
@@ -14,21 +15,21 @@ class NewGameActivity : AppCompatActivity() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
         val categories = prefs.getStringSet("categories", null)
-        categories.iterator()
         val buildCategories = StringBuilder()
         for (element in categories) {
-            buildCategories.append(element + " ")
+            buildCategories.append(element)
+            buildCategories.append(", ")
         }
         textView_categories_value.text = buildCategories
 
         val time = prefs.getString("time_for_guessing", null)
-        val buildTime = StringBuilder(time + " sec")
-        textView_time_value.text = buildTime
+        textView_time_value.text = time
 
         val rounds = prefs.getStringSet("rounds", null)
         val buildRounds = StringBuilder()
         for (element in rounds) {
-            buildRounds.append(element + " ")
+            buildRounds.append(element)
+            buildRounds.append(", ")
         }
         textView_rounds_value.text = buildRounds
     }
@@ -54,11 +55,13 @@ class NewGameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_game)
 
         loadRules()
+        button_start_game.setOnClickListener {
+            startActivity(Intent(this@NewGameActivity, RoundActivity::class.java))
+        }
     }
 
     override fun onResume() {
         super.onResume()
-
         loadRules()
     }
 }

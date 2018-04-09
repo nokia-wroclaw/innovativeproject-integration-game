@@ -22,6 +22,18 @@
         <activity
             android:name=".NewGameActivity"
             android:label="New Game" />
+        <activity
+            android:name=".GameActivity"
+            android:label="Game" />
+        <activity
+            android:name=".TeamActivity"
+            android:label="Team" />
+        <activity
+            android:name=".RoundActivity"
+            android:label="Round" />
+        <activity
+            android:name=".GameSummaryActivity"
+            android:label="Summary" />
     </application>
 
 </manifest>
