@@ -33,6 +33,7 @@
             android:entryValues="@array/rules_rounds_list_values"
             android:key="rounds"
             android:summary="@string/rules_rounds_summary"
+            android:dialogTitle="Describe person with ... "
             android:title="@string/rules_rounds_title" />
 
         <ListPreference

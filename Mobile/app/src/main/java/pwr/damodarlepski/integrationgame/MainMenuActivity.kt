@@ -13,7 +13,6 @@ var teamTwoCounter = 0
 val ArrayCategoryData: MutableList<String> = mutableListOf("Sport", "Actor",  "Musiacian", "Dance", "Writers")
 val ArrayPeopleData: MutableList<String> = mutableListOf("Robert Lewandowski", "Cezary Pazura",  "Selena Gomez", "Katarzyna Cichopek", "Andrzej Sapkowski")
 
-
 var ArrayCategory = ArrayCategoryData.toMutableList()
 var ArrayPeople = ArrayPeopleData.toMutableList()
 

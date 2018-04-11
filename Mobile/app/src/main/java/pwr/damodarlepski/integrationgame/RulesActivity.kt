@@ -16,7 +16,7 @@ class RulesActivity : PreferenceActivity() {
 
     class RulesFragment : PreferenceFragment() {
 
-        private fun setListPreferenceData(lp: MultiSelectListPreference) {
+        private fun setListPreferenceDataCategories(lp: MultiSelectListPreference) {
             val entries = arrayOf<CharSequence>("Actors", "Musicians")
             val entryValues = arrayOf<CharSequence>("Actors", "Musicians")
             val values = mutableSetOf("Actors", "Musicians")
@@ -25,12 +25,21 @@ class RulesActivity : PreferenceActivity() {
             lp.values = values
         }
 
+        private fun setListPreferenceDataRounds(lp: MultiSelectListPreference) {
+
+            val values = mutableSetOf("sentences", "one word", "gestures", "pose")
+            lp.values = values
+        }
+
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             addPreferencesFromResource(R.xml.rules)
 
             val categories = findPreference("categories") as MultiSelectListPreference
-            setListPreferenceData(categories)
+            setListPreferenceDataCategories(categories)
+
+            val rounds = findPreference("rounds") as MultiSelectListPreference
+            setListPreferenceDataRounds(rounds)
         }
     }
 }

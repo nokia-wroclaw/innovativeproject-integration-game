@@ -10,86 +10,121 @@
         android:id="@+id/textView_rules"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="Rules overview"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_rules">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableLayout
             android:id="@+id/table_rules_overview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:stretchColumns="*">
+            android:addStatesFromChildren="false"
+            android:alwaysDrawnWithCache="false"
+            android:animateLayoutChanges="false"
+            android:animationCache="false"
+            android:padding="16dp">
 
             <TableRow
                 android:id="@+id/row_categories"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:padding="5dp" >
 
                 <TextView
                     android:id="@+id/textView_categories"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Categories" />
+                    android:text="Categories"
+                    android:paddingRight="10dp" />
 
                 <TextView
                     android:id="@+id/textView_categories_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="All" />
+                    android:text="All"
+                    android:paddingLeft="10dp" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/row_time"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:padding="5dp" >
 
                 <TextView
                     android:id="@+id/textView_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Time" />
+                    android:text="Time"
+                    android:paddingRight="10dp" />
 
                 <TextView
                     android:id="@+id/textView_time_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="30 sek" />
+                    android:text="30 sek"
+                    android:paddingLeft="10dp" />
             </TableRow>
 
             <TableRow
                 android:id="@+id/row_rounds"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:padding="5dp" >
 
                 <TextView
                     android:id="@+id/textView_rounds"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rounds" />
+                    android:text="Rounds"
+                    android:paddingRight="10dp"/>
 
                 <TextView
                     android:id="@+id/textView_rounds_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="All" />
+                    android:text="All"
+                    android:paddingLeft="10dp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row_players"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp" >
+
+                <TextView
+                    android:id="@+id/textView_players"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number of players"
+                    android:paddingRight="10dp"/>
+
+                <EditText
+                    android:id="@+id/editText_players"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="number"
+                    android:paddingLeft="10dp" />
             </TableRow>
 
         </TableLayout>
@@ -99,11 +134,11 @@
         android:id="@+id/button_start_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="Start game"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

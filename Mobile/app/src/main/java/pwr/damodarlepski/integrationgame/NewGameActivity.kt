@@ -6,10 +6,23 @@ import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.NumberPicker
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_new_game.*
 
 
-class NewGameActivity : AppCompatActivity() {
+class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener {
+
+    private fun showNumberPicker() {
+        val newFragment = NumberPickerDialog()
+        newFragment.setValueChangeListener(this)
+        newFragment.show(fragmentManager, "number picker")
+    }
+
+    override fun onValueChange(p0: NumberPicker, p1: Int, p2: Int) {
+        Toast.makeText(this, "Selected number of players: " + p0.value, Toast.LENGTH_SHORT).show()
+        editText_players.setText(p0.value.toString())
+    }
 
     private fun loadRules() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
@@ -17,7 +30,7 @@ class NewGameActivity : AppCompatActivity() {
         val categories = prefs.getStringSet("categories", null)
         val buildCategories = StringBuilder()
         for (element in categories) {
-            buildCategories.append("$element ")
+            buildCategories.append("$element\n")
         }
         textView_categories_value.text = buildCategories
 
@@ -26,11 +39,7 @@ class NewGameActivity : AppCompatActivity() {
         textView_time_value.text = buildTime
 
         val rounds = prefs.getStringSet("rounds", null)
-        val buildRounds = StringBuilder()
-        for (element in rounds) {
-            buildRounds.append("$element ")
-        }
-        textView_rounds_value.text = buildRounds
+        textView_rounds_value.text = rounds.size.toString()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -54,6 +63,11 @@ class NewGameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_game)
 
         loadRules()
+
+        editText_players.setOnClickListener {
+            showNumberPicker()
+        }
+
         button_start_game.setOnClickListener {
             startActivity(Intent(this@NewGameActivity, RoundActivity::class.java))
         }

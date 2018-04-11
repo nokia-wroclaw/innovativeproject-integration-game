@@ -74,11 +74,11 @@ class GameActivity : AppCompatActivity() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val rounds = prefs.getStringSet("rounds", null)
 
-        val number = rounds.toString()[1]
+        val number = rounds.size
         println(number.toString()+" rounds size")
-        println(indexOfRound.toString()+" rounds idex rounds size")
-        println(indexOfRound < number.toString().toInt())
-        if (indexOfRound < number.toString().toInt()) {
+        println(indexOfRound.toString()+" rounds index rounds size")
+        println(indexOfRound < number)
+        if (indexOfRound < number) {
             println("if")
             println(number.toString()+" rounds size")
             println(indexOfRound.toString()+" rounds idex rounds size")

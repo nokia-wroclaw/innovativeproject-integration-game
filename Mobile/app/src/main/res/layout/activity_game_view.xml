@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#5a7fdb">
-
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#5a7fdb"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="31dp">
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="70dp" />
+            android:layout_height="70dp"
+            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,10 +29,8 @@
                 android:layout_width="213dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="#3ccd1c"
                 android:text="category"
-                android:textAlignment="center"
-                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+                android:textAlignment="center" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -52,11 +46,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="#ccd5ba"
             android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:textAllCaps="true"
             android:text="people"
             android:textAlignment="center"
-            android:textAppearance="@android:style/TextAppearance.Material.Large"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -91,8 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="0"
-            android:textAlignment="center"
-            android:textAppearance="@android:style/TextAppearance.Material.Large" />
+            android:textAlignment="center"/>
 
         <ProgressBar
             android:id="@+id/time_progressBar"
@@ -104,5 +97,3 @@
             android:progress="1" />
 
     </LinearLayout>
-
-</android.support.constraint.ConstraintLayout>
