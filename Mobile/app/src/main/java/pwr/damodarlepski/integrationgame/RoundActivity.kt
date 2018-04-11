@@ -13,10 +13,10 @@ class RoundActivity : AppCompatActivity() {
         setContentView(R.layout.activity_round_view)
 
         button_round.text = ArrayRounds[indexOfRound]
+        indexOfRound++
         ArrayCategory = ArrayCategoryData.toMutableList()
         ArrayPeople = ArrayPeopleData.toMutableList()
 
-        println("in round")
         button_round.setOnClickListener {
             Thread.sleep(1000)
             startActivity(Intent(this@RoundActivity, TeamActivity::class.java))

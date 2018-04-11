@@ -12,9 +12,9 @@ class GameActivity : AppCompatActivity() {
 
     private var dummy: Int = 1
     private var index = 0
-
     private var counter = 0
     private fun timeOfRound() {
+
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val time = prefs.getString("time_for_guessing", null)
         counter = time.toInt()
@@ -44,10 +44,11 @@ class GameActivity : AppCompatActivity() {
         return index
     }
 
+
     private fun getNewPeople(): Int {
         val index: Int
-        if (ArrayCategory.size > 0) {
-            index = rand((ArrayCategory.size) - 1)
+        if (ArrayPeople.size > 0) {
+            index = rand((ArrayPeople.size) - 1)
             category_text.text = ArrayCategory[index]
             people_text.text = ArrayPeople[index]
         } else
@@ -70,12 +71,23 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun setNewRoundOrSummary() {
-        if (indexOfRound < ArrayRounds.size - 1) {
-            startActivity(Intent(this@GameActivity, RoundActivity::class.java))
-            indexOfRound++
-        } else
-            startActivity(Intent(this@GameActivity, GameSummaryActivity::class.java))
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        val rounds = prefs.getStringSet("rounds", null)
 
+        val number = rounds.toString()[1]
+        println(number.toString()+" rounds size")
+        println(indexOfRound.toString()+" rounds idex rounds size")
+        println(indexOfRound < number.toString().toInt())
+        if (indexOfRound < number.toString().toInt()) {
+            println("if")
+            println(number.toString()+" rounds size")
+            println(indexOfRound.toString()+" rounds idex rounds size")
+            startActivity(Intent(this@GameActivity, RoundActivity::class.java))
+
+        } else{
+            println("else")
+            startActivity(Intent(this@GameActivity, GameSummaryActivity::class.java))
+        }
     }
 
     private fun newPeopleOrNewRound() {
@@ -95,11 +107,13 @@ class GameActivity : AppCompatActivity() {
         timeOfRound()
 
         button_good.setOnClickListener {
+
             counterOfPoints()
             newPeopleOrNewRound()
         }
 
         button_jump.setOnClickListener {
+
             newPeopleOrNewRound()
         }
     }
