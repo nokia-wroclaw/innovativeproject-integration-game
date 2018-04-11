@@ -10,6 +10,8 @@ class ComponentStore extends EventEmmiter {
         this.state = {
             data: " state",
             category: "category",
+            inactive: [""],
+            active: [""],
         }
     }
 
@@ -18,20 +20,23 @@ class ComponentStore extends EventEmmiter {
     }
 
 
-    editComponent(data, category, inactive) {
+    editComponent(data, category, inactive, active) {
         this.setState({
             data: data,
             category: category,
             inactive: inactive,
+            active: active,
         });
 
         this.emit("change");
     }
 
-    editCategory(category, inactive) {
+    editCategory(data, category, inactive, active) {
         this.setState({
+            data: data,
             category: category,
             inactive: inactive,
+            active: active,
         });
 
         this.emit("change");
@@ -44,11 +49,11 @@ class ComponentStore extends EventEmmiter {
     handleActions(action) {
         switch(action.type) {
             case "EDIT_COMPONENT": {
-                this.editComponent(action.data, action.category, action.inactive);
+                this.editComponent(action.data, action.category, action.inactive, action.active);
                 break;
             }
             case "EDIT_CATEGORY": {
-                this.editCategory(action.category, action.inactive);
+                this.editCategory(action.data, action.category, action.inactive, action.active);
                 break;
             }
             default: {

@@ -6,13 +6,15 @@ class Category extends Component {
         super(props);
 
         this.state = {
+            data: null,
             category: this.props.category,
             inactive: ["name", "surname", "nickname", "description"],
+            active: ["category"],
         }
     }
 
     editCategory = () => {
-        ComponentActions.editCategory(this.state.category, this.state.inactive);
+        ComponentActions.editCategory(this.state.data, this.state.category, this.state.inactive, this.state.active);
     }
 
     render() {

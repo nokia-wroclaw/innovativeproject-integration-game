@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Wrapper, List, Form, Label } from './EditCategory_styles';
+import { Container, Wrapper, List, StyledForm, Label, Button, StyledTextArea } from './EditCategory_styles';
+import { Input, Form, TextArea } from 'semantic-ui-react';
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import Header from '../../components/Header/Header';
 import data from '../../components/CategoriesList/data.json';
@@ -43,13 +44,14 @@ class EditCategory extends Component {
         }
     }
 
-    log(value, category, inactive) {
+    log(value, category, inactive, active) {
         document.getElementById('category').value = category;
 
-        if(value.name === undefined) {
+        if(value === null) {
             inactive.map((id) => {
                 document.getElementById(id).value = "";
             })
+            console.log("null")
         }
         else {
             document.getElementById('name').value = value.name;
@@ -61,6 +63,10 @@ class EditCategory extends Component {
         inactive.map((id) => {
             document.getElementById(id).disabled = true;
         })
+
+        active.map((id) => {
+            document.getElementById(id).disabled = false;
+        })
       }
 
     componentWillMount() {
@@ -68,7 +74,9 @@ class EditCategory extends Component {
             this.setState({
                 char: ComponentStore.getAll(),
             });
-            this.log(ComponentStore.getAll().data, ComponentStore.getAll().category, ComponentStore.getAll().inactive);
+
+            const store = ComponentStore.getAll();
+            this.log(store.data, store.category, store.inactive, store.active);
         });
     }
 
@@ -80,29 +88,32 @@ class EditCategory extends Component {
                 </List>
                 <Wrapper>
                     <Header label="Edit categories and characters" />
-                    <Form id="form">
+                    <StyledForm id="form">
                         <div>
                             <Label>{Object.keys(this.state.value[0])[0]}</Label>
-                            <input id="category" />
+                            <Input id="category" placeholder="category" />
                         </div>
-                        <div>
-                            <label>{Object.keys(this.state.value[0].people[0])[1]}</label>
-                            <input id="name" />
-                        </div>
-                        <div>
-                            <label>{Object.keys(this.state.value[0].people[0])[2]}</label>
-                            <input id="surname" />
-                        </div>
-                        <div>
-                            <label>{Object.keys(this.state.value[0].people[0])[3]}</label>
-                            <input id="nickname" />
-                        </div>
-                        <div>
-                            <label>{Object.keys(this.state.value[0].people[0])[4]}</label>
-                            <input id="description" />
-                        </div>
-                        <button>Save</button>
-                    </Form>
+
+                        {
+                            Object.keys(this.state.value[0].people[0]).map((key) => {
+                                if(key !== "id" && key !== "description") {
+                                    return  <div>
+                                                <Label>{key}</Label>
+                                                <Input id={key} placeholder={key} />
+                                            </div>
+                                }
+
+                                if(key === "description") {
+                                    return  <StyledTextArea>
+                                                <Label>{key}</Label>
+                                                <TextArea id={key} placeholder="description" />
+                                            </StyledTextArea>
+                                }
+                            })
+                            
+                        }
+                        <Button>Save</Button>
+                    </StyledForm>
 		    
 		            {this.props.match.params.category && this.props.match.params.id ? (
 
@@ -112,7 +123,7 @@ class EditCategory extends Component {
                     ) : (<div></div>
                     )}
 
-                    <Form />
+                    <StyledForm />
                 </Wrapper>
             </Container>
         );
