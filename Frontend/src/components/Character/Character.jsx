@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as ComponentActions from '../../actions/ComponentActions';
+import { Icon } from 'semantic-ui-react'
 
 class Character extends Component {
     constructor(props) {
@@ -17,12 +18,26 @@ class Character extends Component {
         ComponentActions.editComponent(this.state.character, this.state.category, this.state.inactive, this.state.active);
     }
 
+    addComponent = () => {
+        ComponentActions.addComponent(this.state.category);
+    }
+
+    deleteComponent = () => {
+        ComponentActions.deleteComponent(this.state.category);
+    }
+
+    
+
     render() {
         return (
             <div>
-                <p>{this.state.character.name}</p>
-                <p>{this.state.character.surname}</p>
-                <button onClick={this.editComponent}>Edit</button>
+                <p>
+
+                { this.state.character.name} {this.state.character.surname}
+                  <Icon onClick={this.editComponent} class='ui icon edit icon button'><i class='edit icon'></i></Icon>
+                  <Icon onClick={this.deleteComponent} class='ui icon delete icon button'><i class='delete icon'></i></Icon>
+
+                </p>
             </div>
         );
     }
