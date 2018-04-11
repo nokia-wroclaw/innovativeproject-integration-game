@@ -43,12 +43,15 @@ class EditCategory extends Component {
         }
     }
 
-    log(value, category) {
+    log(value, category, inactive) {
         document.getElementById('category').value = category;
         document.getElementById('name').value = value.name;
         document.getElementById('surname').value = value.surname;
         document.getElementById('nickname').value = value.nickname;
         document.getElementById('description').value = value.description;
+        inactive.map((id) => {
+            document.getElementById(id).disabled = true;
+        })
       }
 
     componentWillMount() {
@@ -56,7 +59,7 @@ class EditCategory extends Component {
             this.setState({
                 char: ComponentStore.getAll(),
             });
-            this.log(ComponentStore.getAll().data, ComponentStore.getAll().category);
+            this.log(ComponentStore.getAll().data, ComponentStore.getAll().category, ComponentStore.getAll().inactive);
         });
     }
 

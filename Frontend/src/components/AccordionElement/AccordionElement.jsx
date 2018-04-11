@@ -12,11 +12,8 @@ export default class AccordionElement extends Component {
     this.setState({ activeIndex: newIndex })
     }
 
-
-
     render() {
         const { activeIndex } = this.state
-
 
         return (
             <div>
@@ -26,6 +23,7 @@ export default class AccordionElement extends Component {
                     onClick={this.handleClick}>
                     <Icon name='dropdown' />
                     {this.props.name}
+                    <p>category</p>
                 </Accordion.Title>
 
                 <Accordion.Content

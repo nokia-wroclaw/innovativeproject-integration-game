@@ -57,19 +57,8 @@ class categoriesList extends Component {
                 <Header>List of categories</Header>
                 <Wrapper>
                     <Accordion>
-                    {this.renderCategories()}
+                        {this.renderCategories()}
                     </Accordion>
-                    {/* {
-                        Object.keys(this.state.data).map((category) => {
-                            return <div>
-                                        <Category>{category}</Category>
-                                        {this.state.categoriesList[category].map((character) => {
-                                            return <Character character={character} />;
-                                        })}
-                                        <br/>
-                                    </div>
-                        })
-                    } */}
                 </Wrapper>
             </div>
         );

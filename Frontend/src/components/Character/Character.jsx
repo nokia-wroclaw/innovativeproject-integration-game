@@ -6,21 +6,15 @@ class Character extends Component {
         super(props);
 
         this.state = {
-            // character: this.props.character,
             character: this.props.character,
             category: this.props.category,
+            inactive: ["category"],
         }
     }
 
     editComponent = () => {
-        ComponentActions.editComponent(this.state.character, this.state.category);
+        ComponentActions.editComponent(this.state.character, this.state.category, this.state.inactive);
     }
-
-    addComponent = () => {
-        ComponentActions.addComponent(this.state.category);
-    }
-
-    
 
     render() {
         return (
@@ -28,7 +22,6 @@ class Character extends Component {
                 <p>{this.state.character.name}</p>
                 <p>{this.state.character.surname}</p>
                 <button onClick={this.editComponent}>Edit</button>
-                <button onClick={this.addComponent}>Add</button>
             </div>
         );
     }

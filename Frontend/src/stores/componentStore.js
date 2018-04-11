@@ -18,18 +18,11 @@ class ComponentStore extends EventEmmiter {
     }
 
 
-    editComponent(data, category) {
+    editComponent(data, category, inactive) {
         this.setState({
             data: data,
             category: category,
-        });
-
-        this.emit("change");
-    }
-
-    addComponent(value) {
-        this.setState({
-            value: value,
+            inactive: inactive,
         });
 
         this.emit("change");
@@ -42,11 +35,7 @@ class ComponentStore extends EventEmmiter {
     handleActions(action) {
         switch(action.type) {
             case "EDIT_COMPONENT": {
-                this.editComponent(action.data, action.category);
-                break;
-            }
-            case "ADD_COMPONENT": {
-                this.addComponent(action.value);
+                this.editComponent(action.data, action.category, action.inactive);
                 break;
             }
             default: {
