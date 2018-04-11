@@ -23,3 +23,7 @@ export const Form = styled.div`
     width: 90%;
     margin: 50px auto 0 auto;
 `;
+
+export const Label = styled.label`
+    display: block;
+`;

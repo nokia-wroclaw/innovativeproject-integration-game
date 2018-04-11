@@ -28,6 +28,15 @@ class ComponentStore extends EventEmmiter {
         this.emit("change");
     }
 
+    editCategory(category, inactive) {
+        this.setState({
+            category: category,
+            inactive: inactive,
+        });
+
+        this.emit("change");
+    }
+
     getAll() {
         return this.state;
     }
@@ -36,6 +45,10 @@ class ComponentStore extends EventEmmiter {
         switch(action.type) {
             case "EDIT_COMPONENT": {
                 this.editComponent(action.data, action.category, action.inactive);
+                break;
+            }
+            case "EDIT_CATEGORY": {
+                this.editCategory(action.category, action.inactive);
                 break;
             }
             default: {

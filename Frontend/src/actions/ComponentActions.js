@@ -8,3 +8,11 @@ export function editComponent(data, category, inactive) {
         inactive,
     });
 }
+
+export function editCategory(category, inactive) {
+    dispatcher.dispatch({
+        type: "EDIT_CATEGORY",
+        category,
+        inactive,
+    });
+}

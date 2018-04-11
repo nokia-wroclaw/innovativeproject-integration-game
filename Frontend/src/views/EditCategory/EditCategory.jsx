@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Wrapper, List, Form } from './EditCategory_styles';
+import { Container, Wrapper, List, Form, Label } from './EditCategory_styles';
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import Header from '../../components/Header/Header';
 import data from '../../components/CategoriesList/data.json';
@@ -45,10 +45,19 @@ class EditCategory extends Component {
 
     log(value, category, inactive) {
         document.getElementById('category').value = category;
-        document.getElementById('name').value = value.name;
-        document.getElementById('surname').value = value.surname;
-        document.getElementById('nickname').value = value.nickname;
-        document.getElementById('description').value = value.description;
+
+        if(value.name === undefined) {
+            inactive.map((id) => {
+                document.getElementById(id).value = "";
+            })
+        }
+        else {
+            document.getElementById('name').value = value.name;
+            document.getElementById('surname').value = value.surname;
+            document.getElementById('nickname').value = value.nickname;
+            document.getElementById('description').value = value.description;
+        }
+
         inactive.map((id) => {
             document.getElementById(id).disabled = true;
         })
@@ -73,7 +82,7 @@ class EditCategory extends Component {
                     <Header label="Edit categories and characters" />
                     <Form id="form">
                         <div>
-                            <label>{Object.keys(this.state.value[0])[0]}</label>
+                            <Label>{Object.keys(this.state.value[0])[0]}</Label>
                             <input id="category" />
                         </div>
                         <div>

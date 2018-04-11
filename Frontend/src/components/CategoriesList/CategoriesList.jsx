@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Accordion } from 'semantic-ui-react'
 import AccordionElement from '../../components/AccordionElement/AccordionElement';
-import { Header, Wrapper, Category } from './CategoriesList_styles';
+import { Header, Wrapper } from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
 import Character from '../../components/Character/Character';
