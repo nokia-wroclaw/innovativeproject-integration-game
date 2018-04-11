@@ -1,5 +1,6 @@
 package pwr.damodarlepski.integrationgame
 
+import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
@@ -53,6 +54,9 @@ class NewGameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_game)
 
         loadRules()
+        button_start_game.setOnClickListener {
+            startActivity(Intent(this@NewGameActivity, RoundActivity::class.java))
+        }
     }
 
     override fun onResume() {
