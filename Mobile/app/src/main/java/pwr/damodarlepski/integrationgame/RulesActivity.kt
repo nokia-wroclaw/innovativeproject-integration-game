@@ -19,8 +19,10 @@ class RulesActivity : PreferenceActivity() {
         private fun setListPreferenceData(lp: MultiSelectListPreference) {
             val entries = arrayOf<CharSequence>("Actors", "Musicians")
             val entryValues = arrayOf<CharSequence>("Actors", "Musicians")
+            val values = mutableSetOf("Actors", "Musicians")
             lp.entries = entries
             lp.entryValues = entryValues
+            lp.values = values
         }
 
         override fun onCreate(savedInstanceState: Bundle?) {
