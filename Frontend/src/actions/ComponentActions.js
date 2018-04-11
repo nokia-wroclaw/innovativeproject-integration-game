@@ -1,16 +1,21 @@
 import dispatcher from '../dispatcher';
 
-export function editComponent(data, category) {
+export function editComponent(data, category, inactive, active) {
     dispatcher.dispatch({
         type: "EDIT_COMPONENT",
         data,
         category,
+        inactive,
+        active,
     });
 }
 
-export function addComponent(value) {
+export function editCategory(data, category, inactive, active) {
     dispatcher.dispatch({
-        type: "ADD_COMPONENT",
-        value,
+        type: "EDIT_CATEGORY",
+        data,
+        category,
+        inactive,
+        active,
     });
 }
