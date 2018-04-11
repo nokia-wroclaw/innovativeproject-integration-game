@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Accordion, Icon } from 'semantic-ui-react'
 import AccordionElement from '../../components/AccordionElement/AccordionElement';
-import { Header, Wrapper, Category } from './CategoriesList_styles';
+import { Header, Wrapper } from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
 import Character from '../../components/Character/Character';
@@ -62,17 +62,6 @@ class categoriesList extends Component {
 
                     {this.renderCategories()}
                     </Accordion>
-                    {/* {
-                        Object.keys(this.state.data).map((category) => {
-                            return <div>
-                                        <Category>{category}</Category>
-                                        {this.state.categoriesList[category].map((character) => {
-                                            return <Character character={character} />;
-                                        })}
-                                        <br/>
-                                    </div>
-                        })
-                    } */}
                 </Wrapper>
             </div>
         );
