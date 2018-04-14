@@ -9,8 +9,8 @@ class Character extends Component {
         this.state = {
             character: this.props.character,
             category: this.props.category,
-            inactive: ["category"],
-            active: ["name", "surname", "nickname", "description"],
+            inactive: ["l-category"],
+            active: ["l-name", "l-surname", "l-nickname", "t-description"],
         }
     }
 

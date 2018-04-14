@@ -9,8 +9,8 @@ class Category extends Component {
         this.state = {
             data: null,
             category: this.props.category,
-            inactive: ["name", "surname", "nickname", "description"],
-            active: ["category"],
+            inactive: ["l-name", "l-surname", "l-nickname", "t-description"],
+            active: ["l-category"],
         }
     }
 
