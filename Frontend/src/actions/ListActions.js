@@ -20,3 +20,11 @@ export function addCharacter(name) {
         name,
     });
 }
+
+
+export function deleteCharacter(name) {
+    dispatcher.dispatch({
+        type: "DELETE_CHARACTER",
+        name,
+    });
+}

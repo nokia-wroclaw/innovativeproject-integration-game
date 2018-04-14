@@ -19,3 +19,10 @@ export function editCategory(data, category, inactive, active) {
         active,
     });
 }
+
+export function deleteComponent(value) {
+    dispatcher.dispatch({
+        type: "DELETE_COMPONENT",
+        value,
+    });
+}
