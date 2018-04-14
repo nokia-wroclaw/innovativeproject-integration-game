@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Accordion } from 'semantic-ui-react'
+import { Accordion, Icon } from 'semantic-ui-react'
 import AccordionElement from '../../components/AccordionElement/AccordionElement';
 import { Header, Wrapper } from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';
@@ -23,7 +23,7 @@ class categoriesList extends Component {
                         characters={rowdata.people.map((subRowData, k) => {
 	                    return <div>
                             <Character character={subRowData} category={rowdata.category}/>
-                            <a href={'/categories/edit/' + rowdata.category + '/' + subRowData.id}><button>opis</button></a>
+                            <a href={'/categories/edit/' + rowdata.category + '/' + subRowData.id}> <Icon onClick class='ui icon caret down button'><i class='caret down icon'></i></Icon></a>
                         </div>
                     })}
                 />
@@ -57,6 +57,7 @@ class categoriesList extends Component {
                 <Header>List of categories</Header>
                 <Wrapper>
                     <Accordion>
+                        <Icon onClick class='ui icon plus button'><i class='plus icon'></i></Icon> <br />
                         {this.renderCategories()}
                     </Accordion>
                 </Wrapper>
