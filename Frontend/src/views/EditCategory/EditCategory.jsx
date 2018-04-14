@@ -51,21 +51,21 @@ class EditCategory extends Component {
             inactive.map((id) => {
                 document.getElementById(id).value = "";
             })
-            console.log("null")
         }
         else {
             document.getElementById('name').value = value.name;
             document.getElementById('surname').value = value.surname;
             document.getElementById('nickname').value = value.nickname;
             document.getElementById('description').value = value.description;
+            console.log(document.getElementById("name"));
         }
 
         inactive.map((id) => {
-            document.getElementById(id).disabled = true;
+            document.getElementById(id).style = "display: none;";
         })
 
         active.map((id) => {
-            document.getElementById(id).disabled = false;
+            document.getElementById(id).style = "display: block;";
         })
       }
 
@@ -89,29 +89,26 @@ class EditCategory extends Component {
                 <Wrapper>
                     <Header label="Edit categories and characters" />
                     <StyledForm id="form">
-                        <div>
+                        <div id="l-category">
                             <Label>{Object.keys(this.state.value[0])[0]}</Label>
                             <Input id="category" placeholder="category" />
                         </div>
-
-                        {
-                            Object.keys(this.state.value[0].people[0]).map((key) => {
-                                if(key !== "id" && key !== "description") {
-                                    return  <div>
-                                                <Label>{key}</Label>
-                                                <Input id={key} placeholder={key} />
-                                            </div>
-                                }
-
-                                if(key === "description") {
-                                    return  <StyledTextArea>
-                                                <Label>{key}</Label>
-                                                <TextArea id={key} placeholder="description" />
-                                            </StyledTextArea>
-                                }
-                            })
-                            
-                        }
+                        <div id="l-name">
+                            <Label>{Object.keys(this.state.value[0].people[0])[1]}</Label>
+                            <Input id="name" placeholder="name" />
+                        </div>
+                        <div id="l-surname">
+                            <Label>{Object.keys(this.state.value[0].people[0])[2]}</Label>
+                            <Input id="surname" placeholder="surname" />
+                        </div>
+                        <div id="l-nickname">
+                            <Label>{Object.keys(this.state.value[0].people[0])[3]}</Label>
+                            <Input id="nickname" placeholder="nickname" />
+                        </div>
+                        <StyledTextArea id="t-description">
+                            <Label>{Object.keys(this.state.value[0].people[0])[4]}</Label>
+                            <TextArea id="description" placeholder="description" />
+                        </StyledTextArea>
                         <Button>Save</Button>
                     </StyledForm>
 		    

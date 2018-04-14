@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import { colors } from '../../utils/styles';
-import { Form, Input } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 
 export const Container = styled.div`
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 `;
 
 export const List = styled.div`
-    height: 100vh;
+    min-height: 100vh;
     width: 25%;
     background-color: ${colors.darkBlue};
     border-right: 1px solid #246770;
