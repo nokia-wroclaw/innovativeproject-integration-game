@@ -1,120 +1,197 @@
 package pwr.damodarlepski.integrationgame
 
-import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import java.util.*
+import android.content.Context
 import android.os.CountDownTimer
 import android.preference.PreferenceManager
+import android.support.v4.app.Fragment
+import android.text.Editable
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ProgressBar
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_game_view.*
+import java.util.*
 
-class GameActivity : AppCompatActivity() {
+class GameActivity : Fragment() {
 
     private var dummy: Int = 1
     private var index = 0
     private var counter = 0
-    private fun timeOfRound() {
 
-        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        val time = prefs.getString("time_for_guessing", null)
-        counter = time.toInt()
-        time_progressBar.max = counter
 
-        object : CountDownTimer((counter * 1000).toLong(), 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                time_text.text = (millisUntilFinished / 1000).toString()
-                time_progressBar.progress = ++dummy
-            }
-
-            override fun onFinish() {
-                startActivity(Intent(this@GameActivity, TeamActivity::class.java))
-            }
-        }.start()
+    val TAG = "FragmentGame"
+    override fun onAttach(context: Context?) {
+        Log.d(TAG,"onAttach")
+        super.onAttach(context)
     }
-
-    private fun rand(to: Int): Int {
-        val index: Int
-        if (to == 0)
-            index = 0
-        else {
-            val from = 0
-            val random = Random()
-            index = random.nextInt(to - from) + from
-        }
-        return index
-    }
-
-
-    private fun getNewPeople(): Int {
-        val index: Int
-        if (ArrayPeople.size > 0) {
-            index = rand((ArrayPeople.size) - 1)
-            category_text.text = ArrayCategory[index]
-            people_text.text = ArrayPeople[index]
-        } else
-            index = -1
-
-        return index
-    }
-
-    private fun removePeople(index: Int) {
-        ArrayCategory.removeAt(index)
-        ArrayPeople.removeAt(index)
-    }
-
-    private fun counterOfPoints() {
-        if (team_name == "Team One") {
-            teamOneCounter++
-        } else {
-            teamTwoCounter++
-        }
-    }
-
-    private fun setNewRoundOrSummary() {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        val rounds = prefs.getStringSet("rounds", null)
-
-        val number = rounds.size
-        println(number.toString()+" rounds size")
-        println(indexOfRound.toString()+" rounds index rounds size")
-        println(indexOfRound < number)
-        if (indexOfRound < number) {
-            println("if")
-            println(number.toString()+" rounds size")
-            println(indexOfRound.toString()+" rounds idex rounds size")
-            startActivity(Intent(this@GameActivity, RoundActivity::class.java))
-
-        } else{
-            println("else")
-            startActivity(Intent(this@GameActivity, GameSummaryActivity::class.java))
-        }
-    }
-
-    private fun newPeopleOrNewRound() {
-        removePeople(index)
-        if (ArrayPeople.size == 0)
-            setNewRoundOrSummary()
-        else
-            index = getNewPeople()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d(TAG,"onCreate")
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game_view)
+    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        Log.d(TAG,"onCreateView")
+
+        val view= inflater!!.inflate(R.layout.activity_game_view, container,false)
+
+        fun timeOfRound() {
+
+
+            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+            val time = prefs.getString("time_for_guessing", null)
+
+            counter = time.toInt()
+//        time_progressBar.max = counter
+
+            object : CountDownTimer((counter * 1000).toLong(), 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    val time = view.findViewById(R.id.time_text) as TextView
+                    time.setText((millisUntilFinished / 1000).toString())
+                    val progress = view.findViewById(R.id.time_progressBar) as ProgressBar
+                    progress.progress = ++dummy
+                }
+
+                override fun onFinish() {
+                    val transaction = fragmentManager?.beginTransaction()
+                    val fragment = TeamActivity()
+                    transaction?.replace(R.id.fragment_holder, fragment)
+                    transaction?.addToBackStack(null)
+                    transaction?.commit()
+                }
+            }.start()
+        }
+
+        fun rand(to: Int): Int {
+            val index: Int
+            if (to == 0)
+                index = 0
+            else {
+                val from = 0
+                val random = Random()
+                index = random.nextInt(to - from) + from
+            }
+            return index
+        }
+
+        fun getNewPeople(): Int {
+            val index: Int
+            if (ArrayPeople.size > 0) {
+                index = rand((ArrayPeople.size) - 1)
+                val category = view.findViewById(R.id.category_text) as TextView
+                category.setText(ArrayCategory[index])
+                val people = view.findViewById(R.id.category_text) as TextView
+                people.setText(ArrayPeople[index])
+            } else
+                index = -1
+
+            return index
+        }
+
+        fun removePeople(index: Int) {
+            ArrayCategory.removeAt(index)
+            ArrayPeople.removeAt(index)
+        }
+
+        fun counterOfPoints() {
+            if (team_name == "Team One") {
+                teamOneCounter++
+            } else {
+                teamTwoCounter++
+            }
+        }
+
+        fun setNewRoundOrSummary() {
+
+            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+            val rounds = prefs.getStringSet("rounds", null)
+
+            val number = rounds.size
+            println(number.toString()+" rounds size")
+            println(indexOfRound.toString()+" rounds index rounds size")
+            println(indexOfRound < number)
+            if (indexOfRound < number) {
+                println("if")
+                println(number.toString()+" rounds size")
+                println(indexOfRound.toString()+" rounds idex rounds size")
+                val transaction = fragmentManager?.beginTransaction()
+                val fragment = RoundActivity()
+                transaction?.replace(R.id.fragment_holder, fragment)
+                transaction?.addToBackStack(null)
+                transaction?.commit()
+
+            } else{
+                println("else")
+                val transaction = fragmentManager?.beginTransaction()
+                val fragment = GameSummaryActivity()
+                transaction?.replace(R.id.fragment_holder, fragment)
+                transaction?.addToBackStack(null)
+                transaction?.commit()
+            }
+        }
+
+        fun newPeopleOrNewRound() {
+            removePeople(index)
+            if (ArrayPeople.size == 0)
+                setNewRoundOrSummary()
+            else
+                index = getNewPeople()
+        }
+
 
         index = getNewPeople()
 
         timeOfRound()
 
-        button_good.setOnClickListener {
+        val good = view.findViewById(R.id.button_good) as Button
+        good.setOnClickListener {
 
             counterOfPoints()
             newPeopleOrNewRound()
         }
 
-        button_jump.setOnClickListener {
+        val jump = view.findViewById(R.id.button_jump) as Button
+        jump.setOnClickListener {
 
             newPeopleOrNewRound()
         }
+
+       return view
+
+    }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        Log.d(TAG,"onActivityCreated")
+        super.onActivityCreated(savedInstanceState)
+    }
+    override fun onStart() {
+        Log.d(TAG,"onStart")
+        super.onStart()
+    }
+    override fun onResume() {
+        Log.d(TAG,"onResume")
+        super.onResume()
+    }
+    override fun onPause() {
+        Log.d(TAG,"onPause")
+        super.onPause()
+    }
+    override fun onStop() {
+        Log.d(TAG,"onStop")
+        super.onStop()
+    }
+    override fun onDestroyView() {
+        Log.d(TAG,"onDestroyView")
+        super.onDestroyView()
+    }
+    override fun onDestroy() {
+        Log.d(TAG,"onDestroy")
+        super.onDestroy()
+    }
+    override fun onDetach() {
+        Log.d(TAG,"onDetach")
+        super.onDetach()
     }
 }
