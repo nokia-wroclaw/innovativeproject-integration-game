@@ -23,7 +23,6 @@ class categoriesList extends Component {
                         characters={rowdata.people.map((subRowData, k) => {
 	                    return <div>
                             <Character character={subRowData} category={rowdata.category}/>
-                            <a href={'/categories/edit/' + rowdata.category + '/' + subRowData.id}> <Icon onClick class='ui icon caret down button'><i class='caret down icon'></i></Icon></a>
                         </div>
                     })}
                 />
