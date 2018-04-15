@@ -24,12 +24,8 @@
             android:label="New Game" />
 
         <activity
-            android:name=".Game"
+            android:name=".GameActivity"
             android:label="Game" />
-
-        <activity
-            android:name=".GameSummaryActivity"
-            android:label="Summary" />
     </application>
 
 </manifest>

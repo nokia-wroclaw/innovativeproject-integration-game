@@ -69,7 +69,7 @@ class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener 
         }
 
         button_start_game.setOnClickListener {
-            startActivity(Intent(this@NewGameActivity, Game::class.java))
+            startActivity(Intent(this@NewGameActivity, GameActivity::class.java))
         }
     }
 

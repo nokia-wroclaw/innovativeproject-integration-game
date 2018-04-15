@@ -1,17 +1,14 @@
 package pwr.damodarlepski.integrationgame
 
-import android.content.Intent
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_game_summary_view.*
 import android.content.Context
+import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class GameSummaryActivity : Fragment() {
+class SummaryFragment : Fragment() {
 
     val TAG = "FragmentgameSummary"
 
@@ -27,7 +24,7 @@ class GameSummaryActivity : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.d(TAG,"onCreateView")
-        return inflater!!.inflate(R.layout.activity_game_summary_view,container,false)
+        return inflater.inflate(R.layout.fragment_summary, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -71,14 +68,14 @@ class GameSummaryActivity : Fragment() {
     }
     /* override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
-         setContentView(R.layout.activity_game_summary_view)
+         setContentView(R.layout.fragment_summary)
 
          points_team_one_text.text = teamOneCounter.toString()
          points_team_two_text.text = teamTwoCounter.toString()
 
 
          button_end_game.setOnClickListener {
-             startActivity(Intent(this@GameSummaryActivity, MainMenuActivity::class.java))
+             startActivity(Intent(this, MainMenuActivity::class.java))
          }
 
      }*/

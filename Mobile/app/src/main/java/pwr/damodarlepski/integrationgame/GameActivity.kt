@@ -1,197 +1,49 @@
 package pwr.damodarlepski.integrationgame
 
 import android.os.Bundle
-import android.content.Context
-import android.os.CountDownTimer
-import android.preference.PreferenceManager
-import android.support.v4.app.Fragment
-import android.text.Editable
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_game_view.*
-import java.util.*
+import android.support.v7.app.AppCompatActivity
 
-class GameActivity : Fragment() {
+var teamOneCounter = 0
+var teamTwoCounter = 0
 
-    private var dummy: Int = 1
-    private var index = 0
-    private var counter = 0
+val ArrayCategoryData: MutableList<String> = mutableListOf("Sport", "Actor", "Musiacian", "Dance", "Writers")
+val ArrayPeopleData: MutableList<String> = mutableListOf("Robert Lewandowski", "Cezary Pazura", "Selena Gomez", "Katarzyna Cichopek", "Andrzej Sapkowski")
 
+var ArrayCategory = ArrayCategoryData.toMutableList()
+var ArrayPeople = ArrayPeopleData.toMutableList()
 
-    val TAG = "FragmentGame"
-    override fun onAttach(context: Context?) {
-        Log.d(TAG,"onAttach")
-        super.onAttach(context)
-    }
+var indexOfRound = 0
+val ArrayRounds = arrayOf("Description", "One word", "Showing without speaking", "Pose")
+
+var team_name = ""
+
+class GameActivity : AppCompatActivity() {
+    private val manager = supportFragmentManager
+
+    val gameMechanics = GameMechanics()
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d(TAG,"onCreate")
         super.onCreate(savedInstanceState)
-    }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        Log.d(TAG,"onCreateView")
+        setContentView(R.layout.activity_game)
 
-        val view= inflater!!.inflate(R.layout.activity_game_view, container,false)
+        gameMechanics.addCard("Sport", "Robert Lewandowski", "")
+        gameMechanics.addCard("Actor", "Cezary Pazura", "")
+        gameMechanics.addCard("Musician", "Selena Gomez", "")
+        gameMechanics.addCard("Dance", "Katarzyna Cichopek", "")
+        gameMechanics.addCard("Writer", "Andrzej Sapkowski", "")
 
-        fun timeOfRound() {
+        teamOneCounter = 0
+        teamTwoCounter = 0
+        ArrayCategory = ArrayCategoryData.toMutableList()
+        ArrayPeople = ArrayPeopleData.toMutableList()
+        indexOfRound = 0
+        team_name = ""
 
+        val transaction = manager.beginTransaction()
+        val fragment = RoundFragment()
+        transaction.replace(R.id.fragment_holder, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
 
-            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-            val time = prefs.getString("time_for_guessing", null)
-
-            counter = time.toInt()
-//        time_progressBar.max = counter
-
-            object : CountDownTimer((counter * 1000).toLong(), 1000) {
-                override fun onTick(millisUntilFinished: Long) {
-                    val time = view.findViewById(R.id.time_text) as TextView
-                    time.setText((millisUntilFinished / 1000).toString())
-                    val progress = view.findViewById(R.id.time_progressBar) as ProgressBar
-                    progress.progress = ++dummy
-                }
-
-                override fun onFinish() {
-                    val transaction = fragmentManager?.beginTransaction()
-                    val fragment = TeamActivity()
-                    transaction?.replace(R.id.fragment_holder, fragment)
-                    transaction?.addToBackStack(null)
-                    transaction?.commit()
-                }
-            }.start()
-        }
-
-        fun rand(to: Int): Int {
-            val index: Int
-            if (to == 0)
-                index = 0
-            else {
-                val from = 0
-                val random = Random()
-                index = random.nextInt(to - from) + from
-            }
-            return index
-        }
-
-        fun getNewPeople(): Int {
-            val index: Int
-            if (ArrayPeople.size > 0) {
-                index = rand((ArrayPeople.size) - 1)
-                val category = view.findViewById(R.id.category_text) as TextView
-                category.setText(ArrayCategory[index])
-                val people = view.findViewById(R.id.category_text) as TextView
-                people.setText(ArrayPeople[index])
-            } else
-                index = -1
-
-            return index
-        }
-
-        fun removePeople(index: Int) {
-            ArrayCategory.removeAt(index)
-            ArrayPeople.removeAt(index)
-        }
-
-        fun counterOfPoints() {
-            if (team_name == "Team One") {
-                teamOneCounter++
-            } else {
-                teamTwoCounter++
-            }
-        }
-
-        fun setNewRoundOrSummary() {
-
-            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-            val rounds = prefs.getStringSet("rounds", null)
-
-            val number = rounds.size
-            println(number.toString()+" rounds size")
-            println(indexOfRound.toString()+" rounds index rounds size")
-            println(indexOfRound < number)
-            if (indexOfRound < number) {
-                println("if")
-                println(number.toString()+" rounds size")
-                println(indexOfRound.toString()+" rounds idex rounds size")
-                val transaction = fragmentManager?.beginTransaction()
-                val fragment = RoundActivity()
-                transaction?.replace(R.id.fragment_holder, fragment)
-                transaction?.addToBackStack(null)
-                transaction?.commit()
-
-            } else{
-                println("else")
-                val transaction = fragmentManager?.beginTransaction()
-                val fragment = GameSummaryActivity()
-                transaction?.replace(R.id.fragment_holder, fragment)
-                transaction?.addToBackStack(null)
-                transaction?.commit()
-            }
-        }
-
-        fun newPeopleOrNewRound() {
-            removePeople(index)
-            if (ArrayPeople.size == 0)
-                setNewRoundOrSummary()
-            else
-                index = getNewPeople()
-        }
-
-
-        index = getNewPeople()
-
-        timeOfRound()
-
-        val good = view.findViewById(R.id.button_good) as Button
-        good.setOnClickListener {
-
-            counterOfPoints()
-            newPeopleOrNewRound()
-        }
-
-        val jump = view.findViewById(R.id.button_jump) as Button
-        jump.setOnClickListener {
-
-            newPeopleOrNewRound()
-        }
-
-       return view
-
-    }
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        Log.d(TAG,"onActivityCreated")
-        super.onActivityCreated(savedInstanceState)
-    }
-    override fun onStart() {
-        Log.d(TAG,"onStart")
-        super.onStart()
-    }
-    override fun onResume() {
-        Log.d(TAG,"onResume")
-        super.onResume()
-    }
-    override fun onPause() {
-        Log.d(TAG,"onPause")
-        super.onPause()
-    }
-    override fun onStop() {
-        Log.d(TAG,"onStop")
-        super.onStop()
-    }
-    override fun onDestroyView() {
-        Log.d(TAG,"onDestroyView")
-        super.onDestroyView()
-    }
-    override fun onDestroy() {
-        Log.d(TAG,"onDestroy")
-        super.onDestroy()
-    }
-    override fun onDetach() {
-        Log.d(TAG,"onDetach")
-        super.onDetach()
     }
 }
