@@ -1,0 +1,164 @@
+{
+"peopleCategory": [
+{
+"idPeople": 1,
+"idCategory": 1
+},
+{
+"idPeople": 2,
+"idCategory": 1
+},
+{
+"idPeople": 3,
+"idCategory": 2
+},
+{
+"idPeople": 4,
+"idCategory": 2
+},
+{
+"idPeople": 5,
+"idCategory": 3
+},
+{
+"idPeople": 6,
+"idCategory": 1
+},
+{
+"idPeople": 7,
+"idCategory": 2
+},
+{
+"idPeople": 8,
+"idCategory": 3
+},
+{
+"idPeople": 9,
+"idCategory": 2
+},
+{
+"idPeople": 10,
+"idCategory": 1
+},
+{
+"idPeople": 11,
+"idCategory": 3
+},
+{
+"idPeople": 12,
+"idCategory": 1
+},
+{
+"idPeople": 13,
+"idCategory": 2
+},
+{
+"idPeople": 14,
+"idCategory": 3
+},
+{
+"idPeople": 15,
+"idCategory": 2
+},
+{
+"idPeople": 16,
+"idCategory": 4
+},
+{
+"idPeople": 17,
+"idCategory": 1
+},
+{
+"idPeople": 18,
+"idCategory": 3
+},
+{
+"idPeople": 19,
+"idCategory": 2
+},
+{
+"idPeople": 20,
+"idCategory": 1
+},
+{
+"idPeople": 21,
+"idCategory": 2
+},
+{
+"idPeople": 22,
+"idCategory": 2
+},
+{
+"idPeople": 23,
+"idCategory": 2
+},
+{
+"idPeople": 24,
+"idCategory": 3
+},
+{
+"idPeople": 25,
+"idCategory": 2
+},
+{
+"idPeople": 26,
+"idCategory": 2
+},
+{
+"idPeople": 27,
+"idCategory": 1
+},
+{
+"idPeople": 28,
+"idCategory": 3
+},
+{
+"idPeople": 29,
+"idCategory": 1
+},
+{
+"idPeople": 30,
+"idCategory": 1
+},
+{
+"idPeople": 31,
+"idCategory": 2
+},
+{
+"idPeople": 32,
+"idCategory": 1
+},
+{
+"idPeople": 33,
+"idCategory": 3
+},
+{
+"idPeople": 34,
+"idCategory": 4
+},
+{
+"idPeople": 35,
+"idCategory": 4
+},
+{
+"idPeople": 36,
+"idCategory": 1
+},
+{
+"idPeople": 37,
+"idCategory": 2
+},
+{
+"idPeople": 38,
+"idCategory": 3
+},
+{
+"idPeople": 39,
+"idCategory": 2
+},
+{
+"idPeople": 40,
+"idCategory": 1
+}
+]
+}
