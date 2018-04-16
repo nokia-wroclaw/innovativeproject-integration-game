@@ -29,7 +29,7 @@ class ComponentStore extends EventEmmiter {
             active: active,
         });
 
-        axios.get('localhost:8000/api/categories')
+        axios.get('/api/categories')
             .then(function (response) {
                 console.log(response);
             })
