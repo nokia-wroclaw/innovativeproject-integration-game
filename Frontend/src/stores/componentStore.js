@@ -34,7 +34,7 @@ class ComponentStore extends EventEmmiter {
                 console.log(response);
             })
             .catch(function (error) {
-                console.log(error.request);
+                console.log(error);
             });
 
         this.emit("change");
