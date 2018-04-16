@@ -2,6 +2,7 @@ import dispatcher from '../dispatcher';
 import React from 'react';
 import EventEmmiter from 'events';
 import data from "../components/CategoriesList/data";
+import axios from 'axios';
 
 class ComponentStore extends EventEmmiter {
     constructor(props) {
@@ -27,6 +28,14 @@ class ComponentStore extends EventEmmiter {
             inactive: inactive,
             active: active,
         });
+
+        axios.get('localhost:8000/api/categories')
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error.request);
+            });
 
         this.emit("change");
     }
