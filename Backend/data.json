@@ -1,0 +1,47 @@
+{
+        "characters":
+    [
+       
+        
+        
+            {   "id":"1",
+                "name":"John",
+                "surname":"Lawrence",
+                "category": "Actors"
+            },
+            {
+                "id":"2",
+                "name":"Eddie",
+                "surname":"McCormick",
+                "category": "Actors"
+            },
+            {
+                "id":"3",
+                "name":"Dorothy",
+                "surname":"Carver",
+                "category": "Actors"
+            },
+        
+            { "id":"4",
+                "name":"Robert",
+                "surname":"Lewandowski",
+                "category": "Sportsmen"
+            },
+            {
+                "id":"5",
+                "name":"Kamil",
+                "surname":"Stoch",
+                "category": "Sportsmen"
+            },
+            {
+                "id":"6",
+                "name":"Muhammad",
+                "surname":"Ali",
+                "category": "Sportsmen"
+            }
+        
+    ]
+    
+
+    
+}
