@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react'
-import { Wrapper } from './Character_styles';
+import { Wrapper, Icons } from './Character_styles';
 import * as ComponentActions from '../../actions/ComponentActions';
 
 class Character extends Component {
@@ -25,13 +25,17 @@ class Character extends Component {
                 <div>
                     {this.state.character.name} {this.state.character.surname}
                 </div>
-                <div>
+                <Icons id="icons">
                     <Icon onClick={this.editComponent} class='ui icon edit icon button'><i class='edit icon'></i></Icon>
                     <Icon onClick={this.deleteComponent} class='ui icon delete icon button'><i class='delete icon'></i></Icon>
-                </div>
+                </Icons>
             </Wrapper>
         );
     }
 }
 
 export default Character;
+
+<style>
+    
+</style>

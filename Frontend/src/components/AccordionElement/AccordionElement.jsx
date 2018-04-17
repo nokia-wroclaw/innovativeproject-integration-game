@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Accordion, Icon } from 'semantic-ui-react'
 import Category from '../Category/Category';
-import { StyledAccordion, StyledCategory } from './AccordionElement_styles';
+import { StyledAccordion, StyledCategory, StyledContent, StyledTitle, Wrapper, Title } from './AccordionElement_styles';
 
 export default class AccordionElement extends Component {
     state = { activeIndex: 0 }
@@ -20,23 +20,25 @@ export default class AccordionElement extends Component {
         return (
             <div>
                 <StyledAccordion>
-                    <div>
-                        <Accordion.Title
+                    <Wrapper>
+                        <StyledTitle
                             active={activeIndex === this.props.activeIndex}
                             index={this.props.index}
                             onClick={this.handleClick}>
-                            <Icon name='dropdown' />
-                            {this.props.name}
-                        </Accordion.Title>
+                            <Title>
+                                <Icon name='dropdown' />
+                                {this.props.name}
+                            </Title>
+                        </StyledTitle>
                         
-                        <Accordion.Content
+                        <StyledContent
                             active={activeIndex === this.props.activeIndex}>
                             {this.props.characters.map((character) => {
                             return <p>{character}</p>;
                             })}
-                        </Accordion.Content>
-                    </div>
-                    <StyledCategory>
+                        </StyledContent>
+                    </Wrapper>
+                    <StyledCategory id="icon">
                         <Category category={this.props.name} />
                     </StyledCategory>
                 </StyledAccordion>

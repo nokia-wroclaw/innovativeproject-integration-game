@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../utils/styles';
+import AccordionElement from '../../components/AccordionElement/AccordionElement';
 
 export const Header = styled.h1`
     color: #fefefa;
@@ -33,4 +34,8 @@ export const CharacterFlexbox = styled.div`
     display: flex;
     align-items: center;
     margin: 10px;
+`;
+
+export const StyledAccordion = styled(AccordionElement)`
+    width: 500px;
 `;
