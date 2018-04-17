@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../utils/styles';
-import { Form } from 'semantic-ui-react';
+import { Form, Input, TextArea } from 'semantic-ui-react';
 
 export const Container = styled.div`
   display: flex;
@@ -25,6 +25,20 @@ export const StyledForm = styled.div`
     margin: 50px auto 0 auto;
 `;
 
+export const StyledInput = styled(Input)`
+    &:hover {
+        box-shadow: 1px 3px 9px ${colors.darkBlue};
+        border-radius: 4px;
+    }
+`;
+
+export const StyledArea = styled(TextArea)`
+    &:hover {
+        box-shadow: 1px 3px 9px ${colors.darkBlue};
+        border-radius: 4px;
+    }
+`;
+
 export const Label = styled.label`
     display: block;
     margin: 15px 0 5px 0;
@@ -41,10 +55,12 @@ export const Button = styled.button`
     color: ${colors.orange};
     font-size: 120%;
     font-weight: bold;
+
     &:hover {
         cursor: pointer;
         background-color: ${colors.orange};
         color: white;
+        box-shadow: 1px 3px 7px #3a3a3a;
     }
 `;
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as ComponentActions from '../../actions/ComponentActions';
 import * as ListActions from '../../actions/ListActions';
 import { Icon } from 'semantic-ui-react';
+import StyledIcon from './Category_styles';
 
 class Category extends Component {
     constructor(props) {
@@ -25,9 +26,9 @@ class Category extends Component {
 
     render() {
         return (
-            <div>
+            <StyledIcon>
                 <Icon onClick={this.editCategory} class='ui icon edit icon button'><i class='edit icon'></i></Icon>
-            </div>
+            </StyledIcon>
         );
     }
 }

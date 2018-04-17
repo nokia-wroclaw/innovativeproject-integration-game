@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Wrapper, List, StyledForm, Label, Button, StyledTextArea } from './EditCategory_styles';
+import { Container, Wrapper, List, StyledForm, Label, Button, StyledTextArea, StyledInput, StyledArea } from './EditCategory_styles';
 import { Input, Form, TextArea } from 'semantic-ui-react';
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import Header from '../../components/Header/Header';
@@ -10,32 +10,6 @@ import * as ListActions from '../../actions/ListActions';
 
 
 class EditCategory extends Component {
-  renderData() {
-    return (
-      data.map((rowdata, index) => {
-        if(rowdata.category === this.props.match.params.category)
-	  return (
-	    rowdata.people.map((subRowData, k) => {
-            if(parseInt(subRowData.id) === parseInt(this.props.match.params.id))
-               return (
-	            <div>
-                    <div>
-                    <p>{'Personal data (' + rowdata.category + ')'}</p>
-                    <br />
-                    <p>{'Name: ' + subRowData.name}</p>
-                    <p>{'Surname: ' + subRowData.surname}</p>
-                    <p>{'Nickname: ' + ((subRowData.nickname == null) ? ("\n" + ' ---') : (subRowData.nickname + "\n"))}</p>
-                    <p>{'Description: ' + ((subRowData.description == null) ? ("\n" + ' ---') : (subRowData.description + "\n"))}</p>
-                    </div>
-                    
-                </div>
-	           )
-	    })
-	  )
-      })
-    )
-  }
-       
     constructor(props) {
         super(props);
 
@@ -100,23 +74,23 @@ class EditCategory extends Component {
                     <StyledForm id="form">
                         <div id="l-category">
                             <Label>category</Label>
-                            <Input id="category" placeholder="category" />
+                            <StyledInput id="category" placeholder="category" />
                         </div>
                         <div id="l-name">
                             <Label>name</Label>
-                            <Input id="name" placeholder="name" />
+                            <StyledInput id="name" placeholder="name" />
                         </div>
                         <div id="l-surname">
                             <Label>surname</Label>
-                            <Input id="surname" placeholder="surname" />
+                            <StyledInput id="surname" placeholder="surname" />
                         </div>
                         <div id="l-nickname">
                             <Label>nickname</Label>
-                            <Input id="nickname" placeholder="nickname" />
+                            <StyledInput id="nickname" placeholder="nickname" />
                         </div>
                         <StyledTextArea id="t-description">
                             <Label>description</Label>
-                            <TextArea id="description" placeholder="description" />
+                            <StyledArea id="description" placeholder="description" />
                         </StyledTextArea>
                         <Button>Save</Button>
                     </StyledForm>
