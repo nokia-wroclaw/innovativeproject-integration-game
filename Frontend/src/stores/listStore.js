@@ -1,20 +1,23 @@
 import dispatcher from '../dispatcher';
 import EventEmmiter from 'events';
-import data from '../components/CategoriesList/data';
+import dataAll from '../components/CategoriesList/data';
+import axios from 'axios';
 
 class ListStore extends EventEmmiter {
     constructor(props) {
         super(props)
-        this.state = data;
+        this.state = {data: dataAll};
+        // this.state = {
+        //     data: " ",
+        // };
     }
 
     setState = (state) => {
         this.state = {...this.state, ...state}
     }
 
-    createCharacter(name) {
-        console.log("character is added: " + name);      
-
+    createCharacter(name) {    
+        console.log(this.state);
         this.emit("change");
     }
 
@@ -35,7 +38,7 @@ class ListStore extends EventEmmiter {
     }
 
     getAll() {
-        return this.state;
+        return this.state.data;
     }
 
     handleActions(action) {
@@ -52,10 +55,31 @@ class ListStore extends EventEmmiter {
                 this.addCharacter(action.name);
                 break;
             }
+            case "FETCH_DATA": {
+                this.loadData();
+                break;
+            }
             default: {
                 console.log("Choose another option");
             }
         }
+    }
+
+    fetchData()
+    {
+        return new Promise(resolve => {
+            axios.get('/api/categories')
+            .then(response => {
+                resolve(response.data)
+            })
+        })
+    }
+
+    loadData() {
+        this.fetchData().then(data => {
+            this.setState({data:data});
+            this.emit("change");
+        });
     }
 }
 

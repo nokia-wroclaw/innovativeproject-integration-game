@@ -20,3 +20,9 @@ export function addCharacter(name) {
         name,
     });
 }
+
+export function loadData() {
+    dispatcher.dispatch({
+        type: "FETCH_DATA",
+    });
+}

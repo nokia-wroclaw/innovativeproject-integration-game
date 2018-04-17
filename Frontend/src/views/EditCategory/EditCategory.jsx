@@ -5,7 +5,8 @@ import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import Header from '../../components/Header/Header';
 import data from '../../components/CategoriesList/data.json';
 import ComponentStore from '../../stores/componentStore';
-import listStore from '../../stores/listStore';
+import ListStore from '../../stores/listStore';
+import * as ListActions from '../../actions/ListActions';
 
 
 class EditCategory extends Component {
@@ -39,7 +40,7 @@ class EditCategory extends Component {
         super(props);
 
         this.state = {
-            value: listStore.getAll(),
+            value: ListStore.getAll(),
             char: ComponentStore.getAll(),
         }
     }
@@ -57,7 +58,6 @@ class EditCategory extends Component {
             document.getElementById('surname').value = value.surname;
             document.getElementById('nickname').value = value.nickname;
             document.getElementById('description').value = value.description;
-            console.log(document.getElementById("name"));
         }
 
         inactive.map((id) => {
@@ -70,6 +70,8 @@ class EditCategory extends Component {
       }
 
     componentWillMount() {
+        ListActions.loadData();
+        
         ComponentStore.on("change", () => {
             this.setState({
                 char: ComponentStore.getAll(),
@@ -77,6 +79,13 @@ class EditCategory extends Component {
 
             const store = ComponentStore.getAll();
             this.log(store.data, store.category, store.inactive, store.active);
+        });
+
+        ListStore.on("change", () => {
+            this.setState({
+                value: ListStore.getAll(),
+            });
+            {console.log(this.state.value)}
         });
     }
 
@@ -90,23 +99,23 @@ class EditCategory extends Component {
                     <Header label="Edit categories and characters" />
                     <StyledForm id="form">
                         <div id="l-category">
-                            <Label>{Object.keys(this.state.value[0])[0]}</Label>
+                            <Label>category</Label>
                             <Input id="category" placeholder="category" />
                         </div>
                         <div id="l-name">
-                            <Label>{Object.keys(this.state.value[0].people[0])[1]}</Label>
+                            <Label>name</Label>
                             <Input id="name" placeholder="name" />
                         </div>
                         <div id="l-surname">
-                            <Label>{Object.keys(this.state.value[0].people[0])[2]}</Label>
+                            <Label>surname</Label>
                             <Input id="surname" placeholder="surname" />
                         </div>
                         <div id="l-nickname">
-                            <Label>{Object.keys(this.state.value[0].people[0])[3]}</Label>
+                            <Label>nickname</Label>
                             <Input id="nickname" placeholder="nickname" />
                         </div>
                         <StyledTextArea id="t-description">
-                            <Label>{Object.keys(this.state.value[0].people[0])[4]}</Label>
+                            <Label>description</Label>
                             <TextArea id="description" placeholder="description" />
                         </StyledTextArea>
                         <Button>Save</Button>

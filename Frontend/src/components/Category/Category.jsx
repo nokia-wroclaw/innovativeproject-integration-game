@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as ComponentActions from '../../actions/ComponentActions';
+import * as ListActions from '../../actions/ListActions';
 import { Icon } from 'semantic-ui-react';
 
 class Category extends Component {
@@ -16,6 +17,10 @@ class Category extends Component {
 
     editCategory = () => {
         ComponentActions.editCategory(this.state.data, this.state.category, this.state.inactive, this.state.active);
+    }
+
+    createChar = (k) => {
+        ListActions.createCharacter(k);
     }
 
     render() {
