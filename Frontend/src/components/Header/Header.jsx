@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { Label, Border } from './Header_styles';
+import { Label, Border, Wrapper } from './Header_styles';
 
 class EditCategory extends Component {
     render() {
         return (
-            <div>
+            <Wrapper>
                 <Label>
                     {this.props.label}
                 </Label>
                 <Border />
-            </div>
+            </Wrapper>
         );
     }
 }

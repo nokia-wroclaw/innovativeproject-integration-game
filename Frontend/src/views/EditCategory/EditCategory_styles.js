@@ -13,11 +13,41 @@ export const List = styled.div`
     width: 25%;
     background-color: ${colors.darkBlue};
     border-right: 1px solid #246770;
+
+    @media (max-width: 1200px) {
+        width: 30%;
+    }
+
+    @media (max-width: 1000px) {
+        width: 40%;
+    }
+
+    @media (max-width: 780px) {
+        width: 50%;
+    }
 `;
 
 export const Wrapper = styled.div`
     height: 100vh;
     width: 75%;
+
+    @media (max-width: 1200px) {
+        width: 70%;
+    }
+    
+    @media (max-width: 1000px) {
+        width: 60%;
+        position: absolute;
+        top: 50px;
+        left: 45%;
+    }
+
+    @media (max-width: 780px) {
+        width: 50%;
+        position: absolute;
+        top: 50px;
+        left: 55%;
+    }
 `;
 
 export const StyledForm = styled.div`

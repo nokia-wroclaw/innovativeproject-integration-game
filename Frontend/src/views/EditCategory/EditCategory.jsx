@@ -7,6 +7,7 @@ import data from '../../components/CategoriesList/data.json';
 import ComponentStore from '../../stores/componentStore';
 import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
+import axios from 'axios';
 
 
 class EditCategory extends Component {
@@ -45,7 +46,7 @@ class EditCategory extends Component {
 
     componentWillMount() {
         ListActions.loadData();
-        
+
         ComponentStore.on("change", () => {
             this.setState({
                 char: ComponentStore.getAll(),
@@ -59,8 +60,25 @@ class EditCategory extends Component {
             this.setState({
                 value: ListStore.getAll(),
             });
-            {console.log(this.state.value)}
         });
+    }
+
+    save = () => {
+        let categoryId = this.state.char.data.categoryId;
+        let id = this.state.char.data.id;
+
+        axios.put(`/api/categories/${categoryId}/people/${id}`, {
+            name: document.getElementById('name').value,
+            surname: document.getElementById('surname').value,
+            nickname: document.getElementById('nickname').value,
+            description: document.getElementById('description').value
+        })
+          .then((response) => {
+            window.location.reload();
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 
     render() {
@@ -71,6 +89,7 @@ class EditCategory extends Component {
                 </List>
                 <Wrapper>
                     <Header label="Edit categories and characters" />
+                    <div id="result"></div>
                     <StyledForm id="form">
                         <div id="l-category">
                             <Label>category</Label>
@@ -92,7 +111,7 @@ class EditCategory extends Component {
                             <Label>description</Label>
                             <StyledArea id="description" placeholder="description" />
                         </StyledTextArea>
-                        <Button>Save</Button>
+                        <Button onClick={this.save}>Save</Button>
                     </StyledForm>
 		    
 		            {this.props.match.params.category && this.props.match.params.id ? (

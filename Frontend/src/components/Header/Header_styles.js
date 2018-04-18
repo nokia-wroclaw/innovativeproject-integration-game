@@ -13,3 +13,7 @@ export const Border = styled.div`
     margin: 0 auto;
     border-bottom: 5px solid ${colors.orange};
 `;
+
+export const Wrapper = styled.div`
+    
+`;
