@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundimage">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,12 +13,17 @@
             android:id="@+id/summary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/actor"
             android:text="Summary"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -25,15 +31,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/actor"
                 android:text="Team One"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/points_team_one_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Error" />
+                android:fontFamily="@font/actor"
+                android:text="Error"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -46,22 +56,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/actor"
                 android:text="Team Two"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/points_team_two_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Error" />
+                android:fontFamily="@font/actor"
+                android:text="Error"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <Button
             android:id="@+id/button_end_game"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="THE END" />
+            android:layout_margin="20dp"
+            android:background="@drawable/rounded_buttons"
+            android:fontFamily="@font/actor"
+            android:text="THE END"
+            android:textSize="18sp" />
 
     </LinearLayout>
 

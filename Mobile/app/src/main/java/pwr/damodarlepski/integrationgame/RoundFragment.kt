@@ -27,12 +27,11 @@ class RoundFragment : Fragment() {
         val button = view.findViewById(R.id.button_round) as Button
         button.text = ArrayRounds[indexOfRound]
 
+
         indexOfRound++
         ArrayCategory = ArrayCategoryData.toMutableList()
         ArrayPeople = ArrayPeopleData.toMutableList()
         button.setOnClickListener {
-            Thread.sleep(1000) //Po co to tu?
-
             val transaction = fragmentManager?.beginTransaction()
             val fragment = TeamFragment()
             transaction?.replace(R.id.fragment_holder, fragment)

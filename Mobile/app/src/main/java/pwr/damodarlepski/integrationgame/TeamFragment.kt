@@ -38,8 +38,9 @@ class TeamFragment : Fragment() {
 
 
         button.text = team_name
+        button.isClickable=true
         button.setOnClickListener {
-            
+            button.isClickable=false
             activity?.runOnUiThread {
 
                 button.text = 3.toString()

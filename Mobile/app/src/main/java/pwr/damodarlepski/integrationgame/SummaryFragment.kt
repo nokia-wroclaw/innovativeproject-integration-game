@@ -1,12 +1,16 @@
 package pwr.damodarlepski.integrationgame
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import pwr.damodarlepski.integrationgame.R.id.*
 
 class SummaryFragment : Fragment() {
 
@@ -24,7 +28,19 @@ class SummaryFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.d(TAG,"onCreateView")
-        return inflater.inflate(R.layout.fragment_summary, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_summary, container, false)
+        val timeViewOne = view.findViewById(R.id.points_team_one_text) as TextView
+        timeViewOne.text = teamOneCounter.toString()
+        val timeViewTwo = view.findViewById(R.id.points_team_two_text) as TextView
+        timeViewTwo.text = teamTwoCounter.toString()
+
+        val button = view.findViewById(R.id.button_end_game) as Button
+        button.setOnClickListener {
+            val act = Intent(view.getContext(), MainMenuActivity::class.java)
+            activity!!.startActivity(act)
+        }
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -66,17 +82,4 @@ class SummaryFragment : Fragment() {
         Log.d(TAG,"onDetach")
         super.onDetach()
     }
-    /* override fun onCreate(savedInstanceState: Bundle?) {
-         super.onCreate(savedInstanceState)
-         setContentView(R.layout.fragment_summary)
-
-         points_team_one_text.text = teamOneCounter.toString()
-         points_team_two_text.text = teamTwoCounter.toString()
-
-
-         button_end_game.setOnClickListener {
-             startActivity(Intent(this, MainMenuActivity::class.java))
-         }
-
-     }*/
 }
