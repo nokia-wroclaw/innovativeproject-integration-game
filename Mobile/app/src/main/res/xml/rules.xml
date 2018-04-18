@@ -5,16 +5,19 @@
         android:defaultValue="false"
         android:key="custom_rules"
         android:summary="@string/rules_custom_summary"
-        android:title="@string/rules_custom_switch_title" />
+        android:title="@string/rules_custom_switch_title"
+        android:background="@drawable/backgroundimage"/>
     <PreferenceCategory
         android:key="rules_storage"
-        android:title="@string/rules_storage_title">
+        android:title="@string/rules_storage_title"
+        android:background="@drawable/backgroundimage">
 
         <MultiSelectListPreference
             android:dependency="custom_rules"
             android:key="categories"
             android:summary="@string/rules_categories_summary"
-            android:title="@string/rules_categories_title" />
+            android:title="@string/rules_categories_title"
+            android:background="@drawable/backgroundimage"/>
 
         <ListPreference
             android:defaultValue="30"
@@ -25,7 +28,8 @@
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
             android:summary="@string/rules_time_for_guessing_summary"
-            android:title="@string/rules_time_for_guessing_title" />
+            android:title="@string/rules_time_for_guessing_title"
+            android:background="@drawable/backgroundimage"/>
 
         <MultiSelectListPreference
             android:dependency="custom_rules"
@@ -34,7 +38,8 @@
             android:key="rounds"
             android:summary="@string/rules_rounds_summary"
             android:dialogTitle="Describe person with ... "
-            android:title="@string/rules_rounds_title" />
+            android:title="@string/rules_rounds_title"
+            android:background="@drawable/backgroundimage"/>
 
         <ListPreference
             android:defaultValue="2"
@@ -45,7 +50,8 @@
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
             android:summary="@string/rules_number_of_skipped_cards_summary"
-            android:title="@string/rules_number_of_skipped_cards_title" />
+            android:title="@string/rules_number_of_skipped_cards_title"
+            android:background="@drawable/backgroundimage"/>
 
         <ListPreference
             android:defaultValue="40"
@@ -56,7 +62,8 @@
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
             android:summary="@string/rules_total_number_of_cards_summary"
-            android:title="@string/rules_total_number_of_cards_title" />
+            android:title="@string/rules_total_number_of_cards_title"
+            android:background="@drawable/backgroundimage"/>
 
     </PreferenceCategory>
 

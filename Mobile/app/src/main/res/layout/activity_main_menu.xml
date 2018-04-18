@@ -4,28 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pwr.damodarlepski.integrationgame.MainMenuActivity"
-    android:background="@drawable/backgroundimage">
+    android:background="@drawable/start_background"
+    tools:context="pwr.damodarlepski.integrationgame.MainMenuActivity">
 
     <LinearLayout
-        android:layout_width="268dp"
-        android:layout_height="65dp"
+        android:id="@+id/linearLayout2"
+        android:layout_width="360dp"
+        android:layout_height="322dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.875">
 
         <Button
             android:id="@+id/button_new_game"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="205dp"
+            android:layout_height="74dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/rounded_buttons"
             android:text="New Game"
-            android:background="@drawable/rounded_buttons"/>
+            tools:layout_editor_absoluteX="67dp"
+            tools:layout_editor_absoluteY="273dp" />
+
+        <Button
+            android:id="@+id/button_go_to_rules"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_buttons"
+            android:text="Rules"
+            android:textAlignment="center"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            app:layout_constraintVertical_bias="0.176" />
 
     </LinearLayout>
 

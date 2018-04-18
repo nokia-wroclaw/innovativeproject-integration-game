@@ -1,6 +1,7 @@
 package pwr.damodarlepski.integrationgame
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.preference.PreferenceManager
@@ -13,6 +14,9 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import java.util.*
+import android.graphics.PorterDuff
+
+
 
 class GameFragment : Fragment() {
 
@@ -50,6 +54,9 @@ class GameFragment : Fragment() {
                     timeView.text = (millisUntilFinished / 1000).toString()
                     val progress = view.findViewById(R.id.time_progressBar) as ProgressBar
                     progress.progress = ++dummy
+                    val percentageTime:Int = dummy/counter*100
+                    val percentageColor:Int=254*percentageTime/100
+                    progress .getProgressDrawable().setColorFilter(Color.rgb(0+percentageColor,254-percentageColor,0), android.graphics.PorterDuff.Mode.SRC_IN)
                 }
 
                 override fun onFinish() {

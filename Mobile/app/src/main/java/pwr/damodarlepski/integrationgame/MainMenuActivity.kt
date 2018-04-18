@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main_menu.*
-
+import kotlinx.android.synthetic.main.activity_rules.*
 
 
 class MainMenuActivity : AppCompatActivity() {
@@ -34,6 +34,9 @@ class MainMenuActivity : AppCompatActivity() {
 
         button_new_game.setOnClickListener {
             startActivity(Intent(this, NewGameActivity::class.java))
+        }
+        button_go_to_rules.setOnClickListener {
+            startActivity(Intent(this, DescriptionRulesActivity::class.java))
         }
     }
 }
