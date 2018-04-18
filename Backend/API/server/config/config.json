@@ -1,6 +1,6 @@
 {
   "development": {
-    "db_URL": "postgres://yauzapjl:Fjhc6aIGgnbAdAvIVnHO0j0m8O7npNSL@baasu.db.elephantsql.com:5432/yauzapjl",
+    "db_URL": "postgres://zoruskpx:Xu4FsOppO2TT75iFMbOatkmH1Asi_6Cp@elmer.db.elephantsql.com:5432/zoruskpx",
     "username": "yauzapjl",
     "password": "Fjhc6aIGgnbAdAvIVnHO0j0m8O7npNSL",
     "database": "yauzapjl",

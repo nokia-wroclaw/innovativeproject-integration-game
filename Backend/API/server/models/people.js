@@ -6,7 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     nickname: DataTypes.STRING
   }, {});
   people.associate = models => {
-    people.belongsToMany(models.category, {through: 'peopleCategory'});
+    people.belongsTo(models.category, 
+      {
+        foreignKey: 'categoryId',
+        onDelete: 'CASCADE'
+    });
   };
   return people;
 };

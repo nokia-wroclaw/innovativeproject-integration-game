@@ -12,11 +12,13 @@ module.exports = (app) => {
   app.put('/api/categories/:categoryId', categoriesController.update);
   app.delete('/api/categories/:categoryId', categoriesController.destroy);
 
-  app.post('/api/people', peopleController.create);
-  app.get('/api/people', peopleController.list);
-  app.get('/api/people/:peopleId', peopleController.retrieve);
-  app.put('/api/people/:peopleId', peopleController.update);
-  app.delete('/api/people/:peopleId', peopleController.destroy);
+app.get('/api/people', peopleController.list);
+app.post('/api/categories/:categoryId/people', peopleController.create);
+  app.put('/api/categories/:categoryId/people/:peopleId', peopleController.update);
+  app.delete(
+    '/api/categories/:categoryId/people/:peopleId', peopleController.destroy
+  );
+
 /*
   app.all('/api/categories/:categoryId/people', (req, res) => res.status(405).send({
     message: 'Method Not Allowed',

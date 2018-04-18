@@ -17,7 +17,19 @@ module.exports = {
       },
       nickname: {
         type: Sequelize.STRING
+        
       },
+      //WAZNE tu zwrocic uwage, czy nie trzeba dac jako model category/categories/Category/Categories
+      categoryId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'category',
+          key: 'id',
+          as: 'categoryId',
+        }
+      },
+
     });
   },
   down: (queryInterface, Sequelize) => {
