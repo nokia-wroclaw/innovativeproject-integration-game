@@ -6,24 +6,13 @@ class ListStore extends EventEmmiter {
     constructor(props) {
         super(props)
         this.state = {
-            data: [{
-                "category": "Actor",
-                "people":
-                [{
-                  "id": 1,
-                  "name": "Jonuedghsbdjfbsdfj",
-                  "surname": "Lawrence",
-                  "nickname": null,
-                  "description":"cos tam Jom"
-                },
-                  
-                ]
-              }],
+            data: [{name : "Actor", people: [{name: "Dorothy Carver"}]}],
         };
     }
 
     setState = (state) => {
-        this.state = {...this.state, ...state}
+        // this.state = {...this.state, ...state}
+        this.state.data = state;
     }
 
     createCharacter(name) {    
@@ -87,7 +76,7 @@ class ListStore extends EventEmmiter {
 
     loadData() {
         this.fetchData().then(data => {
-            this.setState({data:data});
+            this.setState(data);
             this.emit("change");
         });
     }
