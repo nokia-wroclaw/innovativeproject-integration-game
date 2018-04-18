@@ -4,7 +4,6 @@ import { Header, Wrapper, StyledAccordion } from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
 import Character from '../../components/Character/Character';
-
 class categoriesList extends Component {
     constructor(props) {
         super(props);
@@ -16,15 +15,15 @@ class categoriesList extends Component {
     
     renderCategories() {
         return (
-            this.state.data.map((rowdata, index) =>
-                <div>{
-                    <StyledAccordion activeIndex={index} index={index} name={rowdata.category}
-                        characters={rowdata.people.map((subRowData, k) => {
-	                    return <div>
-                            <Character character={subRowData} category={rowdata.category}/>
-                        </div>
-                    })}
-                />
+            this.state.data.map((rowdata, index) => 
+            <div>{
+                <StyledAccordion activeIndex={index} index={index} name={rowdata.name}
+                    characters={rowdata.people.map((subRowData, k) => {
+                    return <div>
+                        <Character character={subRowData} category={rowdata.name}/>
+                    </div>
+                })}
+            />
             }</div>)
         )
     }
@@ -32,7 +31,7 @@ class categoriesList extends Component {
     componentWillMount() {
         ListStore.on("change", () => {
             this.setState({
-                categoriesList: ListStore.getAll(),
+                data: ListStore.getAll(),
             });
         });
     }

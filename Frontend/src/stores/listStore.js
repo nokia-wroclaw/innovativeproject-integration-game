@@ -1,15 +1,25 @@
 import dispatcher from '../dispatcher';
 import EventEmmiter from 'events';
-import dataAll from '../components/CategoriesList/data';
 import axios from 'axios';
 
 class ListStore extends EventEmmiter {
     constructor(props) {
         super(props)
-        this.state = {data: dataAll};
-        // this.state = {
-        //     data: " ",
-        // };
+        this.state = {
+            data: [{
+                "category": "Actor",
+                "people":
+                [{
+                  "id": 1,
+                  "name": "Jonuedghsbdjfbsdfj",
+                  "surname": "Lawrence",
+                  "nickname": null,
+                  "description":"cos tam Jom"
+                },
+                  
+                ]
+              }],
+        };
     }
 
     setState = (state) => {
