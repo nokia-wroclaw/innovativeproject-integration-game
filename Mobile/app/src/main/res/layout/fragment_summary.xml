@@ -78,7 +78,7 @@
             android:layout_margin="20dp"
             android:background="@drawable/rounded_buttons"
             android:fontFamily="@font/actor"
-            android:text="THE END"
+            android:text="NEXT"
             android:textSize="18sp" />
 
     </LinearLayout>
