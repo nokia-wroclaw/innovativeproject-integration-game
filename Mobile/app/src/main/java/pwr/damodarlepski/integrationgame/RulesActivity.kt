@@ -27,7 +27,7 @@ class RulesActivity : PreferenceActivity() {
 
         private fun setListPreferenceDataRounds(lp: MultiSelectListPreference) {
 
-            val values = mutableSetOf("sentences", "one word", "gestures", "pose")
+            val values = mutableSetOf("1", "2", "3", "4")
             lp.values = values
         }
 
