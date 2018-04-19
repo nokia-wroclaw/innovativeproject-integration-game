@@ -6,7 +6,7 @@ class ListStore extends EventEmmiter {
     constructor(props) {
         super(props)
         this.state = {
-            data: [{name : "Actor", people: [{name: "Dorothy Carver"}]}],
+            data: [],
         };
     }
 
@@ -66,12 +66,9 @@ class ListStore extends EventEmmiter {
 
     fetchData()
     {
-        return new Promise(resolve => {
-            axios.get('/api/categories')
-            .then(response => {
-                resolve(response.data)
-            })
-        })
+        return axios.get('/api/categories')
+        .then(response => response.data
+        )
     }
 
     loadData() {

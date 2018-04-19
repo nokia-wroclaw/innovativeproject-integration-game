@@ -14,9 +14,10 @@ class categoriesList extends Component {
     }
     
     renderCategories() {
+        console.log(this.state.data)
         return (
             this.state.data.map((rowdata, index) => 
-            <div>{
+            <div key={index}>{
                 <StyledAccordion activeIndex={index} index={index} name={rowdata.name}
                     characters={rowdata.people.map((subRowData, k) => {
                     return <div>
