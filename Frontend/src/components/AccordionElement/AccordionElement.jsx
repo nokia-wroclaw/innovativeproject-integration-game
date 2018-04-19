@@ -39,7 +39,7 @@ export default class AccordionElement extends Component {
                         </StyledContent>
                     </Wrapper>
                     <StyledCategory id="icon">
-                        <Category category={this.props.name} />
+                        <Category category={this.props.name} id={this.props.id}/>
                     </StyledCategory>
                 </StyledAccordion>
                 

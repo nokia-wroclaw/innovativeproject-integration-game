@@ -63,6 +63,20 @@ class EditCategory extends Component {
         });
     }
 
+    saveEditedCategory = () => {
+        let categoryId = this.state.char.id;
+
+        axios.put(`/api/categories/${categoryId}`, {
+            name: document.getElementById('category').value,
+        })
+          .then((response) => {
+            window.location.reload();
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
+
     saveEditedCharacter = () => {
         if(document.getElementById('nickname').value.length === 0) {
             document.getElementById('nickname').value = null;
@@ -79,7 +93,7 @@ class EditCategory extends Component {
         })
           .then((response) => {
             window.location.reload();
-            // console.log(document.getElementById("nickname").value)
+            // console.log(this.state.char.category)
           })
           .catch(function (error) {
             console.log(error);
@@ -89,7 +103,11 @@ class EditCategory extends Component {
     save = () => {
         if(this.state.char.action === "editCharacter") {
             this.saveEditedCharacter()
-        } else {
+        } 
+        else if(this.state.char.action === "editCategory") {
+            this.saveEditedCategory()
+        } 
+        else {
             window.alert("I dont think so")
         }
     }

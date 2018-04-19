@@ -11,13 +11,15 @@ class Category extends Component {
         this.state = {
             data: null,
             category: this.props.category,
+            id: this.props.id,
             inactive: ["l-name", "l-surname", "l-nickname", "t-description"],
             active: ["l-category"],
+            action: "editCategory"
         }
     }
 
     editCategory = () => {
-        ComponentActions.editCategory(this.state.data, this.state.category, this.state.inactive, this.state.active);
+        ComponentActions.editCategory(this.state.data, this.state.category, this.state.inactive, this.state.active, this.state.action, this.state.id);
     }
 
     createChar = (k) => {

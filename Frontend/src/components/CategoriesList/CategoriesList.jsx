@@ -18,7 +18,7 @@ class categoriesList extends Component {
         return (
             this.state.data.map((rowdata, index) => 
             <div key={index}>{
-                <StyledAccordion activeIndex={index} index={index} name={rowdata.name}
+                <StyledAccordion activeIndex={index} index={index} name={rowdata.name} id={rowdata.id}
                     characters={rowdata.people.map((subRowData, k) => {
                     return <div>
                         <Character character={subRowData} category={rowdata.name}/>
