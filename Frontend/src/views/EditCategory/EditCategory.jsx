@@ -64,6 +64,11 @@ class EditCategory extends Component {
     }
 
     save = () => {
+        if(document.getElementById('nickname').value.length === 0) {
+            document.getElementById('nickname').value = null;
+        }
+        
+
         let categoryId = this.state.char.data.categoryId;
         let id = this.state.char.data.id;
 
@@ -75,6 +80,7 @@ class EditCategory extends Component {
         })
           .then((response) => {
             window.location.reload();
+            // console.log(document.getElementById("nickname").value)
           })
           .catch(function (error) {
             console.log(error);
