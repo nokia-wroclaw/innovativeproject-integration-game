@@ -31,8 +31,18 @@ class EditCategory extends Component {
         else {
             document.getElementById('name').value = value.name;
             document.getElementById('surname').value = value.surname;
-            document.getElementById('nickname').value = value.nickname;
-            document.getElementById('description').value = value.description;
+
+            if(value.nickname === ' ') {
+                document.getElementById('nickname').value = "";
+            } else {
+                document.getElementById('nickname').value = value.nickname;
+            }
+
+            if(value.description === ' ') {
+                document.getElementById('description').value = "";
+            } else {
+                document.getElementById('description').value = value.description;
+            }
         }
 
         inactive.map((id) => {
@@ -79,8 +89,12 @@ class EditCategory extends Component {
 
     saveEditedCharacter = () => {
         if(document.getElementById('nickname').value.length === 0) {
-            document.getElementById('nickname').value = null;
-        }   
+            document.getElementById('nickname').value = ' ';
+        }  
+        
+        if(document.getElementById('description').value.length === 0) {
+            document.getElementById('description').value = ' ';
+        }  
 
         let categoryId = this.state.char.data.categoryId;
         let id = this.state.char.data.id;
@@ -93,7 +107,6 @@ class EditCategory extends Component {
         })
           .then((response) => {
             window.location.reload();
-            // console.log(this.state.char.category)
           })
           .catch(function (error) {
             console.log(error);
