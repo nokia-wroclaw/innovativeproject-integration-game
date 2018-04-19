@@ -90,7 +90,7 @@ export const Button = styled.button`
         cursor: pointer;
         background-color: ${colors.orange};
         color: white;
-        box-shadow: 1px 3px 7px #3a3a3a;
+        box-shadow: 1px 3px 7px ${colors.darkBlue};
     }
 `;
 
