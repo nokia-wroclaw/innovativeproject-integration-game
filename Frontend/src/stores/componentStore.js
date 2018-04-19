@@ -12,11 +12,24 @@ class ComponentStore extends EventEmmiter {
             category: "category",
             inactive: [""],
             active: [""],
-        }
+    
+        };
+
+        this.stateAdd = {
+            data: " stateAdd",
+            categoryAdd: "categoryAdd",
+            inactiveAdd: [""],
+            activeAdd: [""],
+        };
+
     }
 
     setState = (state) => {
         this.state = {...this.state, ...state}
+    }
+
+    setStateAdd = (stateAdd) => {
+        this.stateAdd = {...this.stateAdd, ...stateAdd}
     }
 
 
@@ -26,6 +39,7 @@ class ComponentStore extends EventEmmiter {
             category: category,
             inactive: inactive,
             active: active,
+                     
         });
 
         this.emit("change");
@@ -37,6 +51,18 @@ class ComponentStore extends EventEmmiter {
             category: category,
             inactive: inactive,
             active: active,
+
+        });
+
+        this.emit("change");
+    }
+
+    addCategory(data, categoryAdd, inactiveAdd, activeAdd) {
+        this.setState({
+            data: data,
+            categoryAdd: categoryAdd,
+            inactiveAdd: inactiveAdd,
+            activeAdd: activeAdd,
         });
 
         this.emit("change");
@@ -46,6 +72,11 @@ class ComponentStore extends EventEmmiter {
         return this.state;
     }
 
+    getAllAdd() {
+        return this.stateAdd;
+    }
+
+
     handleActions(action) {
         switch(action.type) {
             case "EDIT_COMPONENT": {
@@ -54,6 +85,10 @@ class ComponentStore extends EventEmmiter {
             }
             case "EDIT_CATEGORY": {
                 this.editCategory(action.data, action.category, action.inactive, action.active);
+                break;
+            }
+            case "ADD_CATEGORY": {
+                this.addCategory(action.data, action.categoryAdd, action.inactiveAdd, action.activeAdd);
                 break;
             }
             default: {

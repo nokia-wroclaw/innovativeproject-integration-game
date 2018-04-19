@@ -8,6 +8,7 @@ import ComponentStore from '../../stores/componentStore';
 import listStore from '../../stores/listStore';
 
 
+
 class EditCategory extends Component {
   renderData() {
     return (
@@ -41,7 +42,14 @@ class EditCategory extends Component {
         this.state = {
             value: listStore.getAll(),
             char: ComponentStore.getAll(),
-        }
+        } ;
+
+        this.stateAdd = {
+            value: listStore.getAll(),
+            char: ComponentStore.getAllAdd(),
+        } ;
+
+
     }
 
     log(value, category, inactive, active) {
@@ -67,18 +75,67 @@ class EditCategory extends Component {
         active.map((id) => {
             document.getElementById(id).disabled = false;
         })
+     
       }
 
+
+
+
+    logAdd(value, categoryAdd, inactiveAdd, activeAdd) {
+        document.getElementById('category').value = categoryAdd;
+
+        if(value === null) {
+            inactiveAdd.map((id) => {
+                document.getElementById(id).value = "";
+            })
+            console.log("null")
+        }
+        else {
+            document.getElementById('name').value = value.name;
+            document.getElementById('surname').value = value.surname;
+            document.getElementById('nickname').value = value.nickname;
+            document.getElementById('description').value = value.description;
+        }
+
+        inactiveAdd.map((id) => {
+            document.getElementById(id).disabled = true;
+        })
+
+        activeAdd.map((id) => {
+            document.getElementById(id).disabled = false;
+        })
+
+      }
+
+
+
+
     componentWillMount() {
+
+
         ComponentStore.on("change", () => {
             this.setState({
                 char: ComponentStore.getAll(),
             });
+            this.setStateAdd({
+                char: ComponentStore.getAllAdd(),
+            });
 
-            const store = ComponentStore.getAll();
+
+            const store = ComponentStore.getAll() ;
             this.log(store.data, store.category, store.inactive, store.active);
+
+                        const stores = ComponentStore.getAllAdd() ;
+                        this.logAdd(stores.data, stores.categoryAdd, stores.inactiveAdd, stores.activeAdd);
+            
+
         });
-    }
+
+   }
+
+
+
+    
 
     render() {
         return (
@@ -89,10 +146,11 @@ class EditCategory extends Component {
                 <Wrapper>
                     <Header label="Edit categories and characters" />
                     <StyledForm id="form">
-                        <div>
-                            <Label>{Object.keys(this.state.value[0])[0]}</Label>
-                            <Input id="category" placeholder="category" />
-                        </div>
+                           <div>
+                               <Label>{Object.keys(this.state.value[0])[0]}</Label>
+                               <Input id="category" placeholder="category" />
+                           </div>
+
 
                         {
                             Object.keys(this.state.value[0].people[0]).map((key) => {
@@ -110,20 +168,13 @@ class EditCategory extends Component {
                                             </StyledTextArea>
                                 }
                             })
-                            
+
                         }
+
                         <Button>Save</Button>
                     </StyledForm>
-		    
-		            {this.props.match.params.category && this.props.match.params.id ? (
 
-                    <div>
-                     {this.renderData()}
-                    </div>
-                    ) : (<div></div>
-                    )}
 
-                    <StyledForm />
                 </Wrapper>
             </Container>
         );

@@ -26,13 +26,6 @@ class ListStore extends EventEmmiter {
         this.emit("change");
     }
 
-    addCharacter(name) {
-        this.setState({
-            actors: [name],
-        });
-
-        this.emit("change");
-    }
 
     getAll() {
         return this.state;
@@ -46,10 +39,6 @@ class ListStore extends EventEmmiter {
             }
             case "EDIT_CHARACTER": {
                 this.editCharacter(action.name);
-                break;
-            }
-            case "ADD_CHARACTER": {
-                this.addCharacter(action.name);
                 break;
             }
             default: {

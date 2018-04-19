@@ -20,6 +20,16 @@ export function editCategory(data, category, inactive, active) {
     });
 }
 
+export function addCategory(data, categoryAdd, inactiveAdd, activeAdd) {
+    dispatcher.dispatch({
+        type: "ADD_CATEGORY",
+        data,
+        categoryAdd,
+        inactiveAdd,
+        activeAdd,
+    });
+}
+
 export function deleteComponent(value) {
     dispatcher.dispatch({
         type: "DELETE_COMPONENT",

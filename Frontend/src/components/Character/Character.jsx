@@ -18,9 +18,6 @@ class Character extends Component {
         ComponentActions.editComponent(this.state.character, this.state.category, this.state.inactive, this.state.active);
     }
 
-    addComponent = () => {
-        ComponentActions.addComponent(this.state.category);
-    }
 
     deleteComponent = () => {
         ComponentActions.deleteComponent(this.state.category);

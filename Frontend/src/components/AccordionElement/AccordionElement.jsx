@@ -17,6 +17,7 @@ export default class AccordionElement extends Component {
     render() {
         const { activeIndex } = this.state
 
+
         return (
             <div>
                 <StyledAccordion>

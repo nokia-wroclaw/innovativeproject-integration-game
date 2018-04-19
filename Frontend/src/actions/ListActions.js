@@ -14,13 +14,6 @@ export function editCharacter(name) {
     });
 }
 
-export function addCharacter(name) {
-    dispatcher.dispatch({
-        type: "ADD_CHARACTER",
-        name,
-    });
-}
-
 
 export function deleteCharacter(name) {
     dispatcher.dispatch({

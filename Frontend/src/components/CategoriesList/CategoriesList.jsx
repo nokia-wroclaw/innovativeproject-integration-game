@@ -6,6 +6,7 @@ import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
 import Character from '../../components/Character/Character';
 
+
 class categoriesList extends Component {
     constructor(props) {
         super(props);
@@ -48,9 +49,6 @@ class categoriesList extends Component {
         ListActions.editCharacter("katherine zeta johnes");
     }
 
-    addCharacter = () => {
-            ListActions.addCharacter("katherine zeta johnes");
-        }
 
     render() {
         return (
