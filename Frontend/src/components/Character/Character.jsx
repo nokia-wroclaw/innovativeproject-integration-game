@@ -12,11 +12,12 @@ class Character extends Component {
             category: this.props.category,
             inactive: ["l-category"],
             active: ["l-name", "l-surname", "l-nickname", "t-description"],
+            action: "editCharacter"
         }
     }
 
     editComponent = () => {
-        ComponentActions.editComponent(this.state.character, this.state.category, this.state.inactive, this.state.active);
+        ComponentActions.editComponent(this.state.character, this.state.category, this.state.inactive, this.state.active, this.state.action);
     }
 
     render() {

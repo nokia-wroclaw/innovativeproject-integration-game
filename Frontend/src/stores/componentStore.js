@@ -13,6 +13,7 @@ class ComponentStore extends EventEmmiter {
             category: "category",
             inactive: [""],
             active: [""],
+            action: "action"
         }
     }
 
@@ -21,31 +22,25 @@ class ComponentStore extends EventEmmiter {
     }
 
 
-    editComponent(data, category, inactive, active) {
+    editComponent(data, category, inactive, active, action) {
         this.setState({
             data: data,
             category: category,
             inactive: inactive,
             active: active,
+            action: action
         });
-
-        axios.get('/api/categories')
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
 
         this.emit("change");
     }
 
-    editCategory(data, category, inactive, active) {
+    editCategory(data, category, inactive, active, action) {
         this.setState({
             data: data,
             category: category,
             inactive: inactive,
             active: active,
+            action: action
         });
 
         this.emit("change");
@@ -58,11 +53,11 @@ class ComponentStore extends EventEmmiter {
     handleActions(action) {
         switch(action.type) {
             case "EDIT_COMPONENT": {
-                this.editComponent(action.data, action.category, action.inactive, action.active);
+                this.editComponent(action.data, action.category, action.inactive, action.active, action.action);
                 break;
             }
             case "EDIT_CATEGORY": {
-                this.editCategory(action.data, action.category, action.inactive, action.active);
+                this.editCategory(action.data, action.category, action.inactive, action.active, action.action);
                 break;
             }
             default: {

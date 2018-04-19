@@ -63,11 +63,10 @@ class EditCategory extends Component {
         });
     }
 
-    save = () => {
+    saveEditedCharacter = () => {
         if(document.getElementById('nickname').value.length === 0) {
             document.getElementById('nickname').value = null;
-        }
-        
+        }   
 
         let categoryId = this.state.char.data.categoryId;
         let id = this.state.char.data.id;
@@ -85,6 +84,14 @@ class EditCategory extends Component {
           .catch(function (error) {
             console.log(error);
           });
+    }
+ 
+    save = () => {
+        if(this.state.char.action === "editCharacter") {
+            this.saveEditedCharacter()
+        } else {
+            window.alert("I dont think so")
+        }
     }
 
     render() {
