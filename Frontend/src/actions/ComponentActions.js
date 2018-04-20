@@ -23,3 +23,14 @@ export function editCategory(data, category, inactive, active, action, id) {
         id
     });
 }
+
+export function addCategory(data, category, inactive, active, action) {
+    dispatcher.dispatch({
+        type: "ADD_CATEGORY",
+        data,
+        category,
+        inactive,
+        active,
+        action
+    });
+}

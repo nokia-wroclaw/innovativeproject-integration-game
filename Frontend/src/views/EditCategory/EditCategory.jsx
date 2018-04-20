@@ -63,7 +63,10 @@ class EditCategory extends Component {
             });
 
             const store = ComponentStore.getAll();
+            console.log(this.state.active)
+            console.log(this.state.inactive)
             this.log(store.data, store.category, store.inactive, store.active);
+            
         });
 
         ListStore.on("change", () => {
@@ -71,6 +74,18 @@ class EditCategory extends Component {
                 value: ListStore.getAll(),
             });
         });
+    }
+
+    saveAddedCategory = () => {
+        axios.post('/api/categories', {
+            name: document.getElementById('category').value,
+        })
+          .then((response) => {
+            window.location.reload();
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 
     saveEditedCategory = () => {
@@ -119,6 +134,9 @@ class EditCategory extends Component {
         } 
         else if(this.state.char.action === "editCategory") {
             this.saveEditedCategory()
+        }
+        else if(this.state.char.action === "addCategory") {
+            this.saveAddedCategory()
         } 
         else {
             window.alert("I dont think so")

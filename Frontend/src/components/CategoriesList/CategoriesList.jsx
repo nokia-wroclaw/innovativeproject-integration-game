@@ -4,6 +4,8 @@ import { Header, Wrapper, StyledAccordion } from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
 import Character from '../../components/Character/Character';
+import AddCategoryButton from '../../components/AddCategoryButton/AddCategoryButton';
+
 class categoriesList extends Component {
     constructor(props) {
         super(props);
@@ -55,7 +57,7 @@ class categoriesList extends Component {
                 <Header>List of categories</Header>
                 <Wrapper>
                     <Accordion>
-                        <Icon onClick class='ui icon plus button'><i class='plus icon'></i></Icon> <br />
+                        <AddCategoryButton />
                         {this.renderCategories()}
                     </Accordion>
                 </Wrapper>
