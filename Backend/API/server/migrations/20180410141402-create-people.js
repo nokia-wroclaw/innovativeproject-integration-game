@@ -16,10 +16,14 @@ module.exports = {
         allowNull: false
       },
       nickname: {
-        type: Sequelize.STRING
-        
+        type: Sequelize.STRING,
+        allowNull: true
       },
-      //WAZNE tu zwrocic uwage, czy nie trzeba dac jako model category/categories/Category/Categories
+      description:{
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      
       categoryId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
