@@ -9,7 +9,7 @@ module.exports = (app) => {
   app.post('/api/categories', categoriesController.create);
   app.get('/api/categories', categoriesController.list);
   app.get('/api/categories/:categoryId', categoriesController.retrieve);
-  app.get('/api/categories/random?ids=[id1,id2,id3,id4]&size=10',categoriesController.randList);
+  app.get('/api/categories/random/:size/?ids=[id1,id2,id3,id4]',categoriesController.randList);
   app.put('/api/categories/:categoryId', categoriesController.update);
   app.delete('/api/categories/:categoryId', categoriesController.destroy);
 //api/categories?id=1&id2&size=40
