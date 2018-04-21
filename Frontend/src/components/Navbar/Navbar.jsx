@@ -14,10 +14,6 @@ export default class Navbar extends Component {
       <Wrapper>
         <Menu secondary>
           <Menu.Menu position='right'>
-            <NavLink to="/categories/display"> 
-                  <StyledItem name="Categories" active={activeItem === "Categories"} onClick={this.handleItemClick} />
-              </NavLink>
-
               <NavLink to="/categories/add"> 
                   <StyledItem name="Add category" active={activeItem === "Add category"} onClick={this.handleItemClick} />
               </NavLink>

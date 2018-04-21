@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import { Menu } from 'semantic-ui-react';
 
 export const Wrapper = styled.div`
+    // margin-top: -70px;
     padding: 15px 40px 0 0;
     position: absolute;
-    left: 73%;
+    left: 68%;
 
     @media (max-width: 1200px) {
         left: 60%;
