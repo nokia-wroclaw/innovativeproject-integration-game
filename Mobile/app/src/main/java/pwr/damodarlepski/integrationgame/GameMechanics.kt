@@ -9,10 +9,10 @@ class GameMechanics : Serializable {
     var teamTwoScore = 0
 
     var currentRound = 0
-    val selectedRounds = listOf(1,2, 3, 4)
+    val selectedRounds = listOf(1, 2)
     val numberOfRounds = selectedRounds.size
 
-    private val cardDeck = mutableListOf<Card>()
+    val cardDeck = mutableListOf<Card>()
     var cardSet = mutableListOf<Card>()
 
     val roundDescription = arrayOf("Description \nIn round 1, the Cluegiver draws a name card and begins giving clues to his teammates (Guessers). The Cluegiver can sing, hum, point, charade, give full descriptions of the person, etc."
@@ -29,7 +29,10 @@ class GameMechanics : Serializable {
     }
 
     fun fillCardSet() {
-        cardSet = cardDeck
+        for (element in cardDeck) {
+            cardSet.add(element)
+        }
+        //cardSet = cardDeck
     }
     fun getRoundDescriptionArray(): Array<String> {
         return roundDescription

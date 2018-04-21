@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:layout_editor_absoluteX="16dp"
     tools:layout_editor_absoluteY="31dp">
@@ -88,8 +87,6 @@
             android:layout_weight="1"
             android:background="@drawable/rounded_corners_skip"
             android:text="SKIP" />
-                />
-
         <Button
             android:id="@+id/button_good"
             android:layout_width="wrap_content"

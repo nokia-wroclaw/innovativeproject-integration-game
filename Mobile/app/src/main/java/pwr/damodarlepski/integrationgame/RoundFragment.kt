@@ -11,38 +11,41 @@ import android.widget.Button
 class RoundFragment : Fragment() {
 
     val TAG = "FragmentRound"
-    override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d(TAG,"onCreate")
-        super.onCreate(savedInstanceState)
-    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val getBundle = arguments
         val gameMechanics = getBundle?.getSerializable("game_mechanics") as GameMechanics
 
+        Log.v("CARD_DECK", gameMechanics.cardDeck.size.toString())
+        gameMechanics.fillCardSet()
+        Log.v("CARD_SET", gameMechanics.cardSet.size.toString())
+
         val view = inflater.inflate(R.layout.fragment_round, container, false)
         val button = view.findViewById(R.id.button_round) as Button
 
-        //button.text = ArrayRounds[indexOfRound]
-        button.text = gameMechanics.getCurrentRoundDescription()
-        gameMechanics.currentRound++
-        gameMechanics.fillCardSet()
+        activity?.runOnUiThread {
 
-        //indexOfRound++
-        //ArrayCategory = ArrayCategoryData.toMutableList()
-        //ArrayPeople = ArrayPeopleData.toMutableList()
+            //button.text = ArrayRounds[indexOfRound]
+            button.text = gameMechanics.getCurrentRoundDescription()
+            gameMechanics.currentRound++
 
-        button.setOnClickListener {
-            val transaction = fragmentManager?.beginTransaction()
-            val fragment = TeamFragment()
+            //indexOfRound++
+            //ArrayCategory = ArrayCategoryData.toMutableList()
+            //ArrayPeople = ArrayPeopleData.toMutableList()
 
-            val passBundle = Bundle()
-            passBundle.putSerializable("game_mechanics", gameMechanics)
-            fragment.arguments = passBundle
+            button.setOnClickListener {
+                val transaction = fragmentManager?.beginTransaction()
+                val fragment = TeamFragment()
 
-            transaction?.replace(R.id.fragment_holder, fragment)
-            transaction?.addToBackStack(null)
-            transaction?.commit()
+                val passBundle = Bundle()
+                passBundle.putSerializable("game_mechanics", gameMechanics)
+                fragment.arguments = passBundle
+
+                transaction?.replace(R.id.fragment_holder, fragment)
+                transaction?.addToBackStack(null)
+                transaction?.commit()
+            }
         }
         return view
     }

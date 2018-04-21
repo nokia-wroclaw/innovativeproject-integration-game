@@ -116,8 +116,8 @@
                     android:id="@+id/textView_players"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Number of players"
-                    android:paddingRight="10dp"/>
+                    android:paddingRight="10dp"
+                    android:text="Number of players" />
 
                 <EditText
                     android:id="@+id/editText_players"

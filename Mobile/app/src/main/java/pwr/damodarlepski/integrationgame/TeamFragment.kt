@@ -3,7 +3,6 @@ package pwr.damodarlepski.integrationgame
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +11,6 @@ import android.widget.Button
 class TeamFragment : Fragment() {
 
     val TAG = "FragmentTeam"
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d(TAG,"onCreate")
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -32,18 +26,20 @@ class TeamFragment : Fragment() {
             team_name = "Team One"
         }*/
 
-        if (gameMechanics.currentTeam == 1) {
-            button.text = "Team One"
-        } else {
-            button.text = "Team Two"
-        }
+        activity?.runOnUiThread {
 
-        //button.text = team_name
+            if (gameMechanics.currentTeam == 1) {
+                button.text = "Team One"
+            } else {
+                button.text = "Team Two"
+            }
 
-        button.isClickable = true
-        button.setOnClickListener {
-            button.isClickable = false
-            activity?.runOnUiThread {
+            //button.text = team_name
+
+            button.isClickable = true
+            button.setOnClickListener {
+                button.isClickable = false
+
                 object : CountDownTimer(3900, 1000) {
 
                     override fun onTick(millisUntilFinished: Long) {
