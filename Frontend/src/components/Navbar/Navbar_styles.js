@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 import { colors } from '../../utils/styles';
 
 export const Wrapper = styled.div`
-    padding: 30px 40px 0 0;
+    padding: 60px 40px 0 0;
     position: absolute;
-    left: 64.5%;
+    left: 66%;
 
     @media (max-width: 1200px) {
         left: 60%;

@@ -21,13 +21,21 @@ export const Container = styled.div`
    
 `;
 
+export const Div = styled.div`
+    position: absolute;
+    height: 50vh;
+    width: 100vw;
+    margin: 50vh;
+    background: ${colors.darkBlue};
+`
+
 export const Wrapper = styled.div`
     position: absolute;
     left: 15%;
     height: 600px;
     width: 70%;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 120px;
     display: flex;
     align-items: center;
     justify-content: center;

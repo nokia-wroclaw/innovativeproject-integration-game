@@ -19,6 +19,7 @@ export const Container = styled.div`
     padding: 50px 0;
     color: white;
     height: 100vh;
+    border-top: 3px solid ${colors.orange};
 `;
 
 export const Header = styled.h1`
@@ -31,7 +32,8 @@ export const Header = styled.h1`
 
 export const Paragraph = styled.p`
     text-align: justify;
-    fint-size: 110%;
+    font-size: 120%;
     line-height: 25px;
+    padding-top: 20px;
 `;
 

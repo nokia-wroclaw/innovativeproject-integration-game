@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Rules from '../../components/Rules/Rules';
-import { ImageLabel, ImageClock, Wrapper, StyledIcon, Logo, Container } from './Home_styles';
-// import clock from '../../images/clock-icon.png'
-// import clock from '../../../public/alarm-clock.svg';
+import { ImageLabel, ImageClock, Wrapper, StyledIcon, Logo, Container, Div } from './Home_styles';
 
 class App extends Component {
   render() {
@@ -21,7 +19,8 @@ class App extends Component {
             <a href="#rules"><StyledIcon><i class="fas fa-angle-down fa-3x"></i></StyledIcon></a>
           
         </Wrapper>
-          <Rules id="rules" />
+        {/* <Div></Div> */}
+        <Rules id="rules" />
       </Container>
     );
   }
