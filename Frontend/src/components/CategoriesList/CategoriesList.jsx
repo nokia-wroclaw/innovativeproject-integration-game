@@ -39,18 +39,6 @@ class categoriesList extends Component {
         });
     }
 
-    createCharacter() {
-        ListActions.createCharacter(Date.now());
-    }
-
-    editCharacter = () => {
-        ListActions.editCharacter("katherine zeta johnes");
-    }
-
-    addCharacter = () => {
-            ListActions.addCharacter("katherine zeta johnes");
-        }
-
     render() {
         return (
             <div>

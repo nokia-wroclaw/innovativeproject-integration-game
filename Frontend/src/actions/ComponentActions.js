@@ -34,3 +34,15 @@ export function addCategory(data, category, inactive, active, action) {
         action
     });
 }
+
+export function addCharacter(data, category, inactive, active, action, id) {
+    dispatcher.dispatch({
+        type: "ADD_CHARACTER",
+        data,
+        category,
+        inactive,
+        active,
+        action,
+        id
+    });
+}

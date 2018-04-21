@@ -15,26 +15,26 @@ class ListStore extends EventEmmiter {
         this.state.data = state;
     }
 
-    createCharacter(name) {    
-        console.log(this.state);
-        this.emit("change");
-    }
+    // createCharacter(name) {    
+    //     console.log(this.state);
+    //     this.emit("change");
+    // }
 
-    editCharacter(name) {
-        this.setState({
-            actors: [name],
-        });
+    // editCharacter(name) {
+    //     this.setState({
+    //         actors: [name],
+    //     });
 
-        this.emit("change");
-    }
+    //     this.emit("change");
+    // }
 
-    addCharacter(name) {
-        this.setState({
-            actors: [name],
-        });
+    // addCharacter(name) {
+    //     this.setState({
+    //         actors: [name],
+    //     });
 
-        this.emit("change");
-    }
+    //     this.emit("change");
+    // }
 
     getAll() {
         return this.state.data;
@@ -42,18 +42,18 @@ class ListStore extends EventEmmiter {
 
     handleActions(action) {
         switch(action.type) {
-            case "CREATE_CHARACTER": {
-                this.createCharacter(action.text);
-                break;
-            }
-            case "EDIT_CHARACTER": {
-                this.editCharacter(action.name);
-                break;
-            }
-            case "ADD_CHARACTER": {
-                this.addCharacter(action.name);
-                break;
-            }
+            // case "CREATE_CHARACTER": {
+            //     this.createCharacter(action.text);
+            //     break;
+            // }
+            // case "EDIT_CHARACTER": {
+            //     this.editCharacter(action.name);
+            //     break;
+            // }
+            // case "ADD_CHARACTER": {
+            //     this.addCharacter(action.name);
+            //     break;
+            // }
             case "FETCH_DATA": {
                 this.loadData();
                 break;

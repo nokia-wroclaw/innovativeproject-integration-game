@@ -60,6 +60,19 @@ class ComponentStore extends EventEmmiter {
         this.emit("change");
     }
 
+    addCharacter(data, category, inactive, active, action, id) {
+        this.setState({
+            data: data,
+            category: category,
+            inactive: inactive,
+            active: active,
+            action: action,
+            id: id
+        });
+
+        this.emit("change");
+    }
+
     getAll() {
         return this.state;
     }
@@ -75,7 +88,11 @@ class ComponentStore extends EventEmmiter {
                 break;
             }
             case "ADD_CATEGORY": {
-                this.editCategory(action.data, action.category, action.inactive, action.active, action.action);
+                this.addCategory(action.data, action.category, action.inactive, action.active, action.action);
+                break;
+            }
+            case "ADD_CHARACTER": {
+                this.addCharacter(action.data, action.category, action.inactive, action.active, action.action, action.id);
                 break;
             }
             default: {

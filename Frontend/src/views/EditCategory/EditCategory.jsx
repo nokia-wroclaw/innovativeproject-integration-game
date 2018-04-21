@@ -20,38 +20,49 @@ class EditCategory extends Component {
         }
     }
 
-    log(value, category, inactive, active) {
-        document.getElementById('category').value = category;
-
-        if(value === null) {
+    log(value, category, inactive, active, action) {
+        if(action === "addCharacter") {
             inactive.map((id) => {
-                document.getElementById(id).value = "";
+                document.getElementById(id).style = "display: none;";
+            })
+
+            active.map((id) => {
+                document.getElementById(id).style = "display: block;";
+            })
+        } 
+        else {
+            document.getElementById('category').value = category;
+
+            if(value === null) {
+                inactive.map((id) => {
+                    document.getElementById(id).value = "";
+                })
+            }
+            else {
+                document.getElementById('name').value = value.name;
+                document.getElementById('surname').value = value.surname;
+
+                if(value.nickname === ' ') {
+                    document.getElementById('nickname').value = "";
+                } else {
+                    document.getElementById('nickname').value = value.nickname;
+                }
+
+                if(value.description === ' ') {
+                    document.getElementById('description').value = "";
+                } else {
+                    document.getElementById('description').value = value.description;
+                }
+            }
+
+            inactive.map((id) => {
+                document.getElementById(id).style = "display: none;";
+            })
+
+            active.map((id) => {
+                document.getElementById(id).style = "display: block;";
             })
         }
-        else {
-            document.getElementById('name').value = value.name;
-            document.getElementById('surname').value = value.surname;
-
-            if(value.nickname === ' ') {
-                document.getElementById('nickname').value = "";
-            } else {
-                document.getElementById('nickname').value = value.nickname;
-            }
-
-            if(value.description === ' ') {
-                document.getElementById('description').value = "";
-            } else {
-                document.getElementById('description').value = value.description;
-            }
-        }
-
-        inactive.map((id) => {
-            document.getElementById(id).style = "display: none;";
-        })
-
-        active.map((id) => {
-            document.getElementById(id).style = "display: block;";
-        })
       }
 
     componentWillMount() {
@@ -65,7 +76,7 @@ class EditCategory extends Component {
             const store = ComponentStore.getAll();
             console.log(this.state.active)
             console.log(this.state.inactive)
-            this.log(store.data, store.category, store.inactive, store.active);
+            this.log(store.data, store.category, store.inactive, store.active, store.action);
             
         });
 
@@ -74,6 +85,23 @@ class EditCategory extends Component {
                 value: ListStore.getAll(),
             });
         });
+    }
+
+    saveAddedCharacter = () => {
+        let categoryId = this.state.char.id;
+
+        axios.post(`/api/categories/${categoryId}/people`, {
+            name: document.getElementById('name').value,
+            surname: document.getElementById('surname').value,
+            nickname: document.getElementById('nickname').value,
+        })
+          .then((response) => {
+            window.location.reload();
+            // console.log(document.getElementById('name').value)
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 
     saveAddedCategory = () => {
@@ -137,6 +165,9 @@ class EditCategory extends Component {
         }
         else if(this.state.char.action === "addCategory") {
             this.saveAddedCategory()
+        } 
+        else if(this.state.char.action === "addCharacter") {
+            this.saveAddedCharacter()
         } 
         else {
             window.alert("I dont think so")
