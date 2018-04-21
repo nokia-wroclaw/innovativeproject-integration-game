@@ -21,7 +21,7 @@ class App extends Component {
             <a href="#rules"><StyledIcon><i class="fas fa-angle-down fa-3x"></i></StyledIcon></a>
           
         </Wrapper>
-        {/* <Rules id="rules" /> */}
+          <Rules id="rules" />
       </Container>
     );
   }

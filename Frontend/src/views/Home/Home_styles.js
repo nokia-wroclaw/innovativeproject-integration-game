@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { colors } from '../../utils/styles';
 import { Icon } from 'semantic-ui-react';
 import ReactSVG from 'react-svg';
+// import image from '../../../public/shattered.png';
 
 export const ImageLabel = styled.img`
     width: 90%;
@@ -17,7 +18,7 @@ export const ImageClock = styled(ReactSVG)`
 `;
 
 export const Container = styled.div`
-    // height: 800px;
+   
 `;
 
 export const Wrapper = styled.div`
@@ -33,6 +34,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     box-shadow: 0 0 8px #aaa;
     border-radius: 5px;
+    background-image: url('../../../public/shattered');
 `;
 
 export const StyledIcon = styled(Icon)`
