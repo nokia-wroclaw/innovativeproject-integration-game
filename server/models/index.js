@@ -10,7 +10,7 @@ let sequelize;
 if(config.db_URL) sequelize =new Sequelize(config.db_URL, {omitNull: true});
  else{
   sequelize = new Sequelize(
-    config.database, config.username, config.password, config, {omitNull: true}
+    config.database, config.username, config.password, {host: config.host, dialect: config.dialect}, {omitNull: true}
   );}
 
 sequelize.sync();
