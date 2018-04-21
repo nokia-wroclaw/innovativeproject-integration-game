@@ -1,0 +1,165 @@
+[
+  {
+    "category": "Actor",
+    "people":
+    [{
+      "id": 1,
+      "name": "Jon",
+      "surname": "Lawrence",
+      "nickname": null,
+      "description":"cos tam Jom"
+    },
+      {
+        "id": 2,
+        "name": "Allison",
+        "surname": "McMahon",
+        "nickname": "Chan",
+        "description":"cos tam Allison"
+      },
+      {
+        "id": 3,
+        "name": "Eddie",
+        "surname": "McCormick",
+        "nickname": null,
+        "description":null
+      },
+      {
+        "id": 4,
+        "name": "Dorothy",
+        "surname": "Carver",
+        "nickname": "Carlton",
+        "description":"cos tam Dorothy"
+      },
+      {
+        "id": 5,
+        "name": "Gayle",
+        "surname": "Craig",
+        "nickname": "Beatty",
+        "description":"cos tam Gayle"
+      }
+    ]
+  }
+,
+  {
+    "category": "Sport",
+    "people":
+    [{
+      "id": 1,
+      "name": "Jon",
+      "surname": "Lawrence",
+      "nickname": null,
+      "description":"cos tam Jom"
+    },
+      {
+        "id": 2,
+        "name": "Allison",
+        "surname": "McMahon",
+        "nickname": "Chan",
+        "description":"cos tam Allison"
+      },
+      {
+        "id": 3,
+        "name": "Eddie",
+        "surname": "McCormick",
+        "nickname": null,
+        "description":"cos tam Eddie"
+      },
+      {
+        "id": 4,
+        "name": "Dorothy",
+        "surname": "Carver",
+        "nickname": "Carlton",
+        "description":"cos tam Dorothy"
+      },
+      {
+        "id": 5,
+        "name": "Gayle",
+        "surname": "Craig",
+        "nickname": "Beatty",
+        "description":"cos tam Gayle"
+      }
+    ]
+  },
+  {
+    "category": "Musicians",
+    "people":
+    [{
+      "id": 1,
+      "name": "Jon",
+      "surname": "Lawrence",
+      "nickname": null,
+      "description":"cos tam Jom"
+    },
+      {
+        "id": 2,
+        "name": "Allison",
+        "surname": "McMahon",
+        "nickname": "Chan",
+        "description":"cos tam Allison"
+      },
+      {
+        "id": 3,
+        "name": "Eddie",
+        "surname": "McCormick",
+        "nickname": null,
+        "description":"cos tam Eddie"
+      },
+      {
+        "id": 4,
+        "name": "Dorothy",
+        "surname": "Carver",
+        "nickname": "Carlton",
+        "description":"cos tam Dorothy"
+      },
+      {
+        "id": 5,
+        "name": "Gayle",
+        "surname": "Craig",
+        "nickname": "Beatty",
+        "description":"cos tam Gayle"
+      }
+    ]
+  },
+  {
+    "category": "Writers",
+    "people":
+    [{
+      "id": 1,
+      "name": "Jon",
+      "surname": "Lawrence",
+      "nickname": null,
+      "description":"cos tam Jom"
+    },
+      {
+        "id": 2,
+        "name": "Allison",
+        "surname": "McMahon",
+        "nickname": "Chan",
+        "description":"cos tam Allison"
+      },
+      {
+        "id": 3,
+        "name": "Eddie",
+        "surname": "McCormick",
+        "nickname": null,
+        "description":"cos tam Eddie"
+      },
+      {
+        "id": 4,
+        "name": "Dorothy",
+        "surname": "Carver",
+        "nickname": "Carlton",
+        "description":"cos tam Dorothy"
+      },
+      {
+        "id": 5,
+        "name": "Gayle",
+        "surname": "Craig",
+        "nickname": "Beatty",
+        "description":"cos tam Gayle"
+      }
+    ]
+  }
+
+
+]

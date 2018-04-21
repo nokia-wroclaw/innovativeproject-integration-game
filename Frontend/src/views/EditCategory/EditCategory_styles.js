@@ -1,5 +1,53 @@
 import styled from 'styled-components';
+import { colors } from '../../utils/styles';
+import { Form } from 'semantic-ui-react';
 
-export const Div = styled.div`
-  
+export const Container = styled.div`
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+`;
+
+export const List = styled.div`
+    min-height: 100vh;
+    width: 25%;
+    background-color: ${colors.darkBlue};
+    border-right: 1px solid #246770;
+`;
+
+export const Wrapper = styled.div`
+    height: 100vh;
+    width: 75%;
+`;
+
+export const StyledForm = styled.div`
+    width: 90%;
+    margin: 50px auto 0 auto;
+`;
+
+export const Label = styled.label`
+    display: block;
+    margin: 15px 0 5px 0;
+`;
+
+export const Button = styled.button`
+    margin: 40px 0 40px 0;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid ${colors.orange};
+    outline: none;
+    background-color: white;
+    color: ${colors.orange};
+    font-size: 120%;
+    font-weight: bold;
+    &:hover {
+        cursor: pointer;
+        background-color: ${colors.orange};
+        color: white;
+    }
+`;
+
+export const StyledTextArea = styled(Form)`
+    width: 50%;
 `;
