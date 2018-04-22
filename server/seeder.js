@@ -40,11 +40,10 @@ function insertPeople() {
             name: jsonContentPeople.people[i].name,
             surname: jsonContentPeople.people[i].surname,
             nickname: jsonContentPeople.people[i].nickname,
-            categoryId: (i%4+1),
-            description: jsonContentPeople.people[i].description
+            categoryId: (i%6+1),
+            //description: jsonContentPeople.people[i].description
         })
     }
 }
 sequelize.sync()
-.then(()=>insertCategory())
 .then(()=>insertPeople())

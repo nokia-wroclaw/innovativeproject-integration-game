@@ -1,9 +1,9 @@
 {
   "development": {
-    "db_URL": "postgres://dvqneuov:ouzb5LLrfFsvZ27ZCndq9Q8QmPteIyyL@elmer.db.elephantsql.com:5432/dvqneuov",
-    "username": "dvqneuov",
-    "password": "ouzb5LLrfFsvZ27ZCndq9Q8QmPteIyyL",
-    "database": "dvqneuov",
+    "db_URL": "postgres://zoruskpx:Xu4FsOppO2TT75iFMbOatkmH1Asi_6Cp@elmer.db.elephantsql.com:5432/zoruskpx",
+    "username": "zoruskpx",
+    "password": "Xu4FsOppO2TT75iFMbOatkmH1Asi_6Cp",
+    "database": "zoruskpx",
     "host": "elmer.db.elephantsql.com",
     "port": 5432,
     "dialect": "postgres"

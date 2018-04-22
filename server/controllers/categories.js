@@ -53,33 +53,21 @@ module.exports = {
   },
 
   randList(req, res) {
-    var Models = [];
-    console.log(splitter(req.params.ids))
-    for ( var i=0; i<splitter(req.params.ids).length; i++)
-    Models.push (Category
-      .findById(req.body.splitter(req.params.ids)[i+1], {
-        include: [{
-          model: People,
-          as: 'people',
-          limit: req.body.size
-        }],
-        order:[
-          [ Sequelize.random()],
-        ],
-        
-      })
-      .then((category) => {
-        if (!category) {
-          return res.status(404).send({
-            message: 'Category Not Found',
-          });
-        }
-        return res.status(200).send(category);
-      })
-      .catch((error) => res.status(400).send(error))
-    )
-      return Models;
+    return Category
+    .findAll( {
+      include: [{
+        model: People,
+      //  limit: req.params.size
+      }],
+     /* order:[
+        [ Sequelize.random()],
+      ], */
+      
+    })
+    .then((categories) => res.status(200).send(categories))
+    .catch((error) => res.status(400).send(error));
   },
+
 
   update(req, res) {
     return Category
