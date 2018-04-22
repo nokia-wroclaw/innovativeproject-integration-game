@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="custom_rules"
+        android:summary="@string/rules_custom_summary"
+        android:title="@string/rules_custom_switch_title"
+        android:background="@drawable/backgroundimage"/>
+    <PreferenceCategory
+        android:key="rules_storage"
+        android:title="@string/rules_storage_title"
+        android:background="@drawable/backgroundimage">
+
+        <MultiSelectListPreference
+            android:dependency="custom_rules"
+            android:key="categories"
+            android:summary="@string/rules_categories_summary"
+            android:title="@string/rules_categories_title"
+            android:background="@drawable/backgroundimage"/>
+
+        <ListPreference
+            android:defaultValue="30"
+            android:dependency="custom_rules"
+            android:entries="@array/rules_time_for_guessing_list_titles"
+            android:entryValues="@array/rules_time_for_guessing_list_values"
+            android:key="time_for_guessing"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:summary="@string/rules_time_for_guessing_summary"
+            android:title="@string/rules_time_for_guessing_title"
+            android:background="@drawable/backgroundimage"/>
+
+        <MultiSelectListPreference
+            android:dependency="custom_rules"
+            android:entries="@array/rules_rounds_list_titles"
+            android:entryValues="@array/rules_rounds_list_values"
+            android:key="rounds"
+            android:summary="@string/rules_rounds_summary"
+            android:dialogTitle="Describe person with ... "
+            android:title="@string/rules_rounds_title"
+            android:background="@drawable/backgroundimage"/>
+
+        <ListPreference
+            android:defaultValue="2"
+            android:dependency="custom_rules"
+            android:entries="@array/rules_number_of_skipped_cards_list_titles"
+            android:entryValues="@array/rules_number_of_skipped_cards_list_values"
+            android:key="number_of_skipped_cards"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:summary="@string/rules_number_of_skipped_cards_summary"
+            android:title="@string/rules_number_of_skipped_cards_title"
+            android:background="@drawable/backgroundimage"/>
+
+        <ListPreference
+            android:defaultValue="40"
+            android:dependency="custom_rules"
+            android:entries="@array/rules_total_number_of_cards_list_titles"
+            android:entryValues="@array/rules_total_number_of_cards_list_values"
+            android:key="total_number_of_cards"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:summary="@string/rules_total_number_of_cards_summary"
+            android:title="@string/rules_total_number_of_cards_title"
+            android:background="@drawable/backgroundimage"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
