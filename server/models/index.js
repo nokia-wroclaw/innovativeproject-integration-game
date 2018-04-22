@@ -18,7 +18,7 @@ if(config.db_URL) sequelize =new Sequelize(config.db_URL, {omitNull: true});
     dialect:  'postgres',
     protocol: 'postgres',
     port:     5000,
-   // host:      ,
+    host:      localhost,
     logging:  true //false
   })
 
