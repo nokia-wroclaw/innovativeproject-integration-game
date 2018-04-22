@@ -8,12 +8,12 @@ const db = {};
 
 let sequelize;
 
-if(config.db_URL) sequelize =new Sequelize(config.db_URL, {omitNull: true});
- else{
+//if(config.db_URL) sequelize =new Sequelize(config.db_URL, {omitNull: true});
+ 
   sequelize = new Sequelize(
     config.database, config.username, config.password, {host: config.host, dialect: config.dialect}, {omitNull: true}
-  );}
-
+  )
+/*
   sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_CONCENTRIC_URL, {
     dialect:  'postgres',
     protocol: 'postgres',
@@ -21,7 +21,7 @@ if(config.db_URL) sequelize =new Sequelize(config.db_URL, {omitNull: true});
   //  host:      localhost,
     logging:  true //false
   })
-
+*/
 
 
 fs
