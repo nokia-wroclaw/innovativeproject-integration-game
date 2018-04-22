@@ -55,3 +55,11 @@ export function deleteCharacter(data, category, action) {
         action
     });
 }
+
+export function deleteCategory(action, id) {
+    dispatcher.dispatch({
+        type: "DELETE_CATEGORY",
+        action,
+        id
+    });
+}

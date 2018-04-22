@@ -15,7 +15,8 @@ class Category extends Component {
             inactive: ["l-name", "l-surname", "l-nickname", "t-description"],
             active: ["l-category"],
             editAction: "editCategory",
-            addAction: "addCharacter"
+            addAction: "addCharacter",
+            deleteAction: "deleteCategory"
         }
     }
 
@@ -27,8 +28,8 @@ class Category extends Component {
         ComponentActions.addCharacter(this.state.data, this.state.category, this.state.active, this.state.inactive, this.state.addAction, this.state.id);
     }
 
-    add = () => {
-        console.log("add char");
+    deleteCategory = () => {
+        ComponentActions.deleteCategory(this.state.deleteAction, this.state.id);
     }
 
     render() {
@@ -36,6 +37,7 @@ class Category extends Component {
             <StyledIcon>
                 <Icon onClick={this.editCategory} class='ui icon edit icon button'><i class='edit icon'></i></Icon>
                 <Icon onClick={this.addCharacter} class='ui icon plus button'><i class='plus icon'></i></Icon>
+                <Icon onClick={this.deleteCategory} class='ui icon delete icon button'><i class='delete icon'></i></Icon>
             </StyledIcon>
         );
     }

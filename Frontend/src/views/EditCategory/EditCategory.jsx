@@ -28,6 +28,7 @@ class EditCategory extends Component {
 
             active.map((id) => {
                 document.getElementById(id).style = "display: block;";
+                document.getElementById(id).value = "";
             })
         }
         else if (action === "deleteCharacter" || action === "deleteCategory") {
@@ -77,11 +78,10 @@ class EditCategory extends Component {
             });
 
             const store = ComponentStore.getAll();
-            console.log(this.state.active)
-            console.log(this.state.inactive)
             this.log(store.data, store.category, store.inactive, store.active, store.action);
             
             if(store.action === "deleteCharacter") this.deleteCharacter(store.data.categoryId, store.data.id);
+            if(store.action === "deleteCategory") this.deleteCategory(store.id);
         });
 
         ListStore.on("change", () => {
@@ -89,6 +89,16 @@ class EditCategory extends Component {
                 value: ListStore.getAll(),
             });
         });
+    }
+
+    deleteCategory = (categoryId) => {
+        axios.delete(`/api/categories/${categoryId}`)
+          .then((response) => {
+            window.location.reload();
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 
     deleteCharacter = (categoryId, id) => {
