@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(module.filename);
+var pg = require('pg');
+pg.defaults.ssl = true;
 const env = process.env.NODE_ENV || 'development';
 const config = require(`${__dirname}/../config/config.json`)[env];
 const db = {};
@@ -11,7 +13,7 @@ let sequelize;
 //if(config.db_URL) sequelize =new Sequelize(config.db_URL, {omitNull: true});
  
   sequelize = new Sequelize(
-    config.database, config.username, config.password, {host: config.host, dialect: config.dialect}, {omitNull: true}
+    config.database, config.username, config.password,  {host: config.host, dialect: config.dialect, ssl: true}, {omitNull: true}
   )
 /*
   sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_CONCENTRIC_URL, {
