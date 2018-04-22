@@ -32,8 +32,7 @@ class EditCategory extends Component {
             })
         }
         else if (action === "deleteCharacter" || action === "deleteCategory") {
-            console.log("ok");
-        } 
+      }
         else {
             document.getElementById('category').value = category;
 
@@ -109,6 +108,7 @@ class EditCategory extends Component {
           .catch(function (error) {
             console.log(error);
           });
+
     }
 
     saveAddedCharacter = () => {
@@ -227,18 +227,12 @@ class EditCategory extends Component {
                             <Label>description</Label>
                             <StyledArea id="description" placeholder="description" />
                         </StyledTextArea>
+
                         <Button onClick={this.save}>Save</Button>
                     </StyledForm>
 		    
-		            {this.props.match.params.category && this.props.match.params.id ? (
 
-                    <div>
-                     {this.renderData()}
-                    </div>
-                    ) : (<div></div>
-                    )}
 
-                    <StyledForm />
                 </Wrapper>
             </Container>
         );

@@ -9,30 +9,24 @@ class Rules extends Component {
                 <Header>RULES</Header>
                 <br/>
                 <Paragraph>
-                    1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                    ut labore et dolore magna aliqua. Est lorem ipsum dolor sit amet consectetur adipiscing elit. 
-                    Blandit turpis cursus in hac habitasse platea dictumst quisque. 
+                   Time's up nokia game is a  party game. It is a game for two teams, and is played in all rounds. Teams of two or more players. Before the game begins, each player looks at several cards featuring famous actors, sport people and etc. Then chooses some of cards. They are shuffled to, and this cards of famous people is used for each of the game's rounds.
+                   <br/><br/>
+                   The game is played using a set between 10 and 40 of randomly chosen name cards. Cards are used throughout all rounds of the game. Gamer decides how long is rounds. Each team guess as many names as possible, with one player giving clues to his teammates. Players use words, sound effects and charades as they give their clues. The game is becoming more and more limited in subsequent rounds. On each team's turn, one member of the team is the Cluegiver and the rest are the Guessers.
+                   <br/><br/>
+                   <p><b>Description</b></p>
+                   ROUND 1, the Cluegiver draws a name card and begins giving clues to his teammates (Guessers). The Cluegiver can sing, hum, point, charade, give full descriptions of the person, etc.
+                   <br/><br/>
+                   <p>One word</p>
+                   ROUND 2, the Cluegiver may give only one word for each clue, which may be repeated as often as desired. Once the word is said, only non-verbal clues (sound effects, charades) may be given.
+                   <br/><br/>
+                   <p>Showing without speaking</p>
+                   ROUND 3, the Cluegiver may not use any words at all. Only sounds and charades may be used for each clue.
+                   <br/><br/>
+                   <p>Pose</p>
+                   ROUND 4, The Guesser starts with their eyes closed while the Cluegiver freezes in a pose depicting their clue. Once frozen, the Guesser opens their eyes and must give one guess.
+                   <br/><br/>
+                   The team with the highest score after all rounds is the winner.
                     <br/><br/>
-                    2. Molestie at elementum eu facilisis sed odio morbi quis commodo. Dapibus ultrices in iaculis 
-                    nunc. Urna cursus eget nunc scelerisque viverra. Nunc eget lorem dolor sed viverra ipsum nunc 
-                    aliquet. 
-                    <br/><br/>
-                    3. Vestibulum sed arcu non odio euismod. Eget nunc lobortis mattis aliquam faucibus purus in 
-                    massa tempor. Interdum consectetur libero id faucibus. Urna neque viverra justo nec ultrices 
-                    dui sapien eget. 
-                    <br/><br/>
-                    4. Enim facilisis gravida neque convallis a cras semper auctor neque. Quam vulputate dignissim 
-                    suspendisse in est ante in. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim. 
-                    Sit amet aliquam id diam maecenas ultricies mi. At volutpat diam ut venenatis.
-                    <br/><br/>
-                    5. Cras pulvinar mattis nunc sed blandit. Diam in arcu cursus euismod quis viverra nibh. Tellus 
-                    elementum sagittis vitae et leo. Ipsum dolor sit amet consectetur adipiscing elit. 
-                    <br/><br/>
-                    6.Nisi porta lorem mollis aliquam ut porttitor leo a. Sed id semper risus in hendrerit gravida 
-                    rutrum quisque non. Nullam non nisi est sit amet. Ut sem nulla pharetra diam sit amet nisl suscipit. 
-                    <br/><br/>
-                    7.Viverra adipiscing at in tellus integer feugiat scelerisque varius morbi. Facilisi etiam dignissim 
-                    diam quis enim. Dui accumsan sit amet nulla facilisi morbi tempus. Id diam maecenas ultricies mi.
                 </Paragraph>
                 <Footer>
                      

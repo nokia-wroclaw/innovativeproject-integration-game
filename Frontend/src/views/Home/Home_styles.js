@@ -48,6 +48,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     box-shadow: 0 0 8px #aaa;
     border-radius: 5px;
+
     background-image: url("../../../shattered.png");
 `;
 
