@@ -1,10 +1,10 @@
 {
   "development": {
-    "db_URL": "postgres://dvqneuov:ouzb5LLrfFsvZ27ZCndq9Q8QmPteIyyL@elmer.db.elephantsql.com:5432/dvqneuov",
-    "username": "zoruskpx",
-    "password": "Xu4FsOppO2TT75iFMbOatkmH1Asi_6Cp",
-    "database": "zoruskpx",
-    "host": "elmer.db.elephantsql.com",
+    "db_URL": "postgres://eeotujobsspsxn:36982cd42495721c08ce17c2461b8c381631d8e45314a80d743303752a088ceb@ec2-54-247-81-88.eu-west-1.compute.amazonaws.com:5432/d31lt9tde7s9l4",
+    "username": "eeotujobsspsxn",
+    "password": "36982cd42495721c08ce17c2461b8c381631d8e45314a80d743303752a088ceb",
+    "database": "d31lt9tde7s9l4",
+    "host": "ec2-54-247-81-88.eu-west-1.compute.amazonaws.com",
     "port": 5432,
     "dialect": "postgres",
     "use_env_variable": "DATABASE_URL"
