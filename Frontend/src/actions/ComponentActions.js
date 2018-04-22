@@ -46,3 +46,12 @@ export function addCharacter(data, category, inactive, active, action, id) {
         id
     });
 }
+
+export function deleteCharacter(data, category, action) {
+    dispatcher.dispatch({
+        type: "DELETE_CHARACTER",
+        data,
+        category,
+        action
+    });
+}

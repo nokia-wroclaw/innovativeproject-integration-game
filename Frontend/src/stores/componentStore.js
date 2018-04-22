@@ -73,6 +73,16 @@ class ComponentStore extends EventEmmiter {
         this.emit("change");
     }
 
+    deleteCharacter(data, category, action) {
+        this.setState({
+            data: data,
+            category: category,
+            action: action
+        });
+
+        this.emit("change");
+    }
+
     getAll() {
         return this.state;
     }
@@ -93,6 +103,10 @@ class ComponentStore extends EventEmmiter {
             }
             case "ADD_CHARACTER": {
                 this.addCharacter(action.data, action.category, action.inactive, action.active, action.action, action.id);
+                break;
+            }
+            case "DELETE_CHARACTER": {
+                this.deleteCharacter(action.data, action.category, action.action);
                 break;
             }
             default: {

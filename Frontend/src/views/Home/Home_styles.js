@@ -21,6 +21,12 @@ export const Container = styled.div`
    
 `;
 
+export const A = styled.a`
+   &:hover {
+       cursor: pointer;
+   }
+`;
+
 export const Div = styled.div`
     position: absolute;
     height: 50vh;
