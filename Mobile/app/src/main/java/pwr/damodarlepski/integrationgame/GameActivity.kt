@@ -1,7 +1,12 @@
 package pwr.damodarlepski.integrationgame
 
+import android.content.Intent
+import android.nfc.Tag
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import android.widget.Toast
 
 /*
 var teamOneCounter = 0
@@ -59,29 +64,25 @@ class GameActivity : AppCompatActivity() {
 
     }
 
-    //TO DO alert (when click you twice to back button you exit game
-    // val TAG=""
-    //val twice:Boolean = false
+    var twice:Boolean = false
     override fun onBackPressed() {
        //super.onBackPressed()
-       /*Log.d(TAG,"click")
        if(twice==true){
-           Intent.intent = new Intent(Intent.ACTION_MAIN)
+           /*
+           val intent: Intent = Intent (Intent.ACTION_MAIN)
            intent.addCategory(Intent.CATEGORY_HOME)
            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
            startActivity(intent)
            finish()
+           System.exit(0)*/
+           startActivity(Intent(this, MainMenuActivity::class.java))
+           finish()
            System.exit(0)
        }
        twice=true
-       Log.d(Tag,"twice"+twice)
-       Toast.makeText(MainMenuActivity.this,"Please press BACK again to exit", Toast.LENGTH_SHORT).show()
-       new Handler().postDelayed(new Runnable(){
-           @Override
-           fun run(){
-               twice=false;
-
-           }
-       },3000)*/
+       Toast.makeText(this,"Please press BACK again to exit", Toast.LENGTH_SHORT).show()
+        Handler().postDelayed({
+            twice=false
+        }, 3000)
     }
 }
