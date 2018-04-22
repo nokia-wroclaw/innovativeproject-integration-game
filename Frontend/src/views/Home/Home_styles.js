@@ -48,7 +48,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     box-shadow: 0 0 8px #aaa;
     border-radius: 5px;
-    background-image: url('../../../public/shattered');
+    background-image: url("../../../shattered.png");
 `;
 
 export const StyledIcon = styled(Icon)`
