@@ -17,8 +17,8 @@ if(config.db_URL) sequelize =new Sequelize(config.db_URL, {omitNull: true});
   sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_CONCENTRIC_URL, {
     dialect:  'postgres',
     protocol: 'postgres',
-    port:     match[4],
-    host:     match[3],
+    port:     5000,
+   // host:      ,
     logging:  true //false
   })
 
