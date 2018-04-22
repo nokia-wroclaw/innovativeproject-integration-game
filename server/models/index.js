@@ -21,7 +21,7 @@ if(config.db_URL) sequelize =new Sequelize(config.db_URL, {omitNull: true});
   //  host:      localhost,
     logging:  true //false
   })
-*/
+
 
 
 fs
