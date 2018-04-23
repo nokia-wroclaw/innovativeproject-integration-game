@@ -62,7 +62,10 @@ randList(req,res){
       });
     }
     return res.status(200).send(people);
-}
+  })
+  .catch((error) => res.status(400).send(error));
+    
+},
 
 /*
   randList(req, res) {
