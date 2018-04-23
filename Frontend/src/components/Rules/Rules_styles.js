@@ -21,12 +21,19 @@ export const Container = styled.div`
     height: 150%;
     border-top: 3px solid ${colors.orange};
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1280px) {
         height: 140%;
+        margin-top: 83vh;
     }
-    @media (max-width: 1055px) {
-        height: 180%;
+    @media (max-width: 1024px) {
+        height: 140%;
+        margin-top: 70vh;
+    @media (max-width: 800px) {
+        height: 270%;
+        margin-top: 100vh;
     }
+
+
 
 
 `;
