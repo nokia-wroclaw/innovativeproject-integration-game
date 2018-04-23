@@ -22,10 +22,5 @@
   },
   "devDependencies": {
     "styled-components": "^3.2.1"
-  },
-  "proxy": {
-    "/api": {
-      "target": "http://localhost:8000"
-    }
   }
 }

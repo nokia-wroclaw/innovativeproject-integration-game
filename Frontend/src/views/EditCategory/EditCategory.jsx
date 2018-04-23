@@ -92,7 +92,7 @@ class EditCategory extends Component {
     }
 
     deleteCategory = (categoryId) => {
-        axios.delete(`/api/categories/${categoryId}`)
+        axios.delete(`https://integrationgame.herokuapp.com/api/categories/${categoryId}`)
           .then((response) => {
             window.location.reload();
           })
@@ -102,7 +102,7 @@ class EditCategory extends Component {
     }
 
     deleteCharacter = (categoryId, id) => {
-        axios.delete(`/api/categories/${categoryId}/people/${id}`)
+        axios.delete(`https://integrationgame.herokuapp.com/api/categories/${categoryId}/people/${id}`)
           .then((response) => {
             window.location.reload();
           })
@@ -114,7 +114,7 @@ class EditCategory extends Component {
     saveAddedCharacter = () => {
         let categoryId = this.state.char.id;
 
-        axios.post(`/api/categories/${categoryId}/people`, {
+        axios.post(`https://integrationgame.herokuapp.com/api/categories/${categoryId}/people`, {
             name: document.getElementById('name').value,
             surname: document.getElementById('surname').value,
             nickname: document.getElementById('nickname').value,
@@ -128,7 +128,7 @@ class EditCategory extends Component {
     }
 
     saveAddedCategory = () => {
-        axios.post('/api/categories', {
+        axios.post('https://integrationgame.herokuapp.com/api/categories', {
             name: document.getElementById('category').value,
         })
           .then((response) => {
@@ -142,7 +142,7 @@ class EditCategory extends Component {
     saveEditedCategory = () => {
         let categoryId = this.state.char.id;
 
-        axios.put(`/api/categories/${categoryId}`, {
+        axios.put(`https://integrationgame.herokuapp.com/api/categories/${categoryId}`, {
             name: document.getElementById('category').value,
         })
           .then((response) => {
@@ -165,7 +165,7 @@ class EditCategory extends Component {
         let categoryId = this.state.char.data.categoryId;
         let id = this.state.char.data.id;
 
-        axios.put(`/api/categories/${categoryId}/people/${id}`, {
+        axios.put(`https://integrationgame.herokuapp.com/api/categories/${categoryId}/people/${id}`, {
             name: document.getElementById('name').value,
             surname: document.getElementById('surname').value,
             nickname: document.getElementById('nickname').value,
