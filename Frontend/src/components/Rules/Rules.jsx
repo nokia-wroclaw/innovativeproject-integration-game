@@ -9,7 +9,7 @@ class Rules extends Component {
                 <Header>RULES</Header>
                 <br/>
                 <Paragraph>
-                   Time's up nokia game is a  party game. It is a game for two teams, and is played in all rounds. Teams of two or more players. Before the game begins, each player looks at several cards featuring famous actors, sport people and etc. Then chooses some of cards. They are shuffled to, and this cards of famous people is used for each of the game's rounds.
+                   Time's up nokia game is a  party game. It is a game for teams of two or more players, and is played in all rounds. Before the game begins, each player looks at several cards featuring famous actors, sport people and etc. Then chooses some of cards. They are shuffled to, and this cards of famous people is used for each of the game's rounds.
                    <br/><br/>
                    The game is played using a set between 10 and 40 of randomly chosen name cards. Cards are used throughout all rounds of the game. Gamer decides how long is rounds. Each team guess as many names as possible, with one player giving clues to his teammates. Players use words, sound effects and charades as they give their clues. The game is becoming more and more limited in subsequent rounds. On each team's turn, one member of the team is the Cluegiver and the rest are the Guessers.
                    <br/><br/>

@@ -38,7 +38,8 @@ export const Div = styled.div`
 export const Wrapper = styled.div`
     position: absolute;
     left: 15%;
-    height: 600px;
+        height:390px;
+
     width: 70%;
     margin: auto;
     margin-top: 120px;
@@ -50,6 +51,16 @@ export const Wrapper = styled.div`
     border-radius: 5px;
 
     background-image: url("../../../shattered.png");
+
+        @media (max-width: 1200px) {
+            height: 550px
+        }
+
+        @media (max-width: 1055px) {
+            height: 490px
+        }
+
+
 `;
 
 export const StyledIcon = styled(Icon)`

@@ -18,8 +18,17 @@ export const Container = styled.div`
     background-color: ${colors.darkBlue};
     padding: 50px 0;
     color: white;
-    height: 100vh;
+    height: 150%;
     border-top: 3px solid ${colors.orange};
+
+    @media (max-width: 1200px) {
+        height: 140%;
+    }
+    @media (max-width: 1055px) {
+        height: 180%;
+    }
+
+
 `;
 
 export const Header = styled.h1`
