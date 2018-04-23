@@ -1,6 +1,7 @@
 const Category = require('../models').category;
 const People = require('../models').people;
 const Sequelize = require('../models/index').sequelize;
+const Op = Sequelize.Op;
 
 
 
@@ -54,18 +55,28 @@ module.exports = {
 
   randList(req, res) {
     return Category
-    .findAll( {
+    .findById(req.params.id, {
       include: [{
         model: People,
-      //  limit: req.params.size
+        as: 'people',
+        order: [
+          [Sequelize.random()]
+        ],
+        limit: req.params.size
+        
       }],
-     /* order:[
-        [ Sequelize.random()],
-      ], */
       
     })
-    .then((categories) => res.status(200).send(categories))
+    .then((category) => {
+      if (!category) {
+        return res.status(404).send({
+          message: 'Category Not Found',
+        });
+      }
+      return res.status(200).send(category);
+    })
     .catch((error) => res.status(400).send(error));
+      
   },
 
 

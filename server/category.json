@@ -1,20 +1,21 @@
 {
-    "category": [
-    {
-    "id": 1,
-    "name": "Actors"
-    },
-    {
-    "id": 2,
-    "name": "SportsPeople"
-    },
-    {
-    "id": 3,
-    "name": "Musicians"
-    },
-    {
-    "id": 4,
-    "name": "Writers"
-    }
-    ]
-    }
+"category": [
+{
+"id": 1,
+"name": "Actors"
+
+},
+{
+"id": 2,
+"name": "Sportsmen"
+},
+{
+"id": 3,
+"name": "Musicians"
+},
+{
+"id": 4,
+"name": "Writers"
+}
+]
+}
