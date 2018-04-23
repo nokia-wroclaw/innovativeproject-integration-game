@@ -561,6 +561,286 @@
 "surname": "Mourinho",
 "nickname": " ",
 "description": "He is a Portuguese football manager and former football player. He is the manager of Premier League club Manchester United. He is regarded by a number of players, coaches, and commentators as one of the greatest and most successful managers in the world."
-}
+},
+{
+    "id": 81,
+    "name": "David",
+    "surname": "Bowie",
+    "nickname": null,
+    "description": ""
+  },
+  {
+    "id": 82,
+    "name": "Freddie",
+    "surname": "Mercury",
+    "nickname": null,
+    "description": "He wrote numerous hits for Queen, including ‘Bohemian Rhapsody’, ‘Killer Queen’, 'Don't Stop Me Now’, ‘Crazy Little Thing Called Love’, and ‘We Are the Champions’."
+  },
+      {
+    "id": 83,
+    "name": "Jim",
+    "surname": "Morrison",
+    "nickname": null,
+    "description": "He best remembered as the lead singer of the Doors.  debut album    name ‘The Doors’. The album features their breakthrough single ‘Light My Fire’ and the lengthy song ‘The End’."
+  },
+  {
+    "id": 84,
+    "name": "Kurt",
+    "surname": "Cobain",
+    "nickname": null,
+    "description": "Peformed the band Nirvana with Krist Novoselic and Aaron Burckhard. Nirvana found breakthrough success with ‘Smells Like Teen Spirit’ from their second album ‘Nevermind’ (1991)."
+  },
+      {
+    "id": 85,
+    "name": "Janis",
+    "surname": "Joplin",
+    "nickname": null,
+    "description": "Her most popular songs include her cover versions of ‘Piece of My Heart’, ‘Cry Baby’, ‘Down on Me’, ‘Ball and Chain’, and ‘Summertime’; and her original song ‘Mercedes Benz’, her final recording."
+  },
+  {
+    "id": 86,
+    "name": "Michael",
+    "surname": "Jackson",
+    "nickname": "King of pop",
+    "description": "In the early 1980s, he became a dominant figure in popular music. His music videos, including those of ‘Beat It’, ‘Billie Jean’, and ‘Thriller’ from his 1982 album ‘Thriller’."
+  },
+      {
+    "id": 87,
+    "name": "Jimi",
+    "surname": "Hendrix",
+    "nickname": null,
+    "description": "He had earned three UK top ten hits with the Jimi Hendrix Experience: ;Hey Joe’, ‘Purple Haze’, and ‘The Wind Cries Mary’. In 1968 he made third and final studio album, ‘Electric Ladyland’."
+  },
+  {
+    "id": 88,
+    "name": "John",
+    "surname": "Lennon",
+    "nickname": null,
+    "description": "He was an English singer, songwriter, and peace activist who co-founded the Beatles, the most commercially successful band in the history of popular music."
+  },
+      {
+    "id": 89,
+    "name": "James",
+    "surname": "Brown",
+    "nickname": null,
+    "description": ""
+  },
+  {
+    "id": 90,
+    "name": "Elvis",
+    "surname": "Presley",
+    "nickname": null,
+    "description": ""
+  },
+      {
+    "id": 91,
+    "name": "Robert",
+    "surname": "Marley",
+    "nickname": "Bob Marley",
+    "description": "Starting out in 1963 with the group the Wailers.. He would go on to release some of the earliest reggae records with producer Lee ‘Scratch Perry’. His hit singles: ‘Exodus’, ‘Waiting in Vain’, ‘Jamming’, and ‘One Love’."
+  },
+  {
+    "id": 92,
+    "name": "Beyonce",
+    "surname": "Knowles-Carter",
+    "nickname": "Beyonce",
+    "description": "She the release of her debut album, ‘Dangerously in Love’ (2003). The album established her as a solo artist worldwide, earned five Grammy Awards."
+  },
+      {
+    "id": 93,
+    "name": "Gary",
+    "surname": "Moore",
+    "nickname": null,
+    "description": "He was a rock guitarist from Northern Ireland. In 1973, under the name ‘The Gary Moore Band’, he released his first solo album, ‘Grinding Stone’. ’Grinding Stone’."
+  },
+      {
+    "id": 94,
+    "name": "Olga",
+    "surname": "Jakowska",
+    "nickname": "Kora",
+    "description": "She is a Polish rock vocalist and songwriter. She was the lead singer of the Polish rock band Maanam (1976 to 2008)"
+  },
+  {
+    "id": 95,
+    "name": "Czesław",
+    "surname": "Wydzrzycki",
+    "nickname": "Czesław Niemen",
+    "description": "He was one of the most important and original Polish singer-songwriters. His song of 1967, ‘Strange Is This World’ is commonly acknowledged to be the most important Polish protest song of that era."
+  },
+      {
+    "id": 96,
+    "name": "Irena",
+    "surname": "Santor",
+    "nickname": null,
+    "description": "She is a retired Polish singer. Her greatest hits: ‘Embarras’, Powrócisz tu, ‘Tych lat nie odda nikt’, ‘Odrobinę szczęścia w miłości’, ‘Pójde na stare miasto’, ‘Warszawa, ja i ty’."
+  },
+      {
+    "id": 97,
+    "name": "Stefani",
+    "surname": "Germanotta",
+    "nickname": "Lady gaga",
+    "description": "She rose to prominence the following year with her debut album, a dance-pop and electropop record titled ‘The Fame’, and its chart-topping singles ‘Just Dance’ and ‘Poker Face."
+  },
+  {
+    "id": 98,
+    "name": "Adele",
+    "surname": "Adkins",
+    "nickname": "Adele",
+    "description": "October 2012, Adele confirmed that she had been writing, composing and recording the theme song for ‘Skyfall’, the twenty-third James Bond film."
+  },
+  {
+    "id": 99,
+    "name": "Whitney",
+    "surname": "Houston",
+    "nickname": null,
+    "description": "She made her screen acting debut as Rachel Marron in the romantic thriller film ‘The Bodyguard’. She performed the lead single from the film's original soundtrack, ‘I Will Always Love You’."
+  },
+  {
+    "id": 100,
+    "name": "Bob",
+    "surname": "Dylan",
+    "nickname": null,
+    "description": "He performs on guitar, keyboards, and harmonica. Backed by a changing lineup of musicians, he has toured steadily since the late 1980s on what has been dubbed ‘the Never Ending Tour’"
+  },
+  {
+    "id": 101,
+    "name": "Frank",
+    "surname": "Sinatra",
+    "nickname": null,
+    "description": ""
+  },
+  {
+    "id": 102,
+    "name": "Celine",
+    "surname": "Dion",
+    "nickname": null,
+    "description": "She is a Canadian single. She scored a series of international hits, including ‘The Power of Love’, ‘Because You Loved Me’, ‘My Heart Will Go On’, and ‘I'm Your Angel’."
+  }  ,
+   {
+    "id": 103,
+    "name": "Jose",
+    "surname": "Mourinho",
+    "nickname": null,
+    "description": "The successful singles in 2002 are ‘Cry Me a River’ and ‘Rock Your Bod’, and earned his first two Grammy Awards."
+  } ,
+  {
+    "id": 104,
+    "name": "Paul",
+    "surname": "McCartney",
+    "nickname": null,
+    "description": "He is an English singer-songwriter.He gained worldwide fame as the bass guitarist and singer for the rock band the Beatles. In 1977 release ‘Mull of Kintyre’ is one of the all-time best-selling singles in the UK."
+  },
+  {
+    "id": 105,
+    "name": "Anna",
+    "surname": "Bullock",
+    "nickname": "Tina Turner",
+    "description": "She is an American-born Swiss singer, songwriter, dancer,.. She is one of the world's best-selling artists of all time, she has been referred to as The Queen of Rock 'n' Roll."
+  },
+  {
+    "id": 106,
+    "name": "Michael",
+    "surname": "Jagger",
+    "nickname": "Mick Jagger",
+    "description": "He is an English singer-songwriter, musician, composer and one of the founder members of the Rolling Stones. He began a solo career in 1985, releasing his first album, ‘She's the Boss’."
+  },
+  {
+    "id": 107,
+    "name": "Luciano",
+    "surname": "Pavarotti",
+    "nickname": null,
+    "description": "He was an Italian operatic tenor who also crossed over into popular music.As one of the Three Tenors, he became well known for his televised concerts and media appearances."
+  } ,
+  {
+    "id": 108,
+    "name": "Elton",
+    "surname": "John",
+    "nickname": null,
+    "description": "Some of his most famous hits include ‘Crocodile Rock’, ‘Philadelphia Freedom’ and ‘Candle in the Wind’. He composing the score for Billy Elliot (2008), which went on to win 10 Tony Awards."
+  },
+  {
+    "id": 109,
+    "name": "Stevland ",
+    "surname": "Morris",
+    "nickname": "Stevie Wonder",
+    "description": "He works are singles such as ;Signed, Sealed, ‘Delivered I'm Yours’, ‘Superstition’, ‘I Just Called to Say I Love You’; and albums such as ‘Talking Book’, ‘Innervisions’ and ‘Songs in the Key of Life’."
+  },
+  {
+    "id": 110,
+    "name": "John",
+    "surname": "Bongiovi",
+    "nickname": "Jon Bon Jovi",
+    "description": "In 2012,he recorded a soundtrack to the movie ‘Stand Up Guys ‘more On December 12012, it was announced that ‘Not Running Anymore’ would be nominated for a Golden Globe Award."
+  }  ,
+   {
+    "id": 111,
+    "name": "Eric",
+    "surname": "Clapton",
+    "nickname": null,
+    "description": "He is an English rock and blues guitarist, singer. Clapton has been referred to as one of the most important and influential guitarists of all time. Clapton ranked second in Rolling Stone magazine's list.He was also named number five in Time magazine's list of 'The 10 Best Electric Guitar Players' in 2009."
+  }  ,
+  {
+    "id": 112,
+    "name": "George",
+    "surname": "Harrison",
+    "nickname": null,
+    "description": "He was an English guitarist, singer-songwriter, who achieved international fame as the lead guitarist of the Beatles. Most Beatles albums from 1965 onwards contained at least two Harrison compositions."
+  },
+  {
+    "id": 113,
+    "name": "Amy",
+    "surname": "Winehouse",
+    "nickname": null,
+    "description": "She was an English singer. She debut album, ‘Frank’. Her follow-up album, ‘Back to Black’, led to five 2008 Grammy Awards, and made her the first British woman to win five Grammys."
+  },
+  {
+    "id": 114,
+    "name": "Dolly",
+    "surname": "Parton",
+    "nickname": null,
+    "description": "In 1999, she was inducted into the Country Music Hall of Fame. She has composed over 3,000 songs, notably ‘I Will Always Love You’ , ‘Jolene’, ‘Coat of Many Colors’, and '9 to 5'."
+  }  ,
+   {
+    "id": 115,
+    "name": "Marshall",
+    "surname": "Mathers III",
+    "nickname": "Eminem",
+    "description": "He is an American rapper, songwriter. In November 2002, he starred in the hip hop film ‘8 Mile’, which won the Academy Award for Best Original Song, for ‘Lose Yourself’."
+  }     ,
+  {
+    "id": 116,
+    "name": "Calvin",
+    "surname": "Broadus",
+    "nickname": "Snoop Dogg",
+    "description": "He is an American rapper, singer, songwriter, actor. His music career began in 1992. He was featured on Dre's solo debut, ‘Deep Cover’, and then solo debut album, ‘The Chronic’."
+  },
+  {
+    "id": 117,
+    "name": "Shakira",
+    "surname": "Ripoll",
+    "nickname": "Shakira",
+    "description": "She is a Colombian singer, songwriter, and dancer. She began performing in school, demonstrating Latin American, Arabic, and rock and roll influences and belly dancing abilities. Shakira's first studio albums, ‘Magia’ and ‘Peligro’."
+  },
+  {
+    "id": 118,
+    "name": "Louis",
+    "surname": "Armstrong",
+    "nickname": "Satchmo, Satch, Pops",
+    "description": "He was an American trumpeter, composer, singer who was one of the most influential figures in jazz. His career spanned five decades, from the 1920s to the 1960s."
+  },
+  {
+    "id": 119,
+    "name": "Annie",
+    "surname": "Lennox",
+    "nickname": null,
+    "description": "She is a Scottish singer, songwriter. She embarked career in 1992 with her debut album, ‘Diva’, which produced several hit singles including ‘Why’ and ’Walking on Broken Glass’."
+  } ,
+   {
+    "id": 120,
+    "name": "Willie",
+    "surname": "Nelson",
+    "nickname": null,
+    "description": "He is an American musician. The critical success of the album ‘Shotgun Willie’, ‘Red Headed Stranger’ and ‘Stardust’, made Nelson one of the most recognized artists in country music."
+  }  
 ]
 }

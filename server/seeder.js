@@ -35,13 +35,13 @@ function insertPeople() {
     var contentsPeople = fsPeople.readFileSync("people.json");
     var jsonContentPeople = JSON.parse(contentsPeople);
 //jsonContentPeople.people.length
-    for (var i = 41; i < 80; i++) {
+    for (var i = 81; i < 120; i++) {
         people.create({
             
             name: jsonContentPeople.people[i].name,
             surname: jsonContentPeople.people[i].surname,
             nickname: jsonContentPeople.people[i].nickname,
-            categoryId: 2,
+            categoryId: 3,
             description: jsonContentPeople.people[i].description
         })
     }
