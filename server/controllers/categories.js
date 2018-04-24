@@ -17,10 +17,25 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
+  listCatWithPeople(req, res) {
+    return Category
+    .findAll({
+      include: [{
+        model: People,
+        as: 'people',
+      }],
+      order: [
+        ['createdAt', 'DESC'],
+        [{ model: People, as: 'people' }, 'createdAt', 'ASC'],
+      ],
+    })
+    .then((categories) => res.status(200).send(categories))
+    .catch((error) => res.status(400).send(error));
+  },
+
   list(req, res) {
     return Category
-      .findAll({
-      })
+      .findAll()
       .then((categories) => res.status(200).send(categories))
       .catch((error) => res.status(400).send(error));
   },

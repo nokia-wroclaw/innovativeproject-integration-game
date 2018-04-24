@@ -8,6 +8,7 @@ module.exports = (app) => {
 
   app.post('/api/categories', categoriesController.create);
   app.get('/api/categories', categoriesController.list);
+  app.get('api/categoriesWithPeople', categoriesController.listCatWithPeople);
   app.get('/api/categories/:categoryId', categoriesController.retrieve);
   app.get('/api/categories/random/size/:size/id/:id', categoriesController.randList);
   app.put('/api/categories/:categoryId', categoriesController.update);
