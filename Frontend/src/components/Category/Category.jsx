@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as ComponentActions from '../../actions/ComponentActions';
 import * as ListActions from '../../actions/ListActions';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Label } from 'semantic-ui-react';
 import StyledIcon from './Category_styles';
 
 class Category extends Component {
@@ -37,7 +37,10 @@ class Category extends Component {
             <StyledIcon>
                 <Icon onClick={this.editCategory} class='ui icon edit icon button'><i class='edit icon'></i></Icon>
                 <Icon onClick={this.addCharacter} class='ui icon plus button'><i class='plus icon'></i></Icon>
-                <Icon onClick={this.deleteCategory} class='ui icon delete icon button'><i class='delete icon'></i></Icon>
+                <Icon onClick={this.deleteCategory}  class='ui icon delete icon button'><i class='delete icon'></i> </Icon>
+
+
+
             </StyledIcon>
         );
     }

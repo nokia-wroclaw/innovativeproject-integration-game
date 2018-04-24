@@ -6,18 +6,26 @@ import { colors } from '../../utils/styles';
 export const Wrapper = styled.div`
     padding: 60px 40px 0 0;
     position: absolute;
-    left: 66%;
+    right: 13%;
 
-    @media (max-width: 1200px) {
-        left: 60%;
+    @media (max-width: 1280px) {
+        right: 1.5%;
     }
 
-    @media (max-width: 1055px) {
-        left: 50%;
+    @media (max-width: 1150px) {
+        right: 0.5%;
+        padding: 30px 20px 0 0;
+
     }
 
-    @media (max-width: 780px) {
-        left: 55%;
+    @media (max-width: 1024px) {
+        right: 3%;
+        padding: 20px 10px 0 0;
+    }
+
+    @media (max-width: 800px) {
+        right: 5%;
+        padding: 40px 10px 0 0;
     }
 `;
 
@@ -35,7 +43,7 @@ export const Link = styled(NavLink)`
     // border: 1px solid ${colors.orange}
     // border-radius: 5px;
     margin-left: 40px;
-    padding: 10px 40px;
+    padding: 10px 30px;
     border-radius: 5px;
     border: 2px solid ${colors.orange};
     color: ${colors.orange};
@@ -47,6 +55,16 @@ export const Link = styled(NavLink)`
         background-color: ${colors.orange};
         color: white;
         box-shadow: 1px 3px 7px ${colors.darkBlue};
+    }
+
+    @media (max-width: 1280px) {
+
+    }
+    @media (max-width: 1024px) {
+
+     }
+    @media (max-width: 800px) {
+   
     }
 
 `;

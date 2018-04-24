@@ -18,7 +18,7 @@ export const ImageClock = styled(ReactSVG)`
 `;
 
 export const Container = styled.div`
-   
+   min-height: 100vh;
 `;
 
 export const A = styled.a`
@@ -27,18 +27,18 @@ export const A = styled.a`
    }
 `;
 
-export const Div = styled.div`
-    position: absolute;
-    height: 50vh;
-    width: 100vw;
-    margin: 50vh;
-    background: ${colors.darkBlue};
-`
+// export const Div = styled.div`
+//     position: absolute;
+//     height: 50vh;
+//     width: 100vw;
+//     margin: 50vh;
+//     background: ${colors.darkBlue};
+// `
 
 export const Wrapper = styled.div`
     position: absolute;
     left: 15%;
-    height: 600px;
+    height:70%;
     width: 70%;
     margin: auto;
     margin-top: 120px;
@@ -48,7 +48,22 @@ export const Wrapper = styled.div`
     flex-direction: column;
     box-shadow: 0 0 8px #aaa;
     border-radius: 5px;
-    background-image: url('../../../public/shattered');
+
+    background-image: url("../../../shattered.png");
+
+        @media (max-width: 1280px) {
+            height: 65%
+        }
+
+        @media (max-width: 600px) {
+            height: 50%
+        }
+
+        @media (max-width: 800px) {
+            height: 50%
+        }
+
+
 `;
 
 export const StyledIcon = styled(Icon)`
