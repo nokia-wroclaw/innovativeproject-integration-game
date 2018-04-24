@@ -62,9 +62,7 @@ class GameActivity : AppCompatActivity() {
 
                     (0 until jsonArray.length())
                             .map { jsonArray.getJSONObject(it) }
-                            .forEach {
-                                gameMechanics.addCard(category, it.getString("name") + " " + it.getString("surname"), it.getString("description"))
-                            }
+                            .forEach { gameMechanics.addCard(category, it.getString("name") + " " + it.getString("surname"), it.getString("description")) }
                 },
                 fun() {
                     Log.v("INFO", "Failed")
@@ -87,7 +85,7 @@ class GameActivity : AppCompatActivity() {
         thread {
             gameMechanics = intent.getSerializableExtra("GAME_MECHANICS") as GameMechanics
 
-            drawRandomCards(40)
+            drawRandomCards(PreferenceManager.getDefaultSharedPreferences(this).getString("total_number_of_cards", null).toInt())
 
             val transaction = manager.beginTransaction()
             val fragment = RoundFragment()

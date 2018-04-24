@@ -1,5 +1,7 @@
 package pwr.damodarlepski.integrationgame
 
+import android.content.Context
+import android.preference.PreferenceManager
 import java.io.Serializable
 
 class GameMechanics : Serializable {
@@ -9,8 +11,7 @@ class GameMechanics : Serializable {
     var teamTwoScore = 0
 
     var currentRound = 0
-    val selectedRounds = listOf(1, 2)
-    val numberOfRounds = selectedRounds.size
+    lateinit var selectedRounds: ArrayList<Int>
 
     var categoryLookupMap = mutableMapOf<Int, String>()
 
@@ -21,6 +22,18 @@ class GameMechanics : Serializable {
             , "One word \nIn round 2, the Cluegiver may give only one word for each clue, which may be repeated as often as desired. Once the word is said, only non-verbal clues (sound effects, charades) may be given."
             , "Showing without speaking \nIn round 3, the Cluegiver may not use any words at all. Only sounds and charades may be used for each clue. "
             , "Pose \nIn round 4, the Guesser starts with their eyes closed while the Cluegiver freezes in a pose depicting their clue. Once frozen, the Guesser opens their eyes and must give one guess.")
+
+    fun sortRounds(context: Context) {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val roundsString = prefs.getStringSet("rounds", null)
+        val roundsInt = ArrayList<Int>()
+
+        for (element in roundsString) {
+            roundsInt.add(element.toInt())
+        }
+
+        selectedRounds = ArrayList(roundsInt.sortedBy { it })
+    }
 
     fun getCurrentRoundDescription(): String {
         return roundDescription[selectedRounds[currentRound]-1]

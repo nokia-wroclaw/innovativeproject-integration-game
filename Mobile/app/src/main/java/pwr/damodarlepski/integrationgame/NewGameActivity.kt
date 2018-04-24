@@ -40,6 +40,8 @@ class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener 
         val buildTime = StringBuilder("$time sec")
         textView_time_value.text = buildTime
 
+        gameMechanics.sortRounds(this)
+
         val rounds = prefs.getStringSet("rounds", null)
         textView_rounds_value.text = rounds.size.toString()
     }
