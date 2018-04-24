@@ -12,11 +12,11 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-    width: 100vw;
-    margin-top: 100vh;
+    width: 100%;
+    margin-top: 45%;
     position: absolute;
     background-color: ${colors.darkBlue};
-    padding: 50px 0;
+    padding: 30px 0;
     color: white;
     height: 150%;
     border-top: 3px solid ${colors.orange};
@@ -24,20 +24,29 @@ export const Container = styled.div`
 
 
     @media (max-width: 1280px) {
-        height: 140%;
-        margin-top: 83vh;
+        height: 145%;
+        margin-top: 47%;
+        width: 100%;
     }
+
+    @media (max-width: 1200px) {
+        height: 160%;
+        margin-top: 47%;
+        width: 100%;
+    }
+
     @media (max-width: 1150px) {
-        height: 150%;
-        margin-top: 80vh;
+        height: 175%;
+        margin-top: 48%;
+        width: 100%;
     }
     @media (max-width: 1024px) {
-        height: 140%;
-        margin-top: 70vh;
+        height: 175%;
+        margin-top: 52%;
     }
     @media (max-width: 800px) {
-        height: 270%;
-        margin-top: 100vh;
+        height: 260%;
+        margin-top: 56%;
     }
 
 
