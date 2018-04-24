@@ -21,9 +21,15 @@ export const Container = styled.div`
     height: 150%;
     border-top: 3px solid ${colors.orange};
 
+
+
     @media (max-width: 1280px) {
         height: 140%;
         margin-top: 83vh;
+    }
+    @media (max-width: 1150px) {
+        height: 150%;
+        margin-top: 80vh;
     }
     @media (max-width: 1024px) {
         height: 140%;

@@ -12,6 +12,12 @@ export const Wrapper = styled.div`
         right: 1.5%;
     }
 
+    @media (max-width: 1150px) {
+        right: 0.5%;
+        padding: 30px 20px 0 0;
+
+    }
+
     @media (max-width: 1024px) {
         right: 3%;
         padding: 20px 10px 0 0;

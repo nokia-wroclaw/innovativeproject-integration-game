@@ -55,6 +55,10 @@ export const Wrapper = styled.div`
             height: 550px
         }
 
+        @media (max-width: 1150px) {
+            height: 330px
+        }
+
         @media (max-width: 1024px) {
             height: 330px
         }
