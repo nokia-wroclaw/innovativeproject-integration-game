@@ -11,6 +11,11 @@ export const Wrapper = styled.div`
     margin-left: 20%;
 `;
 
+export const Span = styled.p`
+    color: ${colors.orange};
+    font-weight: 700;
+`;
+
 export const Container = styled.div`
     width: 100%;
     margin-top: 100vh;
