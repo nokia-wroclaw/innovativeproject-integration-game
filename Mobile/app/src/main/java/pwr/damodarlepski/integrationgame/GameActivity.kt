@@ -7,6 +7,9 @@ import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
+import android.R.attr.orientation
+import android.content.res.Configuration
+
 import okhttp3.Response
 import org.json.JSONArray
 import kotlin.concurrent.thread
@@ -68,6 +71,15 @@ class GameActivity : AppCompatActivity() {
                 fun() {
                     Log.v("INFO", "Failed")
                 })
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (newConfig.orientation === Configuration.ORIENTATION_LANDSCAPE) {
+            println("Landscape")
+        } else if (newConfig.orientation === Configuration.ORIENTATION_PORTRAIT) {
+            println("Portrait")
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
