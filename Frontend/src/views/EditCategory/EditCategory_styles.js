@@ -14,6 +14,10 @@ export const List = styled.div`
     background-color: ${colors.darkBlue};
     border-right: 1px solid #246770;
 
+    @media (max-width: 1400px) {
+        width: 30%;
+    }
+
     @media (max-width: 1200px) {
         width: 30%;
     }
@@ -30,6 +34,10 @@ export const List = styled.div`
 export const Wrapper = styled.div`
     height: 100vh;
     width: 75%;
+
+    @media (max-width: 1400px) {
+        width: 70%;
+    }
 
     @media (max-width: 1200px) {
         width: 70%;

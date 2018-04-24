@@ -7,7 +7,7 @@ export const Header = styled.h1`
     font-size: 180%;
     font-weight: 700;
     padding: 40px 0 20px 0;
-    width: 70%;
+    width: 85%;
     margin: 0 auto;
     border-bottom: 3px solid ${colors.orange};
 `;
@@ -20,7 +20,7 @@ export const Category = styled.h1`
 `;
 
 export const Wrapper = styled.div`
-    width: 70%;
+    width: 85%;
     margin: 40px auto 0 auto;
     color: #fefefa;
 `;
