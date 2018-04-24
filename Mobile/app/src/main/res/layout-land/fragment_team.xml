@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/button_team_start"
-        android:layout_width="567dp"
-        android:layout_height="299dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/backgroundimage"
         android:fontFamily="@font/actor"
         android:text="Error"
