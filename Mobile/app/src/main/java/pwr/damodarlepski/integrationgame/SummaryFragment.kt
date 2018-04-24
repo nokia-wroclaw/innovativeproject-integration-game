@@ -3,6 +3,7 @@ package pwr.damodarlepski.integrationgame
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,14 @@ class SummaryFragment : Fragment() {
 
     val TAG = "FragmentgameSummary"
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d(TAG, this.toString() + ": onCreate()")
+        retainInstance = true
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         val getBundle = arguments
         val gameMechanics = getBundle?.getSerializable("game_mechanics") as GameMechanics
         val view = inflater.inflate(R.layout.fragment_summary, container, false)
@@ -49,6 +57,7 @@ class SummaryFragment : Fragment() {
                 activity!!.startActivity(act)
             }
         }
+
         return view
     }
 }

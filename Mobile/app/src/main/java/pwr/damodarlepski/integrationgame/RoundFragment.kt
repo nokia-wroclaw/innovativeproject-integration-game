@@ -1,5 +1,6 @@
 package pwr.damodarlepski.integrationgame
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
@@ -14,39 +15,41 @@ class RoundFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val getBundle = arguments
-        val gameMechanics = getBundle?.getSerializable("game_mechanics") as GameMechanics
+            val getBundle = arguments
+            val gameMechanics = getBundle?.getSerializable("game_mechanics") as GameMechanics
 
-        Log.v("CARD_DECK", gameMechanics.cardDeck.size.toString())
-        gameMechanics.fillCardSet()
-        Log.v("CARD_SET", gameMechanics.cardSet.size.toString())
+            Log.v("CARD_DECK", gameMechanics.cardDeck.size.toString())
+            gameMechanics.fillCardSet()
+            Log.v("CARD_SET", gameMechanics.cardSet.size.toString())
 
-        val view = inflater.inflate(R.layout.fragment_round, container, false)
-        val button = view.findViewById(R.id.button_round) as Button
+            var view = inflater.inflate(R.layout.fragment_round, container, false)
+            val button = view.findViewById(R.id.button_round) as Button
 
-        activity?.runOnUiThread {
+            activity?.runOnUiThread {
 
-            //button.text = ArrayRounds[indexOfRound]
-            button.text = gameMechanics.getCurrentRoundDescription()
-            gameMechanics.currentRound++
+                //button.text = ArrayRounds[indexOfRound]
+                button.text = gameMechanics.getCurrentRoundDescription()
+                gameMechanics.currentRound++
 
-            //indexOfRound++
-            //ArrayCategory = ArrayCategoryData.toMutableList()
-            //ArrayPeople = ArrayPeopleData.toMutableList()
+                //indexOfRound++
+                //ArrayCategory = ArrayCategoryData.toMutableList()
+                //ArrayPeople = ArrayPeopleData.toMutableList()
 
-            button.setOnClickListener {
-                val transaction = fragmentManager?.beginTransaction()
-                val fragment = TeamFragment()
+                button.setOnClickListener {
+                    val transaction = fragmentManager?.beginTransaction()
+                    val fragment = TeamFragment()
 
-                val passBundle = Bundle()
-                passBundle.putSerializable("game_mechanics", gameMechanics)
-                fragment.arguments = passBundle
+                    val passBundle = Bundle()
+                    passBundle.putSerializable("game_mechanics", gameMechanics)
+                    fragment.arguments = passBundle
 
-                transaction?.replace(R.id.fragment_holder, fragment)
-                transaction?.addToBackStack(null)
-                transaction?.commit()
+                    transaction?.replace(R.id.fragment_holder, fragment)
+                    transaction?.addToBackStack(null)
+                    transaction?.commit()
+                }
             }
-        }
-        return view
+
+            return view
+
     }
 }

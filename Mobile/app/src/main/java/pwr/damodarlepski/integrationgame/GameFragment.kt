@@ -123,33 +123,36 @@ class GameFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val getBundle = arguments
-        val gameMechanics = getBundle?.getSerializable("game_mechanics") as GameMechanics
+    val getBundle = arguments
+    val gameMechanics = getBundle?.getSerializable("game_mechanics") as GameMechanics
 
-        val view = inflater.inflate(R.layout.fragment_game, container, false)
+    val view = inflater.inflate(R.layout.fragment_game, container, false)
 
-        getNewCard(gameMechanics, view)
-        startTimer(gameMechanics, view)
+    getNewCard(gameMechanics, view)
+    startTimer(gameMechanics, view)
 
-        val good = view.findViewById(R.id.button_good) as Button
-        good.setOnClickListener {
+    val good = view.findViewById(R.id.button_good) as Button
+    good.setOnClickListener {
 
-            stopTimer()
-            pointsCounter(gameMechanics)
-            nextPlayer(gameMechanics)
+        stopTimer()
+        pointsCounter(gameMechanics)
+        nextPlayer(gameMechanics)
+    }
+
+    val jump = view.findViewById(R.id.button_jump) as Button
+    jump.setOnClickListener {
+
+        if (allowedSkips > 0) {
+            allowedSkips--
+            //nextCardOrNewRound()
+            getNewCard(gameMechanics, view)
+        } else {
+            jump.setBackgroundResource(R.drawable.rounded_corners_skip_gray)
         }
+    }
 
-        val jump = view.findViewById(R.id.button_jump) as Button
-        jump.setOnClickListener {
+            return view
 
-            if (allowedSkips > 0) {
-                allowedSkips--
-                //nextCardOrNewRound()
-                getNewCard(gameMechanics, view)
-            } else {
-                jump.setBackgroundResource(R.drawable.rounded_corners_skip_gray)
-            }
-        }
-        return view
+
     }
 }

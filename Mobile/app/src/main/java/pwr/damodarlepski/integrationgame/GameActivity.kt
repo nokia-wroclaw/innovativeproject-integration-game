@@ -7,6 +7,9 @@ import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
+import android.R.attr.orientation
+import android.content.res.Configuration
+
 
 /*
 var teamOneCounter = 0
@@ -29,6 +32,15 @@ var team_name = ""
 
 class GameActivity : AppCompatActivity() {
     private val manager = supportFragmentManager
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (newConfig.orientation === Configuration.ORIENTATION_LANDSCAPE) {
+            println("Landscape")
+        } else if (newConfig.orientation === Configuration.ORIENTATION_PORTRAIT) {
+            println("Portrait")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
