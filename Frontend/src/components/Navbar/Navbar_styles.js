@@ -6,7 +6,7 @@ import { colors } from '../../utils/styles';
 export const Wrapper = styled.div`
     padding: 60px 40px 0 0;
     position: absolute;
-    right: 2%;
+    right: 13%;
 
     @media (max-width: 1280px) {
         right: 1.5%;

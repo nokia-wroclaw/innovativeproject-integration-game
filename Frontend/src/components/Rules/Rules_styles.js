@@ -13,41 +13,41 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
     width: 100%;
-    margin-top: 45%;
+    margin-top: 100vh;
     position: absolute;
     background-color: ${colors.darkBlue};
     padding: 30px 0;
     color: white;
-    height: 150%;
+    min-height: 100vh;
     border-top: 3px solid ${colors.orange};
 
 
 
-    @media (max-width: 1280px) {
-        height: 145%;
-        margin-top: 47%;
-        width: 100%;
-    }
+    // @media (max-width: 1280px) {
+    //     height: 145%;
+    //     margin-top: 47%;
+    //     width: 100%;
+    // }
 
-    @media (max-width: 1200px) {
-        height: 160%;
-        margin-top: 47%;
-        width: 100%;
-    }
+    // @media (max-width: 1200px) {
+    //     height: 160%;
+    //     margin-top: 47%;
+    //     width: 100%;
+    // }
 
-    @media (max-width: 1150px) {
-        height: 175%;
-        margin-top: 48%;
-        width: 100%;
-    }
-    @media (max-width: 1024px) {
-        height: 175%;
-        margin-top: 52%;
-    }
-    @media (max-width: 800px) {
-        height: 260%;
-        margin-top: 56%;
-    }
+    // @media (max-width: 1150px) {
+    //     height: 175%;
+    //     margin-top: 48%;
+    //     width: 100%;
+    // }
+    // @media (max-width: 1024px) {
+    //     height: 175%;
+    //     margin-top: 52%;
+    // }
+    // @media (max-width: 800px) {
+    //     height: 260%;
+    //     margin-top: 56%;
+    // }
 
 
 
