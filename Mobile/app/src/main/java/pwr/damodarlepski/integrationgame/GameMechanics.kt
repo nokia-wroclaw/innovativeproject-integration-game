@@ -12,6 +12,8 @@ class GameMechanics : Serializable {
     val selectedRounds = listOf(1, 2)
     val numberOfRounds = selectedRounds.size
 
+    var categoryLookupMap = mutableMapOf<Int, String>()
+
     val cardDeck = mutableListOf<Card>()
     var cardSet = mutableListOf<Card>()
 
@@ -24,7 +26,7 @@ class GameMechanics : Serializable {
         return roundDescription[selectedRounds[currentRound]-1]
     }
 
-    fun addCard(category: String, name: String, summary: String) {
+    fun addCard(category: String?, name: String, summary: String) {
         cardDeck.add(Card(category, name, summary))
     }
 

@@ -13,6 +13,8 @@ import kotlinx.android.synthetic.main.activity_new_game.*
 
 class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener {
 
+    private lateinit var gameMechanics: GameMechanics
+
     private fun showNumberPicker() {
         val newFragment = NumberPickerDialog()
         newFragment.setValueChangeListener(this)
@@ -24,13 +26,13 @@ class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener 
         editText_players.setText(p0.value.toString())
     }
 
-    private fun loadRules() {
+    private fun loadRules(gameMechanics: GameMechanics) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
         val categories = prefs.getStringSet("categories", null)
         val buildCategories = StringBuilder()
         for (element in categories) {
-            buildCategories.append("$element\n")
+            buildCategories.append(gameMechanics.categoryLookupMap[element.toString().toInt()] + "\n")
         }
         textView_categories_value.text = buildCategories
 
@@ -62,20 +64,21 @@ class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_game)
 
-        loadRules()
+        gameMechanics = intent.getSerializableExtra("GAME_MECHANICS") as GameMechanics
+        loadRules(gameMechanics)
 
         editText_players.setOnClickListener {
             showNumberPicker()
         }
 
         button_start_game.setOnClickListener {
-            startActivity(Intent(this@NewGameActivity, GameActivity::class.java))
+            startActivity(Intent(this, GameActivity::class.java).putExtra("GAME_MECHANICS", gameMechanics))
         }
     }
 
     override fun onResume() {
         super.onResume()
 
-        loadRules()
+        loadRules(gameMechanics)
     }
 }

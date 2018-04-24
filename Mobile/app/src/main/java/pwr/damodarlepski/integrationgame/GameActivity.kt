@@ -1,12 +1,15 @@
 package pwr.damodarlepski.integrationgame
 
 import android.content.Intent
-import android.nfc.Tag
 import android.os.Bundle
 import android.os.Handler
+import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
+import okhttp3.Response
+import org.json.JSONArray
+import kotlin.concurrent.thread
 
 /*
 var teamOneCounter = 0
@@ -29,42 +32,67 @@ var team_name = ""
 
 class GameActivity : AppCompatActivity() {
     private val manager = supportFragmentManager
+    private lateinit var gameMechanics: GameMechanics
+    private val httpClient = HttpClient()
+
+    fun drawRandomCards(number: Int) {
+
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        val categories = prefs.getStringSet("categories", null)
+
+        for (element in categories) {
+            getCardsFromCategory(element.toString().toInt(), gameMechanics.categoryLookupMap[element.toString().toInt()], number / categories.size)
+        }
+    }
+
+    fun getCardsFromCategory(id: Int, category: String?, size: Int) {
+
+        val url = "https://integrationgame.herokuapp.com/api/categories/random/size/$size/id/$id"
+        Log.wtf("INFO", url)
+
+        httpClient.synchronousHttpGet(url,
+                fun(response: Response) {
+
+                    Log.v("INFO", "Succeeded")
+                    val responseString = response.body()?.string()
+                    Log.v("INFO", responseString)
+
+                    val jsonArray = JSONArray(responseString)
+
+                    (0 until jsonArray.length())
+                            .map { jsonArray.getJSONObject(it) }
+                            .forEach {
+                                gameMechanics.addCard(category, it.getString("name") + " " + it.getString("surname"), it.getString("description"))
+                            }
+                },
+                fun() {
+                    Log.v("INFO", "Failed")
+                })
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
-        val gameMechanics = GameMechanics()
+        thread {
+            gameMechanics = intent.getSerializableExtra("GAME_MECHANICS") as GameMechanics
 
-        gameMechanics.addCard("Sport", "Robert Lewandowski", "")
-        gameMechanics.addCard("Actor", "Cezary Pazura", "")
-        gameMechanics.addCard("Musician", "Selena Gomez", "")
-        gameMechanics.addCard("Dance", "Katarzyna Cichopek", "")
-        gameMechanics.addCard("Writer", "Andrzej Sapkowski", "")
+            drawRandomCards(40)
 
-/*
-        teamOneCounter = 0
-        teamTwoCounter = 0
-        ArrayCategory = ArrayCategoryData.toMutableList()
-        ArrayPeople = ArrayPeopleData.toMutableList()
-        indexOfRound = 0
-        team_name = ""
-*/
+            val transaction = manager.beginTransaction()
+            val fragment = RoundFragment()
 
-        val transaction = manager.beginTransaction()
-        val fragment = RoundFragment()
+            val passBundle = Bundle()
+            passBundle.putSerializable("GAME_MECHANICS", gameMechanics)
+            fragment.arguments = passBundle
 
-        val passBundle = Bundle()
-        passBundle.putSerializable("game_mechanics", gameMechanics)
-        fragment.arguments = passBundle
-
-        transaction.replace(R.id.fragment_holder, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-
+            transaction.replace(R.id.fragment_holder, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
     }
 
-    var twice:Boolean = false
+    var twice: Boolean = false
     override fun onBackPressed() {
        //super.onBackPressed()
        if(twice==true){
@@ -80,9 +108,9 @@ class GameActivity : AppCompatActivity() {
            System.exit(0)
        }
        twice=true
-       Toast.makeText(this,"Please press BACK again to exit", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Please press BACK again to exit", Toast.LENGTH_SHORT).show()
         Handler().postDelayed({
-            twice=false
+            twice = false
         }, 3000)
     }
 }

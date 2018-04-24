@@ -35,7 +35,7 @@ class GameFragment : Fragment() {
         val fragment = TeamFragment()
 
         val passBundle = Bundle()
-        passBundle.putSerializable("game_mechanics", gameMechanics)
+        passBundle.putSerializable("GAME_MECHANICS", gameMechanics)
         fragment.arguments = passBundle
 
         transaction?.replace(R.id.fragment_holder, fragment)
@@ -71,7 +71,7 @@ class GameFragment : Fragment() {
             val fragment = SummaryFragment()
 
             val passBundle = Bundle()
-            passBundle.putSerializable("game_mechanics", gameMechanics)
+            passBundle.putSerializable("GAME_MECHANICS", gameMechanics)
             fragment.arguments = passBundle
 
             transaction?.replace(R.id.fragment_holder, fragment)
@@ -124,7 +124,7 @@ class GameFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val getBundle = arguments
-        val gameMechanics = getBundle?.getSerializable("game_mechanics") as GameMechanics
+        val gameMechanics = getBundle?.getSerializable("GAME_MECHANICS") as GameMechanics
 
         val view = inflater.inflate(R.layout.fragment_game, container, false)
 
