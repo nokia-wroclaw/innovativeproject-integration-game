@@ -193,7 +193,7 @@ class EditCategory extends Component {
             this.saveAddedCharacter()
         }
         else {
-            window.alert("I dont think so")
+            window.alert("You did not choose any option")
         }
     }
 

@@ -56,10 +56,10 @@ export const StyledForm = styled.div`
 `;
 
 export const StyledInput = styled(Input)`
-    &:hover {
-        box-shadow: 1px 3px 9px ${colors.darkBlue};
-        border-radius: 4px;
-    }
+    // &:hover {
+    //     box-shadow: 1px 3px 9px ${colors.darkBlue};
+    //     border-radius: 4px;
+    // }
 `;
 
 export const StyledArea = styled(TextArea)`

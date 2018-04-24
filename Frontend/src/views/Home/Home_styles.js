@@ -18,7 +18,7 @@ export const ImageClock = styled(ReactSVG)`
 `;
 
 export const Container = styled.div`
-   
+   min-height: 100vh;
 `;
 
 export const A = styled.a`
@@ -27,13 +27,13 @@ export const A = styled.a`
    }
 `;
 
-export const Div = styled.div`
-    position: absolute;
-    height: 50vh;
-    width: 100vw;
-    margin: 50vh;
-    background: ${colors.darkBlue};
-`
+// export const Div = styled.div`
+//     position: absolute;
+//     height: 50vh;
+//     width: 100vw;
+//     margin: 50vh;
+//     background: ${colors.darkBlue};
+// `
 
 export const Wrapper = styled.div`
     position: absolute;
