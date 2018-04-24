@@ -1,15 +1,13 @@
 package pwr.damodarlepski.integrationgame
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
-import android.R.attr.orientation
-import android.content.res.Configuration
-
 import okhttp3.Response
 import org.json.JSONArray
 import kotlin.concurrent.thread
@@ -38,7 +36,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var gameMechanics: GameMechanics
     private val httpClient = HttpClient()
 
-    fun drawRandomCards(number: Int) {
+    fun drawRandomCards(number: Int) { //TODO chujowo to działa, ale przerobię jak będzie lepszy endpoint
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val categories = prefs.getStringSet("categories", null)

@@ -25,9 +25,8 @@
 
         <activity
             android:name=".GameActivity"
-            android:label="Game"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            />
+            android:label="Game" />
 
 
         <activity
