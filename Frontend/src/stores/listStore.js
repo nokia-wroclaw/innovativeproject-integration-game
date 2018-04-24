@@ -66,7 +66,7 @@ class ListStore extends EventEmmiter {
 
     fetchData()
     {
-        return axios.get('https://integrationgame.herokuapp.com/api/categories')
+        return axios.get('https://integrationgame.herokuapp.com/api/categoriesWithPeople')
         .then(response => response.data
         )
     }
