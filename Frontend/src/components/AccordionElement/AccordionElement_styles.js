@@ -27,7 +27,7 @@ export const StyledTitle = styled(Accordion.Title)`
 export const Title = styled.p`
     color: white;
     font-weight: bold;
-    font-size: 120%;
+    font-size: 110%;
     font-style: italic;
 
     &:hover{

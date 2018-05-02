@@ -4,7 +4,7 @@ import Category from '../Category/Category';
 import { StyledAccordion, StyledCategory, StyledContent, StyledTitle, Wrapper, Title } from './AccordionElement_styles';
 
 export default class AccordionElement extends Component {
-    state = { activeIndex: 0 }
+    state = { activeIndex: null }
 
     handleClick = (e, titleProps) => {
     const { index } = titleProps
@@ -30,7 +30,7 @@ export default class AccordionElement extends Component {
                                 {this.props.name}
                             </Title>
                         </StyledTitle>
-                        
+
                         <StyledContent
                             active={activeIndex === this.props.activeIndex}>
                             {this.props.characters.map((character) => {
@@ -42,7 +42,7 @@ export default class AccordionElement extends Component {
                         <Category category={this.props.name} id={this.props.id}/>
                     </StyledCategory>
                 </StyledAccordion>
-                
+
             </div>
        );
     }

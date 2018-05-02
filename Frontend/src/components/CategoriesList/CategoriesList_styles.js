@@ -39,3 +39,17 @@ export const CharacterFlexbox = styled.div`
 export const StyledAccordion = styled(AccordionElement)`
     width: 500px;
 `;
+
+export const Title = styled.p`
+    color: ${colors.orange};
+    font-weight: bold;
+    font-size: 120%;
+
+    &:hover{
+        cursor:pointer;
+    }
+
+    &:hover #icon{
+        display: block;
+    }
+`;
