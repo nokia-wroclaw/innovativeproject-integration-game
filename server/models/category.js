@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'categoryId',
       as: 'people'
     }),
-    category.belongsTo(models.category, 
+    category.belongsTo(models.preset, 
       {
         foreignKey: 'presetId',
         onDelete: 'CASCADE'
