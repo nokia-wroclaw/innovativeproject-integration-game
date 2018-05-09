@@ -88,34 +88,6 @@ randList(req,res){
     
 },
 
-/*
-  randList(req, res) {
-    return Category
-    .findById(req.params.id, {
-      include: [{
-        model: People,
-        as: 'people',
-        order: [
-          [Sequelize.random()]
-        ],
-        limit: req.params.size
-        
-      }],
-      
-    })
-    .then((category) => {
-      if (!category) {
-        return res.status(404).send({
-          message: 'Category Not Found',
-        });
-      }
-      return res.status(200).send(category);
-    })
-    .catch((error) => res.status(400).send(error));
-      
-  },
-*/
-
   update(req, res) {
     return Category
       .findById(req.params.categoryId, {
