@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   category.associate = models => {
-    category.hasMany(models.people, {
+    preset.hasMany(models.people, {
       foreignKey: 'categoryId',
       as: 'people'
     }),
