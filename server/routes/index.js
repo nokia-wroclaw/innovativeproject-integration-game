@@ -16,7 +16,7 @@ module.exports = (app) => {
   app.delete('/api/categories/:categoryId', categoriesController.destroy);
 
   app.post('/api/preset', presetController.create);
-  app.get('/api/preset/:presetId/categories', presetController.list);
+  app.get('/api/preset', presetController.list);
   app.get('/api/preset/:presetId/presetWithCategories', presetController.listPresetWithPeople);
   app.get('/api/preset/:presetId', presetController.retrieve);
   app.put('/api/preset/:presetId', presetController.update);
