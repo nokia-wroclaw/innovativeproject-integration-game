@@ -10,7 +10,6 @@ module.exports = {
     
     return Category
       .create({
-        
           name: req.body.name,
           presetId: req.body.presetId
       })

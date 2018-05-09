@@ -10,7 +10,6 @@ module.exports = {
     
     return Preset
       .create({
-        
           name: req.body.name,
           isDefault: req.body.isDefault
       })
