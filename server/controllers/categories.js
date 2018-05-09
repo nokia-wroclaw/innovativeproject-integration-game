@@ -12,6 +12,7 @@ module.exports = {
       .create({
         
           name: req.body.name,
+          presetId: req.body.presetId
       })
       .then((category) => res.status(201).send(category))
       .catch((error) => res.status(400).send(error));
@@ -20,6 +21,9 @@ module.exports = {
   listCatWithPeople(req, res) {
     return Category
     .findAll({
+      where:{
+        presetId: req.params.presetId
+      },
       include: [{
         model: People,
         as: 'people',
@@ -35,7 +39,9 @@ module.exports = {
 
   list(req, res) {
     return Category
-      .findAll()
+      .findAll({
+        where:{presetId: req.params.presetId}
+      })
       .then((categories) => res.status(200).send(categories))
       .catch((error) => res.status(400).send(error));
   },

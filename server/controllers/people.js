@@ -22,7 +22,7 @@ module.exports = {
     return People
       .findAll({
         order: [
-          ['id', 'DESC'],
+          ['id', 'ASC'],
         ],
       })
       .then((people) => res.status(200).send(people))

@@ -11,6 +11,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      presetId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'preset',
+          key: 'id',
+          as: 'presetId',
+        }
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
