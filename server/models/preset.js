@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var preset = sequelize.define('Preset', {
+  var preset = sequelize.define('preset', {
     name: DataTypes.STRING,
     isDefault: DataTypes.BOOLEAN
   }, {});
