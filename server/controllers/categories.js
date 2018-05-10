@@ -11,7 +11,7 @@ module.exports = {
     return Category
       .create({
           name: req.body.name,
-          presetId: req.body.presetId
+          presetId: req.params.presetId
       })
       .then((category) => res.status(201).send(category))
       .catch((error) => res.status(400).send(error));

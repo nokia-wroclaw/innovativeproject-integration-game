@@ -36,7 +36,7 @@ function insertPeople() {
     var contentsPeople = fsPeople.readFileSync("people.json");
     var jsonContentPeople = JSON.parse(contentsPeople);
 //jsonContentPeople.people.length
-    for (var i = 81; i < 120; i++) {
+    for (var i =1; i < 40; i++) {
         people.create({
             
             name: jsonContentPeople.people[i].name,
@@ -48,4 +48,4 @@ function insertPeople() {
     }
 }
 sequelize.sync()
-.then(()=>insertCategory())
+.then(()=>insertPeople())
