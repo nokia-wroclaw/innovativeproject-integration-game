@@ -17,7 +17,7 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
-  listPresetWithCategories(req, res) {
+  listPresetWithCat(req, res) {
     return Preset
     .findAll({
       include: [{
