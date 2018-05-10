@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     isDefault: DataTypes.BOOLEAN
   }, {});
   preset.associate =  models => {
-    preset.hasMany(models.people, {
+    preset.hasMany(models.category, {
       foreignKey: 'presetId',
       as: 'categories'
     })
