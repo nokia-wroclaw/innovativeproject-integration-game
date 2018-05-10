@@ -24,7 +24,8 @@ var jsonContentCategory = JSON.parse(contentsCategory);
 
     for (var i = 1; i < jsonContentCategory.category.length; i++) {
         category.create({
-            name: jsonContentCategory.category[i].name
+            name: jsonContentCategory.category[i].name,
+            presetId: 1
 
         })
     }
@@ -41,10 +42,10 @@ function insertPeople() {
             name: jsonContentPeople.people[i].name,
             surname: jsonContentPeople.people[i].surname,
             nickname: jsonContentPeople.people[i].nickname,
-            categoryId: 3,
+            categoryId: 1,
             description: jsonContentPeople.people[i].description
         })
     }
 }
 sequelize.sync()
-.then(()=>insertPeople())
+.then(()=>insertCategory())
