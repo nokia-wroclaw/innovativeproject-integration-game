@@ -197,7 +197,17 @@ class EditCategory extends Component {
           .catch(function (error) {
             console.log(error);
           });
-    }
+    };
+
+    saveEditedPreset = () => {
+        let presetId = this.state.char.presetId;
+
+        axios.put(`https://integrationgame.herokuapp.com/api/preset/${presetId}`, {
+            name: document.getElementById('preset').value,
+        })
+        .then(() => window.location.reload())
+        .catch((error) => console.log(error))
+    };
  
     save = () => {
         if(this.state.char.action === "editCharacter") {
@@ -211,6 +221,9 @@ class EditCategory extends Component {
         } 
         else if(this.state.char.action === "addCharacter") {
             this.saveAddedCharacter()
+        }
+        else if(this.state.char.action === "editPreset") {
+            this.saveEditedPreset()
         }
         else {
             window.alert("You did not choose any option")
@@ -227,6 +240,10 @@ class EditCategory extends Component {
                     <Header label="Edit categories and characters" />
                     <div id="result"></div>
                     <StyledForm id="form">
+                        <div id="l-preset">
+                            <Label>preset</Label>
+                            <StyledInput id="preset" placeholder="preset" />
+                        </div>
                         <div id="l-category">
                             <Label>category</Label>
                             <StyledInput id="category" placeholder="category" />

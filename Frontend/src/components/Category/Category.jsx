@@ -11,7 +11,7 @@ class Category extends Component {
             data: null,
             category: this.props.category,
             id: this.props.id,
-            inactive: ["l-name", "l-surname", "l-nickname", "t-description"],
+            inactive: ["l-preset", "l-name", "l-surname", "l-nickname", "t-description"],
             active: ["l-category"],
             editAction: "editCategory",
             addAction: "addCharacter",

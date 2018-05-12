@@ -64,3 +64,14 @@ export function deleteCategory(action, id) {
         id
     });
 }
+
+export function editPreset(data, inactive, active, action, presetId) {
+    dispatcher.dispatch({
+        type: "EDIT_PRESET",
+        data,
+        inactive,
+        active,
+        action,
+        presetId
+    });
+}

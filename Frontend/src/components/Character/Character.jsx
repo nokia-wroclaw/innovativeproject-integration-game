@@ -10,7 +10,7 @@ class Character extends Component {
         this.state = {
             character: this.props.character,
             category: this.props.category,
-            inactive: ["l-category"],
+            inactive: ["l-preset", "l-category"],
             active: ["l-name", "l-surname", "l-nickname", "t-description"],
             editAction: "editCharacter",
             deleteAction: "deleteCharacter"

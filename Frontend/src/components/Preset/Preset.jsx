@@ -17,14 +17,14 @@ class Preset extends Component {
             addAction: "addCategory",
             deleteAction: "deletePreset",
             category: null,
-            inactiveToAddCategory: ["l-name", "l-surname", "l-nickname", "t-description"],
+            inactiveToAddCategory: ["l-preset", "l-name", "l-surname", "l-nickname", "t-description"],
             activeToAddCategory: ["l-category"],
             presetId: this.props.presetId
         }
     }
 
     editPreset = () => {
-        // ComponentActions.editCategory(this.state.data, this.state.category, this.state.inactive, this.state.active, this.state.editAction, this.state.id);
+        ComponentActions.editPreset(this.state.data, this.state.inactive, this.state.active, this.state.editAction, this.state.presetId);
     };
 
     addCategory = () => {
