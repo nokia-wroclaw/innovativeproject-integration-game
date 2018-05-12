@@ -40,9 +40,6 @@ module.exports = {
       include: [{
         all: true,
         nested: true
-          
-        }
-        ]
       },
       
     ],
