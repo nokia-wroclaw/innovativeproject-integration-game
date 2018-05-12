@@ -11,30 +11,8 @@ class ListStore extends EventEmmiter {
     }
 
     setState = (state) => {
-        // this.state = {...this.state, ...state}
         this.state.data = state;
     }
-
-    // createCharacter(name) {    
-    //     console.log(this.state);
-    //     this.emit("change");
-    // }
-
-    // editCharacter(name) {
-    //     this.setState({
-    //         actors: [name],
-    //     });
-
-    //     this.emit("change");
-    // }
-
-    // addCharacter(name) {
-    //     this.setState({
-    //         actors: [name],
-    //     });
-
-    //     this.emit("change");
-    // }
 
     getAll() {
         return this.state.data;
@@ -42,18 +20,6 @@ class ListStore extends EventEmmiter {
 
     handleActions(action) {
         switch(action.type) {
-            // case "CREATE_CHARACTER": {
-            //     this.createCharacter(action.text);
-            //     break;
-            // }
-            // case "EDIT_CHARACTER": {
-            //     this.editCharacter(action.name);
-            //     break;
-            // }
-            // case "ADD_CHARACTER": {
-            //     this.addCharacter(action.name);
-            //     break;
-            // }
             case "FETCH_DATA": {
                 this.loadData();
                 break;
@@ -66,7 +32,7 @@ class ListStore extends EventEmmiter {
 
     fetchData()
     {
-        return axios.get('https://integrationgame.herokuapp.com/api/categoriesWithPeople')
+        return axios.get('https://integrationgame.herokuapp.com/api/presetWithAll')
         .then(response => response.data
         )
     }
@@ -74,6 +40,7 @@ class ListStore extends EventEmmiter {
     loadData() {
         this.fetchData().then(data => {
             this.setState(data);
+            console.log(data);
             this.emit("change");
         });
     }

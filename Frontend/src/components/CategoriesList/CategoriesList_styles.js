@@ -25,19 +25,12 @@ export const Wrapper = styled.div`
     color: #fefefa;
 `;
 
-export const CategoryFlexbox = styled.div`
-    display: flex;
-    align-items: center;
+export const PresetWrapper = styled.div`
+    margin-top: 15px;
 `;
 
-export const CharacterFlexbox = styled.div`
-    display: flex;
-    align-items: center;
-    margin: 10px;
-`;
-
-export const StyledAccordion = styled(AccordionElement)`
-    width: 500px;
+export const StyledSecondAccordion = styled.div`
+    width: 100%;
 `;
 
 export const Title = styled.p`

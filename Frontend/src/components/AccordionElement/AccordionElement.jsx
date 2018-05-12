@@ -42,7 +42,6 @@ export default class AccordionElement extends Component {
                         <Category category={this.props.name} id={this.props.id}/>
                     </StyledCategory>
                 </StyledAccordion>
-
             </div>
        );
     }

@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
-import { Container, Wrapper, List, StyledForm, Label, Button, StyledTextArea, StyledInput, StyledArea } from './EditCategory_styles';
-import { Input, Form, TextArea } from 'semantic-ui-react';
+import React, {Component} from 'react';
+import {
+    Button,
+    Container,
+    Label,
+    List,
+    StyledArea,
+    StyledForm,
+    StyledInput,
+    StyledTextArea,
+    Wrapper
+} from './EditCategory_styles';
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import Header from '../../components/Header/Header';
-import data from '../../components/CategoriesList/data.json';
 import ComponentStore from '../../stores/componentStore';
 import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
@@ -79,8 +87,19 @@ class EditCategory extends Component {
             const store = ComponentStore.getAll();
             this.log(store.data, store.category, store.inactive, store.active, store.action);
             
-            if(store.action === "deleteCharacter") this.deleteCharacter(store.data.categoryId, store.data.id);
-            if(store.action === "deleteCategory") this.deleteCategory(store.id);
+            if(store.action === "deleteCharacter") {
+                let result = window.confirm("Do you want to delete this character?");
+                if (result) {
+                    this.deleteCharacter(store.data.categoryId, store.data.id);
+                }
+            }
+
+            if(store.action === "deleteCategory") {
+                let result = window.confirm("Do you want to delete this category?");
+                if (result) {
+                    this.deleteCategory(store.id);
+                }
+            }
         });
 
         ListStore.on("change", () => {
