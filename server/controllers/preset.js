@@ -17,6 +17,7 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
+
   listPresetWithCat(req, res) {
     return Preset
     .findAll({
@@ -27,6 +28,28 @@ module.exports = {
       order: [
         ['createdAt', 'ASC'],
         [{ model: Category, as: 'categories' }, 'createdAt', 'ASC'],
+      ],
+    })
+    .then((presets) => res.status(200).send(presets))
+    .catch((error) => res.status(400).send(error));
+  },
+
+  listPresetWithAll(req, res) {
+    return Preset
+    .findAll({
+      include: [{
+        model: Category,
+        as: 'categories',
+      },
+      {
+        model: People,
+        as: 'people'
+      }
+    ],
+      order: [
+        ['createdAt', 'ASC'],
+        [{ model: Category, as: 'categories' }, 'createdAt', 'ASC'],
+        [{model: People, as: 'people'}, 'createdAt', 'ASC']
       ],
     })
     .then((presets) => res.status(200).send(presets))
