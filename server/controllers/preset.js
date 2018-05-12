@@ -40,11 +40,15 @@ module.exports = {
       include: [{
         model: Category,
         as: 'categories',
+        include:[{
+          
+            model: People,
+            as: 'people'
+          
+        }
+        ]
       },
-      {
-        model: People,
-        as: 'people'
-      }
+      
     ],
       order: [
         ['createdAt', 'ASC'],
