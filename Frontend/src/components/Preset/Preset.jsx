@@ -19,7 +19,7 @@ class Preset extends Component {
             category: null,
             inactiveToAddCategory: ["l-name", "l-surname", "l-nickname", "t-description"],
             activeToAddCategory: ["l-category"],
-            presetId: 0
+            presetId: this.props.presetId
         }
     }
 
@@ -28,7 +28,7 @@ class Preset extends Component {
     };
 
     addCategory = () => {
-        ComponentActions.addCategory(this.state.data, this.state.category, this.state.inactiveToAddCategory, this.state.activeToAddCategory, this.state.addAction);
+        ComponentActions.addCategory(this.state.data, this.state.category, this.state.inactiveToAddCategory, this.state.activeToAddCategory, this.state.addAction, this.state.presetId);
     };
 
     deletePreset = () => {

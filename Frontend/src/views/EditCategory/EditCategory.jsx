@@ -146,7 +146,9 @@ class EditCategory extends Component {
     }
 
     saveAddedCategory = () => {
-        axios.post('https://integrationgame.herokuapp.com/api/categories', {
+        let presetId = this.state.char.presetId;
+
+        axios.post(`https://integrationgame.herokuapp.com/api/categories/preset/${presetId}`, {
             name: document.getElementById('category').value,
         })
           .then((response) => {

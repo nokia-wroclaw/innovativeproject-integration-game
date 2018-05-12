@@ -14,7 +14,8 @@ class ComponentStore extends EventEmmiter {
             inactive: [""],
             active: [""],
             action: "action",
-            id: "0"
+            id: "0",
+            presetId: "0"
         }
     }
 
@@ -48,13 +49,14 @@ class ComponentStore extends EventEmmiter {
         this.emit("change");
     }
 
-    addCategory(data, category, inactive, active, action) {
+    addCategory(data, category, inactive, active, action, presetId) {
         this.setState({
             data: data,
             category: category,
             inactive: inactive,
             active: active,
-            action: action
+            action: action,
+            presetId: presetId
         });
 
         this.emit("change");
@@ -107,7 +109,7 @@ class ComponentStore extends EventEmmiter {
                 break;
             }
             case "ADD_CATEGORY": {
-                this.addCategory(action.data, action.category, action.inactive, action.active, action.action);
+                this.addCategory(action.data, action.category, action.inactive, action.active, action.action, action.presetId);
                 break;
             }
             case "ADD_CHARACTER": {
