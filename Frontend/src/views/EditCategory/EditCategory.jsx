@@ -39,8 +39,7 @@ class EditCategory extends Component {
                 document.getElementById(id).value = "";
             })
         }
-        else if (action === "deleteCharacter" || action === "deleteCategory") {
-      }
+        else if (action === "deleteCharacter" || action === "deleteCategory") {}
         else {
             document.getElementById('category').value = category;
 
@@ -170,7 +169,7 @@ class EditCategory extends Component {
           .catch(function (error) {
             console.log(error);
           });
-    }
+    };
 
     saveEditedCharacter = () => {
         if(document.getElementById('nickname').value.length === 0) {

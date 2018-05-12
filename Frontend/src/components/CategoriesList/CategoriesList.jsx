@@ -49,7 +49,6 @@ class categoriesList extends Component {
                                 <Accordion.Content
                                     active={activeIndex === this.props.activeIndex}
                                 >
-                                    <AddCategoryButton />
                                     {
                                         preset.categories.map((category, indexOfCategory) => {
                                             return (
@@ -71,7 +70,7 @@ class categoriesList extends Component {
                     })
                 }
                 <PresetWrapper>
-                    <Preset  />
+                    <Preset />
                 </PresetWrapper>
             </StyledAccordion>
         )

@@ -22,7 +22,7 @@ class AddCategoryButton extends Component {
     render() {
         return (
             <div>
-                <Icon onClick={this.addCategory} class='ui icon plus button'><i class='plus icon'></i></Icon> <br />
+                <Icon onClick={this.addCategory} class='ui icon plus button'><i class='plus icon' /></Icon> <br />
             </div>
         );
     }
