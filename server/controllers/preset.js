@@ -38,12 +38,8 @@ module.exports = {
     return Preset
     .findAll({
       include: [{
-        model: Category,
-        as: 'categories',
-        include:[{
-          
-            model: People,
-            as: 'people'
+        all: true,
+        nested: true
           
         }
         ]
