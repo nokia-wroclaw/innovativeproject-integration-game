@@ -43,11 +43,11 @@ module.exports = {
       },
       
     ],
-      order: [
-        ['createdAt', 'ASC'],
-        [{ model: Category, as: 'categories' }, 'createdAt', 'ASC'],
-        [{model: People, as: 'people'}, 'createdAt', 'ASC']
-      ],
+     // order: [
+     //   ['createdAt', 'ASC'],
+     //   [{ model: Category, as: 'categories' }, 'createdAt', 'ASC'],
+    //    [{model: People, as: 'people'}, 'createdAt', 'ASC']
+    // ],
     })
     .then((presets) => res.status(200).send(presets))
     .catch((error) => res.status(400).send(error));
