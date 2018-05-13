@@ -32,7 +32,7 @@ class Preset extends Component {
     };
 
     deletePreset = () => {
-        // ComponentActions.deleteCategory(this.state.deleteAction, this.state.id);
+        ComponentActions.deletePreset(this.state.deleteAction, this.state.presetId);
     };
 
     render() {

@@ -85,3 +85,11 @@ export function addPreset(data, inactive, active, action) {
         action
     });
 }
+
+export function deletePreset(action, presetId) {
+    dispatcher.dispatch({
+        type: "DELETE_PRESET",
+        action,
+        presetId
+    });
+}

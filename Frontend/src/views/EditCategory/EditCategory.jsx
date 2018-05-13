@@ -39,7 +39,7 @@ class EditCategory extends Component {
                 document.getElementById(id).value = "";
             })
         }
-        else if (action === "deleteCharacter" || action === "deleteCategory") {}
+        else if (action === "deleteCharacter" || action === "deleteCategory" || action === "deletePreset") {}
         else {
             document.getElementById('category').value = category;
 
@@ -99,6 +99,13 @@ class EditCategory extends Component {
                     this.deleteCategory(store.id);
                 }
             }
+
+            if(store.action === "deletePreset") {
+                let result = window.confirm("Do you want to delete this preset?");
+                if (result) {
+                    this.deletePreset(store.presetId);
+                }
+            }
         });
 
         ListStore.on("change", () => {
@@ -116,7 +123,7 @@ class EditCategory extends Component {
           .catch(function (error) {
             console.log(error);
           });
-    }
+    };
 
     deleteCharacter = (categoryId, id) => {
         axios.delete(`https://integrationgame.herokuapp.com/api/categories/${categoryId}/people/${id}`)
@@ -127,7 +134,13 @@ class EditCategory extends Component {
             console.log(error);
           });
 
-    }
+    };
+
+    deletePreset = (id) => {
+        axios.delete(`https://integrationgame.herokuapp.com/api/preset/${id}`)
+            .then(() => window.location.reload())
+            .catch(error => console.log(error));
+    };
 
     saveAddedCharacter = () => {
         let categoryId = this.state.char.id;
@@ -143,7 +156,7 @@ class EditCategory extends Component {
           .catch(function (error) {
             console.log(error);
           });
-    }
+    };
 
     saveAddedCategory = () => {
         let presetId = this.state.char.presetId;
@@ -157,7 +170,7 @@ class EditCategory extends Component {
           .catch(function (error) {
             console.log(error);
           });
-    }
+    };
 
     saveEditedCategory = () => {
         let categoryId = this.state.char.id;

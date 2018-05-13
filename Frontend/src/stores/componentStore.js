@@ -117,6 +117,15 @@ class ComponentStore extends EventEmmiter {
         this.emit("change");
     }
 
+    deletePreset(action, presetId) {
+        this.setState({
+            action: action,
+            presetId: presetId
+        });
+
+        this.emit("change");
+    }
+
     getAll() {
         return this.state;
     }
@@ -153,6 +162,10 @@ class ComponentStore extends EventEmmiter {
             }
             case "ADD_PRESET": {
                 this.addPreset(action.data, action.inactive, action.active, action.action);
+                break;
+            }
+            case "DELETE_PRESET": {
+                this.deletePreset(action.action, action.presetId);
                 break;
             }
             default: {
