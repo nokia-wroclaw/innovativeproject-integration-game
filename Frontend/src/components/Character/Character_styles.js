@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     align-items: center;
     padding-left: 10%;
     padding-bottom: 5px;
+    width: 120%;
 
     &:hover{
         cursor:pointer;

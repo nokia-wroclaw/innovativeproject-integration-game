@@ -33,12 +33,9 @@ export const PresetWrapper = styled.div`
     margin-top: 15px;
 `;
 
-export const StyledSecondAccordion = styled.div`
-    width: 100%;
-`;
-
 export const Title = styled.p`
-    color: ${colors.orange};
+    margin-top: 5px;
+    color: white;
     font-weight: bold;
     font-size: 120%;
 
