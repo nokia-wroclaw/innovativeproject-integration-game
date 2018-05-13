@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import { Accordion } from 'semantic-ui-react'
-import {Header, Wrapper} from './CategoriesList_styles';
+import {Accordion} from 'semantic-ui-react'
+import {Container, Header, Wrapper} from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';
-import {StyledAccordion} from "../AccordionElement/AccordionElement_styles";
 import ExternalAccordion from "../ExternalAccordion/ExternalAccordion";
+import AddPresetButton from "../AddPresetButton/AddPresetButton";
 
 class categoriesList extends Component {
     constructor(props) {
@@ -16,16 +16,10 @@ class categoriesList extends Component {
 
     renderCategories() {
         return (
-            <StyledAccordion>
-                {
-                    this.state.data.map((preset, indexOfPreset) => {
-                        return (
-                            <ExternalAccordion preset={preset}/>
-                        )
-                    })
-                }
-
-            </StyledAccordion>
+            <Container>
+                <AddPresetButton />
+                {this.state.data.map(preset => <ExternalAccordion preset={preset}/>)}
+            </Container>
         )
     }
 

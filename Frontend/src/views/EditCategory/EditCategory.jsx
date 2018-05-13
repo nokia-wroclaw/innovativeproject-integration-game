@@ -208,6 +208,15 @@ class EditCategory extends Component {
         .then(() => window.location.reload())
         .catch((error) => console.log(error))
     };
+
+    saveAddedPreset = () => {
+        axios.post("https://integrationgame.herokuapp.com/api/preset", {
+            name: document.getElementById('preset').value,
+            isDefault: false
+        })
+        .then(() => window.location.reload())
+        .catch((error) => console.log(error))
+    };
  
     save = () => {
         if(this.state.char.action === "editCharacter") {
@@ -225,10 +234,13 @@ class EditCategory extends Component {
         else if(this.state.char.action === "editPreset") {
             this.saveEditedPreset()
         }
+        else if(this.state.char.action === "addPreset") {
+            this.saveAddedPreset()
+        }
         else {
             window.alert("You did not choose any option")
         }
-    }
+    };
 
     render() {
         return (

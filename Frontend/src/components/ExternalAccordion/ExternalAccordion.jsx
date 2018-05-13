@@ -6,6 +6,7 @@ import {Title} from "../AccordionElement/AccordionElement_styles";
 import AccordionElement from "../AccordionElement/AccordionElement";
 import Character from "../Character/Character";
 import Icon from "semantic-ui-react/dist/es/elements/Icon/Icon";
+import { Wrapper } from "./ExternalAccordion_styles";
 
 
 export default class ExternalAccordion extends Component {
@@ -28,7 +29,7 @@ export default class ExternalAccordion extends Component {
     render() {
         const { activeIndex } = this.state;
         return (
-            <div>
+            <Wrapper>
                 <StyledSecondAccordion>
                     <Accordion.Title
                         active={activeIndex === this.props.activeIndex}
@@ -63,7 +64,7 @@ export default class ExternalAccordion extends Component {
                 <PresetWrapper>
                     <Preset presetId={this.props.preset.id}/>
                 </PresetWrapper>
-            </div>
+            </Wrapper>
         )
     }
 }

@@ -25,6 +25,10 @@ export const Wrapper = styled.div`
     color: #fefefa;
 `;
 
+export const Container = styled.div`
+    
+`;
+
 export const PresetWrapper = styled.div`
     margin-top: 15px;
 `;

@@ -75,3 +75,13 @@ export function editPreset(data, inactive, active, action, presetId) {
         presetId
     });
 }
+
+export function addPreset(data, inactive, active, action) {
+    dispatcher.dispatch({
+        type: "ADD_PRESET",
+        data,
+        inactive,
+        active,
+        action
+    });
+}
