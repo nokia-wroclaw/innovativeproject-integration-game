@@ -11,7 +11,6 @@ module.exports = {
     return Preset
       .create({
           name: req.body.name,
-          isDefault: req.body.isDefault
       })
       .then((preset) => res.status(201).send(preset))
       .catch((error) => res.status(400).send(error));
@@ -72,10 +71,11 @@ module.exports = {
       .then((preset) => {
         if (!preset) {
           return res.status(404).send({
-            message: 'Category Not Found',
+            message: 'Preset Not Found',
           });
         }
         return res.status(200).send(preset);
+        
       })
       .catch((error) => res.status(400).send(error));
   },
@@ -94,8 +94,15 @@ module.exports = {
         if (!preset) {
           return res.status(404).send({
             message: 'Preset Not Found',
-          });
+          }
+        ); 
         }
+        else if(preset.isDefault)
+        return res.send(
+          {
+            message: 'Preset is default, can\'t change or delete the data'
+          }
+        );
         return preset
           .update({
             name: req.body.name || preset.name,
@@ -115,6 +122,12 @@ module.exports = {
             message: 'Preset Not Found',
           });
         }
+        else if(preset.isDefault)
+        return res.send(
+          {
+            message: 'Preset is default, can\'t change or delete the data'
+          }
+        );
         return preset
           .destroy()
           .then(() => res.status(204).send())

@@ -1,9 +1,30 @@
 const Category = require('../models').category;
 const People = require('../models').people;
+const Preset = require('../models').preset;
 
 
 module.exports = {
   create(req, res) {
+    return Category
+    .findById(req.params.categoryId, {
+      include:[
+        {
+          model: Preset,
+          as: 'preset'
+        }
+      ]
+    }
+    
+    )
+    .then(category =>{
+
+        if(category.preset.isDefault)
+      return res.send(
+        {
+          message: 'Preset is default, can\'t change or delete the data'
+        }
+      );
+      })
     
     return People
       .create({
@@ -19,6 +40,7 @@ module.exports = {
   },
 
   list(req, res) {
+    
     return People
       .findAll({
         order: [
@@ -45,6 +67,26 @@ module.exports = {
   },
 
   update(req, res) {
+    return Category
+    .findById(req.params.categoryId, {
+      include:[
+        {
+          model: Preset,
+          as: 'preset'
+        }
+      ]
+    }
+    
+    )
+    .then(category =>{
+
+        if(category.preset.isDefault)
+      return res.send(
+        {
+          message: 'Preset is default, can\'t change or delete the data'
+        }
+      );
+      })
     return People
       .find({
         where: {
@@ -74,6 +116,26 @@ module.exports = {
   },
 
   destroy(req, res) {
+    return Category
+    .findById(req.params.categoryId, {
+      include:[
+        {
+          model: Preset,
+          as: 'preset'
+        }
+      ]
+    }
+    
+    )
+    .then(category =>{
+
+        if(category.preset.isDefault)
+      return res.send(
+        {
+          message: 'Preset is default, can\'t change or delete the data'
+        }
+      );
+      })
     return People
       .find({
         where: {

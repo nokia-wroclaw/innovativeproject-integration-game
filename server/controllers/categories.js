@@ -1,5 +1,6 @@
 const Category = require('../models').category;
 const People = require('../models').people;
+const Preset = require('../models').preset;
 const Sequelize = require('../models/index').sequelize;
 const Op = Sequelize.Op;
 
@@ -7,7 +8,16 @@ const Op = Sequelize.Op;
 
 module.exports = {
   create(req, res) {
-    
+    return Preset
+    .findById(req.params.presetId)
+    .then(preset =>{
+      if(preset.isDefault)
+      return res.send(
+        {
+          message: 'Preset is default, can\'t change or delete the data'
+        }
+      );
+    })
     return Category
       .create({
           name: req.body.name,
@@ -37,6 +47,7 @@ module.exports = {
   },
 
   list(req, res) {
+    
     return Category
       .findAll({
         where:{presetId: req.params.presetId}
@@ -88,6 +99,16 @@ randList(req,res){
 },
 
   update(req, res) {
+    return Preset
+    .findById(req.params.presetId)
+    .then(preset =>{
+      if(preset.isDefault)
+      return res.send(
+        {
+          message: 'Preset is default, can\'t change or delete the data'
+        }
+      );
+    })
     return Category
       .findById(req.params.categoryId, {
         include: [{
@@ -112,6 +133,16 @@ randList(req,res){
   },
 
   destroy(req, res) {
+    return Preset
+    .findById(req.params.presetId)
+    .then(preset =>{
+      if(preset.isDefault)
+      return res.send(
+        {
+          message: 'Preset is default, can\'t change or delete the data'
+        }
+      );
+    })
     return Category
       .findById(req.params.categoryId)
       .then(category => {
