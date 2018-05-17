@@ -36,7 +36,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var gameMechanics: GameMechanics
     private val httpClient = HttpClient()
 
-    fun drawRandomCards(number: Int) { //TODO chujowo to działa, ale przerobię jak będzie lepszy endpoint
+    fun drawRandomCards(number: Int) { //TODO ... to działa, ale przerobię jak będzie lepszy endpoint
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val categories = prefs.getStringSet("categories", null)
@@ -78,6 +78,25 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
+    fun setRoundName(gameMechanics: GameMechanics){
+        var round:String="Round"
+        when (gameMechanics.currentRound) {
+            0 -> {
+                round = "Round 1 Description"
+            }
+            1 -> {
+                round = "Round 2 One word"
+            }
+            2 -> {
+                round ="Round 3 Showing without speaking"
+            }
+            3 -> {
+                round = "Round 4 Pose"
+            }
+        }
+        setTitle(round)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
@@ -102,20 +121,20 @@ class GameActivity : AppCompatActivity() {
 
     var twice: Boolean = false
     override fun onBackPressed() {
-       //super.onBackPressed()
-       if(twice==true){
-           /*
-           val intent: Intent = Intent (Intent.ACTION_MAIN)
-           intent.addCategory(Intent.CATEGORY_HOME)
-           intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-           startActivity(intent)
-           finish()
-           System.exit(0)*/
-           startActivity(Intent(this, MainMenuActivity::class.java))
-           finish()
-           System.exit(0)
-       }
-       twice=true
+        //super.onBackPressed()
+        if(twice==true){
+            /*
+            val intent: Intent = Intent (Intent.ACTION_MAIN)
+            intent.addCategory(Intent.CATEGORY_HOME)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+            finish()
+            System.exit(0)*/
+            startActivity(Intent(this, MainMenuActivity::class.java))
+            finish()
+            System.exit(0)
+        }
+        twice=true
         Toast.makeText(this, "Please press BACK again to exit", Toast.LENGTH_SHORT).show()
         Handler().postDelayed({
             twice = false

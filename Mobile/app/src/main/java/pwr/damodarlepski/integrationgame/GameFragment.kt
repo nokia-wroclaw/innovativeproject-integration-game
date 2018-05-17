@@ -2,6 +2,7 @@
 package pwr.damodarlepski.integrationgame
 
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.preference.PreferenceManager
@@ -14,8 +15,11 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import java.util.*
+import android.view.GestureDetector
+
 
 class GameFragment : Fragment() {
+
 
     private var allowedSkips = 2
 
@@ -64,6 +68,7 @@ class GameFragment : Fragment() {
     }
 
     fun nextPlayer(gameMechanics: GameMechanics) {
+
         if (gameMechanics.cardSet.size > 0) {
             nextTeam(gameMechanics)
         } else {
@@ -87,12 +92,18 @@ class GameFragment : Fragment() {
         val progress = view.findViewById(R.id.time_progressBar) as ProgressBar
         progress.max = timeForGuessing.toInt()
 
+        var mp= MediaPlayer.create(this.context,R.raw.music)
+
         timer = object : CountDownTimer((timeForGuessing * 1000), 1000) {
             override fun onTick(millisUntilFinished: Long) {
 
                 val timeView = view.findViewById(R.id.time_text) as TextView
                 timeView.text = (millisUntilFinished / 1000).toString()
                 progress.progress += 1
+
+                //start music
+                if(progress.progress==15)
+                    mp.start()
 
                 val percentageTime = millisUntilFinished / 1000 * 100 / timeForGuessing
                 println(percentageTime)
@@ -121,6 +132,7 @@ class GameFragment : Fragment() {
         }
     }
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val getBundle = arguments
@@ -128,8 +140,10 @@ class GameFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_game, container, false)
 
+
         getNewCard(gameMechanics, view)
         startTimer(gameMechanics, view)
+
 
         val good = view.findViewById(R.id.button_good) as Button
         good.setOnClickListener {

@@ -19,7 +19,7 @@ class MainMenuActivity : AppCompatActivity() {
 
     fun getCategories() {
 
-        val url = "https://integrationgame.herokuapp.com/api/categories/"
+        val url = "https://integrationgame.herokuapp.com/api/categories/preset/1"
         Log.wtf("INFO", url)
 
         httpClient.synchronousHttpGet(url,

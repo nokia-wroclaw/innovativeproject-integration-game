@@ -24,7 +24,7 @@ class RulesActivity : PreferenceActivity() {
 
         fun getCategories(lp: MultiSelectListPreference) {
 
-            val url = "https://integrationgame.herokuapp.com/api/categories/"
+            val url = "https://integrationgame.herokuapp.com/api/categories/preset/1"
             Log.wtf("INFO", url)
 
             val entries = mutableListOf<CharSequence>()

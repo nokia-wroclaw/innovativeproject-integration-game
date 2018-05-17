@@ -28,6 +28,9 @@ class RoundFragment : Fragment() {
 
             //button.text = ArrayRounds[indexOfRound]
             button.text = gameMechanics.getCurrentRoundDescription()
+
+            (getActivity() as GameActivity).setRoundName(gameMechanics)
+
             gameMechanics.currentRound++
 
             //indexOfRound++
