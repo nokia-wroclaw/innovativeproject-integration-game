@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {Accordion} from 'semantic-ui-react'
 import {PresetWrapper, Title} from "../CategoriesList/CategoriesList_styles";
 import Preset from "../Preset/Preset";
@@ -51,11 +51,14 @@ export default class ExternalAccordion extends Component {
                                     return (
                                         <div key={indexOfCategory}>
                                             <AccordionElement
+                                                isDefault={this.props.preset.isDefault}
                                                 activeIndex={indexOfCategory}
                                                 index={indexOfCategory}
                                                 name={category.name}
                                                 id={category.id}
-                                                characters={category.people.map((character, indexOfCharacter) => <Character character={character} category={category.name} />)}
+                                                characters={category.people.map((character) => {
+                                                    return <Character character={character} category={category.name} isDefault={this.props.preset.isDefault}/>
+                                                })}
                                             />
                                         </div>
                                     )
@@ -64,7 +67,7 @@ export default class ExternalAccordion extends Component {
                         </Accordion.Content>
                     </Wrapper>
                     <PresetWrapper>
-                        <Preset presetId={this.props.preset.id}/>
+                        <Preset presetId={this.props.preset.id} isDefault={this.props.preset.isDefault}/>
                     </PresetWrapper>
                 </StyledAccordion>
             </Container>

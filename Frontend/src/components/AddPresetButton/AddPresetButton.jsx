@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react';
 import * as ComponentActions from '../../actions/ComponentActions';
+import {StyledIcon} from "./AddPresetButton_styles";
 
 class AddPresetButton extends Component {
     constructor(props) {
@@ -20,9 +21,9 @@ class AddPresetButton extends Component {
 
     render() {
         return (
-            <div>
+            <StyledIcon>
                 <Icon onClick={this.addPreset} class='ui icon plus button'><i class='plus icon' /></Icon> <br />
-            </div>
+            </StyledIcon>
         );
     }
 }

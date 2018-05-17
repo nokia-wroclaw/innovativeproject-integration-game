@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {Icon} from 'semantic-ui-react';
 import {StyledIcon} from "../Category/Category_styles";
 import * as ComponentActions from "../../actions/ComponentActions";
@@ -9,8 +9,6 @@ class Preset extends Component {
 
         this.state = {
             data: null,
-            // category: this.props.category,
-            // id: this.props.id,
             inactive: ["l-name", "l-surname", "l-nickname", "t-description", "l-category"],
             active: ["l-preset"],
             editAction: "editPreset",
@@ -36,13 +34,19 @@ class Preset extends Component {
     };
 
     render() {
-        return (
-            <StyledIcon>
-                <Icon onClick={this.editPreset} class='ui icon edit icon button'><i className='edit icon' /></Icon>
-                <Icon onClick={this.addCategory} class='ui icon plus button'><i className='plus icon' /></Icon> <br />
-                <Icon onClick={this.deletePreset}  class='ui icon delete icon button'><i className='delete icon' /> </Icon>
-            </StyledIcon>
-        );
+        if (this.props.isDefault === true){
+            return (
+                <p> </p>
+            );
+        } else {
+            return (
+                <StyledIcon>
+                    <Icon onClick={this.editPreset} class='ui icon edit icon button'><i className='edit icon' /></Icon>
+                    <Icon onClick={this.addCategory} class='ui icon plus button'><i className='plus icon' /></Icon> <br />
+                    <Icon onClick={this.deletePreset}  class='ui icon delete icon button'><i className='delete icon' /> </Icon>
+                </StyledIcon>
+            )
+        }
     }
 }
 

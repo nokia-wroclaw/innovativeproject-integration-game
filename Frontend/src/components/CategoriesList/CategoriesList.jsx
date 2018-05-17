@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {Accordion} from 'semantic-ui-react'
 import {Container, Header, Wrapper} from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';

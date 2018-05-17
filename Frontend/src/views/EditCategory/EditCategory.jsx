@@ -117,23 +117,14 @@ class EditCategory extends Component {
 
     deleteCategory = (categoryId) => {
         axios.delete(`https://integrationgame.herokuapp.com/api/categories/${categoryId}`)
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+          .then(() => window.location.reload())
+          .catch(error => console.log(error));
     };
 
     deleteCharacter = (categoryId, id) => {
         axios.delete(`https://integrationgame.herokuapp.com/api/categories/${categoryId}/people/${id}`)
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-
+          .then(() => window.location.reload())
+          .catch(error => console.log(error));
     };
 
     deletePreset = (id) => {
@@ -150,26 +141,19 @@ class EditCategory extends Component {
             surname: document.getElementById('surname').value,
             nickname: document.getElementById('nickname').value,
         })
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        .then(() => window.location.reload())
+        .catch(error => console.log(error))
     };
 
     saveAddedCategory = () => {
         let presetId = this.state.char.presetId;
+        console.log("add")
 
         axios.post(`https://integrationgame.herokuapp.com/api/categories/preset/${presetId}`, {
             name: document.getElementById('category').value,
         })
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        .then(() => window.location.reload())
+        .catch(error => console.log(error))
     };
 
     saveEditedCategory = () => {
@@ -178,12 +162,8 @@ class EditCategory extends Component {
         axios.put(`https://integrationgame.herokuapp.com/api/categories/${categoryId}`, {
             name: document.getElementById('category').value,
         })
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        .then(() => window.location.reload())
+        .catch(error => console.log(error))
     };
 
     saveEditedCharacter = () => {
@@ -204,12 +184,8 @@ class EditCategory extends Component {
             nickname: document.getElementById('nickname').value,
             description: document.getElementById('description').value
         })
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        .then(() => window.location.reload())
+        .catch(error => console.log(error))
     };
 
     saveEditedPreset = () => {
@@ -223,9 +199,10 @@ class EditCategory extends Component {
     };
 
     saveAddedPreset = () => {
+        const isDefault = false;
         axios.post("https://integrationgame.herokuapp.com/api/preset", {
             name: document.getElementById('preset').value,
-            isDefault: false
+            isDefault: isDefault
         })
         .then(() => window.location.reload())
         .catch((error) => console.log(error))
@@ -284,17 +261,15 @@ class EditCategory extends Component {
                         <div id="l-nickname">
                             <Label>nickname</Label>
                             <StyledInput id="nickname" placeholder="nickname" />
+
                         </div>
-                        <StyledTextArea id="t-description">
+                        <div id="t-description">
                             <Label>description</Label>
                             <StyledArea id="description" placeholder="description" />
-                        </StyledTextArea>
+                        </div>
 
                         <Button onClick={this.save}>Save</Button>
                     </StyledForm>
-		    
-
-
                 </Wrapper>
             </Container>
         );

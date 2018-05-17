@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import * as ComponentActions from '../../actions/ComponentActions';
 import {Icon} from 'semantic-ui-react';
 import StyledIcon from './Category_styles';
-import {Icons} from "../Character/Character_styles";
 
 class Category extends Component {
     constructor(props) {
@@ -12,7 +11,7 @@ class Category extends Component {
             data: null,
             category: this.props.category,
             id: this.props.id,
-            inactive: ["l-preset", "l-name", "l-surname", "l-nickname", "t-description"],
+            inactive: ["l-name", "l-surname", "l-nickname", "t-description"],
             active: ["l-category"],
             editAction: "editCategory",
             addAction: "addCharacter",
@@ -33,13 +32,19 @@ class Category extends Component {
     };
 
     render() {
-        return (
-            <StyledIcon>
-                <Icon onClick={this.editCategory} class='ui icon edit icon button'><i className='edit icon' /></Icon>
-                <Icon onClick={this.addCharacter} class='ui icon plus button'><i className='plus icon' /></Icon>
-                <Icon onClick={this.deleteCategory}  class='ui icon delete icon button'><i className='delete icon' /> </Icon>
-            </StyledIcon>
-        );
+        if (this.props.isDefault === true) {
+            return (
+                <p> </p>
+            )
+        } else {
+            return (
+                <StyledIcon>
+                    <Icon onClick={this.editCategory} class='ui icon edit icon button'><i className='edit icon' /></Icon>
+                    <Icon onClick={this.addCharacter} class='ui icon plus button'><i className='plus icon' /></Icon>
+                    <Icon onClick={this.deleteCategory}  class='ui icon delete icon button'><i className='delete icon' /> </Icon>
+                </StyledIcon>
+            );
+        }
     }
 }
 

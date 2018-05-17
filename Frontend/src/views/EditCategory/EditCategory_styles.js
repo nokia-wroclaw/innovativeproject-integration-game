@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { colors } from '../../utils/styles';
-import { Form, Input, TextArea } from 'semantic-ui-react';
 
 export const Container = styled.div`
   display: flex;
@@ -12,8 +11,8 @@ export const List = styled.div`
     min-height: 100vh;
     width: 25%;
     background-color: ${colors.darkBlue};
-    border-right: 1px solid #246770;
-
+    box-shadow: inset -6px -2px 18px #1a4d54;
+    
     @media (max-width: 1400px) {
         width: 30%;
     }
@@ -63,23 +62,57 @@ export const StyledForm = styled.div`
     margin: 50px auto 0 auto;
 `;
 
-export const StyledInput = styled(Input)`
-    // &:hover {
-    //     box-shadow: 1px 3px 9px ${colors.darkBlue};
-    //     border-radius: 4px;
-    // }
+export const StyledInput = styled.input`
+    width: 200px;
+    height: 45px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    outline: none;
+    padding-left: 15px;
+    
+    &:hover {
+        box-shadow: 1px 2px 10px #ADADAD;
+        transition: all 0.5s ease-in-out;
+    } 
+        
+    &:focus {
+        box-shadow: 1px 2px 10px #ADADAD;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    ::placeholder {
+        color: #ccc;
+    }
 `;
 
-export const StyledArea = styled(TextArea)`
+export const StyledArea = styled.textarea`
+    width: 50%;
+    height: 70px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    outline: none;
+    padding: 15px 0 0 15px;
+    
     &:hover {
-        box-shadow: 1px 3px 9px ${colors.darkBlue};
-        border-radius: 4px;
+        box-shadow: 1px 2px 10px #ADADAD;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    &:focus {
+        box-shadow: 1px 2px 10px #ADADAD;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    ::placeholder {
+        color: #ccc;
     }
 `;
 
 export const Label = styled.label`
     display: block;
-    margin: 15px 0 5px 0;
+    margin: 15px 0 5px 20px;
 `;
 
 export const Button = styled.button`
@@ -93,15 +126,13 @@ export const Button = styled.button`
     color: ${colors.orange};
     font-size: 120%;
     font-weight: bold;
+    transition: all 0.5s ease-in-out;
 
     &:hover {
         cursor: pointer;
         background-color: ${colors.orange};
         color: white;
-        box-shadow: 1px 3px 7px ${colors.darkBlue};
+        box-shadow: 1px 2px 10px #c17600;
+        transition: all 0.35s ease-in-out;
     }
-`;
-
-export const StyledTextArea = styled(Form)`
-    width: 50%;
 `;

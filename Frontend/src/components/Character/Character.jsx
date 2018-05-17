@@ -19,29 +19,35 @@ class Character extends Component {
 
     editComponent = () => {
         ComponentActions.editComponent(this.state.character, this.state.category, this.state.inactive, this.state.active, this.state.editAction);
-    }
+    };
 
     deleteCharacter = () => {
         ComponentActions.deleteCharacter(this.state.character, this.state.category, this.state.deleteAction);
-    }
+    };
 
     render() {
-        return (
-            <Wrapper>
-                <div>
-                    {this.state.character.name} {this.state.character.surname}
-                </div>
-                <Icons id="icons">
-                    <Icon onClick={this.editComponent} class='ui icon edit icon button'><i class='edit icon'></i></Icon>
-                    <Icon onClick={this.deleteCharacter} class='ui icon delete icon button'><i class='delete icon'></i></Icon>
-                </Icons>
-            </Wrapper>
-        );
+        if (this.props.isDefault === true) {
+            return (
+                <Wrapper>
+                    <div>
+                        {this.state.character.name} {this.state.character.surname}
+                    </div>
+                </Wrapper>
+            );
+        } else {
+            return (
+                <Wrapper>
+                    <div>
+                        {this.state.character.name} {this.state.character.surname}
+                    </div>
+                    <Icons id="icons">
+                        <Icon onClick={this.editComponent} class='ui icon edit icon button'><i className='edit icon' /></Icon>
+                        <Icon onClick={this.deleteCharacter} class='ui icon delete icon button'><i className='delete icon' /></Icon>
+                    </Icons>
+                </Wrapper>
+            );
+        }
     }
 }
 
 export default Character;
-
-<style>
-    
-</style>
