@@ -1,6 +1,7 @@
 
 package pwr.damodarlepski.integrationgame
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -11,14 +12,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ProgressBar
-import android.widget.TextView
 import java.util.*
 import android.view.GestureDetector
-
+import android.widget.*
+import kotlinx.android.synthetic.main.fragment_game.*
+import android.widget.Toast
 
 class GameFragment : Fragment() {
+
 
 
     private var allowedSkips = 2
@@ -133,6 +134,7 @@ class GameFragment : Fragment() {
     }
 
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val getBundle = arguments
@@ -144,26 +146,43 @@ class GameFragment : Fragment() {
         getNewCard(gameMechanics, view)
         startTimer(gameMechanics, view)
 
+        val card_layout = view.findViewById(R.id.card_layout) as LinearLayout
 
-        val good = view.findViewById(R.id.button_good) as Button
-        good.setOnClickListener {
+        card_layout?.setOnTouchListener(object :OnSwipeTouchListener(this.context!!){
+            override fun onSwipeRight() {
+                stopTimer()
+                pointsCounter(gameMechanics)
+                nextPlayer(gameMechanics)
+            }
 
-            stopTimer()
-            pointsCounter(gameMechanics)
-            nextPlayer(gameMechanics)
-        }
+            override fun onSwipeLeft() {
+                if (allowedSkips > 0) {
+                    allowedSkips--
+                    //nextCardOrNewRound()
+                    getNewCard(gameMechanics, view)
+                } else {
+                    Toast.makeText(getActivity(), "Skip option is blocked", Toast.LENGTH_SHORT).show()
+                }
+            }
 
-        val jump = view.findViewById(R.id.button_jump) as Button
-        jump.setOnClickListener {
+            override fun onSwipeTop() {
+                stopTimer()
+                pointsCounter(gameMechanics)
+                nextPlayer(gameMechanics)
+            }
 
-            if (allowedSkips > 0) {
-                allowedSkips--
-                //nextCardOrNewRound()
-                getNewCard(gameMechanics, view)
-            } else {
-                jump.setBackgroundResource(R.drawable.rounded_corners_skip_gray)
+            override fun onSwipeBottom() {
+                if (allowedSkips > 0) {
+                    allowedSkips--
+                    //nextCardOrNewRound()
+                    getNewCard(gameMechanics, view)
+                } else {
+                    Toast.makeText(getActivity(), "Skip option is blocked", Toast.LENGTH_SHORT).show()
+                }
             }
         }
+        )
+
         return view
     }
 }
