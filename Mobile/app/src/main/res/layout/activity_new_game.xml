@@ -125,6 +125,31 @@
             </TableRow>
 
             <TableRow
+                android:id="@+id/row_number_of_cards"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/textView_number_of_cards"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:text="Number of cards"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textView_number_of_cards_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="40"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="14sp" />
+            </TableRow>
+
+            <TableRow
                 android:id="@+id/row_players"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

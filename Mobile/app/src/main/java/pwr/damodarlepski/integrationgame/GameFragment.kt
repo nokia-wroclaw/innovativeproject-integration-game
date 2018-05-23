@@ -15,7 +15,6 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import java.util.*
-import android.view.GestureDetector
 
 
 class GameFragment : Fragment() {
@@ -129,6 +128,18 @@ class GameFragment : Fragment() {
             val people = view.findViewById(R.id.people_text) as TextView
             people.text = gameMechanics.cardSet[index].name
             gameMechanics.cardSet.removeAt(index)
+        } else {
+            stopTimer()
+            val transaction = fragmentManager?.beginTransaction()
+            val fragment = SummaryFragment()
+
+            val passBundle = Bundle()
+            passBundle.putSerializable("GAME_MECHANICS", gameMechanics)
+            fragment.arguments = passBundle
+
+            transaction?.replace(R.id.fragment_holder, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
         }
     }
 
@@ -148,9 +159,10 @@ class GameFragment : Fragment() {
         val good = view.findViewById(R.id.button_good) as Button
         good.setOnClickListener {
 
-            stopTimer()
+            //stopTimer()
             pointsCounter(gameMechanics)
-            nextPlayer(gameMechanics)
+            //nextPlayer(gameMechanics)
+            getNewCard(gameMechanics, view)
         }
 
         val jump = view.findViewById(R.id.button_jump) as Button
@@ -160,7 +172,8 @@ class GameFragment : Fragment() {
                 allowedSkips--
                 //nextCardOrNewRound()
                 getNewCard(gameMechanics, view)
-            } else {
+            }
+            if (allowedSkips == 0) {
                 jump.setBackgroundResource(R.drawable.rounded_corners_skip_gray)
             }
         }
