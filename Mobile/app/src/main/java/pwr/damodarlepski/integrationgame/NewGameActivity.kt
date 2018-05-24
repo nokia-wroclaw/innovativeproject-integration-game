@@ -36,7 +36,7 @@ class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener 
         }
         textView_categories_value.text = buildCategories
 
-        val time = prefs.getString("time_for_guessing", null)
+        val time = prefs.getString("time_for_guessing", "30 sec")
         val buildTime = StringBuilder("$time sec")
         textView_time_value.text = buildTime
 
@@ -44,6 +44,9 @@ class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener 
 
         val rounds = prefs.getStringSet("rounds", null)
         textView_rounds_value.text = rounds.size.toString()
+
+        val numberOfCards = prefs.getString("total_number_of_cards", "40")
+        textView_number_of_cards_value.text = numberOfCards.toString()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

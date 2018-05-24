@@ -32,7 +32,8 @@ class RoundFragment : Fragment() {
             (getActivity() as GameActivity).setRoundName(gameMechanics)
 
             gameMechanics.currentRound++
-
+            gameMechanics.setAllowedSkipsOne(this.context!!)
+            gameMechanics.setAllowedSkipsTwo(this.context!!)
             //indexOfRound++
             //ArrayCategory = ArrayCategoryData.toMutableList()
             //ArrayPeople = ArrayPeopleData.toMutableList()

@@ -20,12 +20,6 @@ class TeamFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_team, container, false)
         val button = view.findViewById(R.id.button_team_start) as Button
 
-        /*if (button.text == "Team One") {
-            team_name = "Team Two"
-        } else {
-            team_name = "Team One"
-        }*/
-
         activity?.runOnUiThread {
 
             if (gameMechanics.currentTeam == 1) {
@@ -33,8 +27,6 @@ class TeamFragment : Fragment() {
             } else {
                 button.text = "Team Two"
             }
-
-            //button.text = team_name
 
             button.isClickable = true
             button.setOnClickListener {

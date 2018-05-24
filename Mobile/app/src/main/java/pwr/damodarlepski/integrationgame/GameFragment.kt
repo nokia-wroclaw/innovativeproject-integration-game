@@ -20,10 +20,6 @@ import android.widget.Toast
 
 class GameFragment : Fragment() {
 
-
-
-    private var allowedSkips = 2
-
     private lateinit var timer: CountDownTimer
 
     val TAG = "FragmentGame"
@@ -112,6 +108,7 @@ class GameFragment : Fragment() {
             }
 
             override fun onFinish() {
+
                 nextPlayer(gameMechanics)
             }
         }.start()
@@ -130,7 +127,45 @@ class GameFragment : Fragment() {
             val people = view.findViewById(R.id.people_text) as TextView
             people.text = gameMechanics.cardSet[index].name
             gameMechanics.cardSet.removeAt(index)
+        } else {
+            stopTimer()
+            val transaction = fragmentManager?.beginTransaction()
+            val fragment = SummaryFragment()
+
+            val passBundle = Bundle()
+            passBundle.putSerializable("GAME_MECHANICS", gameMechanics)
+            fragment.arguments = passBundle
+
+            transaction?.replace(R.id.fragment_holder, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
         }
+    }
+
+    fun skip(gameMechanics: GameMechanics, view: View){
+        if(gameMechanics.currentTeam==1){
+            if (gameMechanics.getAllowedSkipsOne() > 0) {
+               gameMechanics.decrementedAllowedSkipsOne()
+                getNewCard(gameMechanics, view)
+            }
+            else {
+                Toast.makeText(getActivity(), "Skip option is blocked", Toast.LENGTH_SHORT).show()
+            }
+        }
+        else{
+                if (gameMechanics.getAllowedSkipsTwo() > 0) {
+                    gameMechanics.decrementedAllowedSkipsTwo()
+                    getNewCard(gameMechanics, view)
+                }
+                else {
+                    Toast.makeText(getActivity(), "Skip option is blocked", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    fun good(gameMechanics: GameMechanics, view: View){
+        pointsCounter(gameMechanics)
+        getNewCard(gameMechanics, view)
     }
 
 
@@ -150,35 +185,19 @@ class GameFragment : Fragment() {
 
         card_layout?.setOnTouchListener(object :OnSwipeTouchListener(this.context!!){
             override fun onSwipeRight() {
-                stopTimer()
-                pointsCounter(gameMechanics)
-                nextPlayer(gameMechanics)
+               good(gameMechanics, view)
             }
 
             override fun onSwipeLeft() {
-                if (allowedSkips > 0) {
-                    allowedSkips--
-                    //nextCardOrNewRound()
-                    getNewCard(gameMechanics, view)
-                } else {
-                    Toast.makeText(getActivity(), "Skip option is blocked", Toast.LENGTH_SHORT).show()
-                }
+                skip(gameMechanics, view)
             }
 
             override fun onSwipeTop() {
-                stopTimer()
-                pointsCounter(gameMechanics)
-                nextPlayer(gameMechanics)
+                good(gameMechanics, view)
             }
 
             override fun onSwipeBottom() {
-                if (allowedSkips > 0) {
-                    allowedSkips--
-                    //nextCardOrNewRound()
-                    getNewCard(gameMechanics, view)
-                } else {
-                    Toast.makeText(getActivity(), "Skip option is blocked", Toast.LENGTH_SHORT).show()
-                }
+                skip(gameMechanics, view)
             }
         }
         )
