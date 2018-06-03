@@ -21,7 +21,8 @@ class App extends Component {
 
           </Logo>
 
-            <A><StyledIcon><i class="fas fa-angle-down fa-3x"></i></StyledIcon></A>
+
+            <a href="#myLink" id="myLink" class="fas fa-angle-down fa-3x"></a>
           
         </Wrapper>
         {/* <Div></Div> */}
