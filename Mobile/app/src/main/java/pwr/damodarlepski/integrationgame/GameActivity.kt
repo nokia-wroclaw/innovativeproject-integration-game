@@ -36,17 +36,21 @@ class GameActivity : AppCompatActivity() {
     private lateinit var gameMechanics: GameMechanics
     private val httpClient = HttpClient()
 
-    fun drawRandomCards(number: Int) { //TODO ... to działa, ale przerobię jak będzie lepszy endpoint
+    private fun drawRandomCards(number: Int) { //TODO ... to działa, ale przerobię jak będzie lepszy endpoint
 
-        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        val categories = prefs.getStringSet("categories", null)
+//        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+//        val categories = prefs.getStringSet("categories", null)
+//
+//        for (element in categories) {
+//            getCardsFromCategory(element.toString().toInt(), gameMechanics.categoryLookupMap[element.toString().toInt()], number / categories.size)
+//        }
 
-        for (element in categories) {
-            getCardsFromCategory(element.toString().toInt(), gameMechanics.categoryLookupMap[element.toString().toInt()], number / categories.size)
+        for (element in gameMechanics.selectedCategoriesList) {
+            getCardsFromCategory(gameMechanics.categoryIdLookupMap[element].toString().toInt(), element, number / gameMechanics.selectedCategoriesList.size)
         }
     }
 
-    fun getCardsFromCategory(id: Int, category: String?, size: Int) {
+    private fun getCardsFromCategory(id: Int, category: String?, size: Int) {
 
         val url = "https://integrationgame.herokuapp.com/api/categories/random/size/$size/id/$id"
         Log.wtf("INFO", url)
@@ -79,7 +83,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun setRoundName(gameMechanics: GameMechanics){
-        var round:String="Round"
+        var round = "Round"
         when (gameMechanics.currentRound) {
             0 -> {
                 round = "Round 1 Description"
@@ -94,7 +98,7 @@ class GameActivity : AppCompatActivity() {
                 round = "Round 4 Pose"
             }
         }
-        setTitle(round)
+        title = round
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,7 +126,7 @@ class GameActivity : AppCompatActivity() {
     var twice: Boolean = false
     override fun onBackPressed() {
         //super.onBackPressed()
-        if(twice==true){
+        if (twice) {
             /*
             val intent: Intent = Intent (Intent.ACTION_MAIN)
             intent.addCategory(Intent.CATEGORY_HOME)

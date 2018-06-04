@@ -15,10 +15,10 @@
     </string-array>
 
     <string-array name="rules_rounds_list_titles">
-        <item>sentences</item>
-        <item>one word</item>
-        <item>gestures</item>
-        <item>pose</item>
+        <item>Sentences</item>
+        <item>One word</item>
+        <item>Gestures</item>
+        <item>Pose</item>
     </string-array>
     <string-array name="rules_rounds_list_values">
         <item>1</item>
@@ -45,11 +45,15 @@
         <item>50</item>
         <item>40</item>
         <item>30</item>
+        <item>20</item>
+        <item>10</item>
     </string-array>
     <string-array name="rules_total_number_of_cards_list_values">
         <item>60</item>
         <item>50</item>
         <item>40</item>
         <item>30</item>
+        <item>20</item>
+        <item>10</item>
     </string-array>
 </resources>

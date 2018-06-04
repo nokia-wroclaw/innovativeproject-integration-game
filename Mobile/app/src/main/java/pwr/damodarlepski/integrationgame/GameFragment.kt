@@ -12,17 +12,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import java.util.*
-import android.view.GestureDetector
-import android.widget.*
-import kotlinx.android.synthetic.main.fragment_game.*
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
+import java.util.*
 
 class GameFragment : Fragment() {
 
     private lateinit var timer: CountDownTimer
-
-    val TAG = "FragmentGame"
 
     private fun nextTeam(gameMechanics: GameMechanics) {
 
@@ -44,19 +42,19 @@ class GameFragment : Fragment() {
         transaction?.commit()
     }
 
-    fun rand(to: Int): Int {
+    private fun rand(to: Int): Int {
         val index: Int
-        if (to == 0)
-            index = 0
+        index = if (to == 0)
+            0
         else {
             val from = 0
             val random = Random()
-            index = random.nextInt(to - from) + from
+            random.nextInt(to - from) + from
         }
         return index
     }
 
-    fun pointsCounter(gameMechanics: GameMechanics) {
+    private fun pointsCounter(gameMechanics: GameMechanics) {
         if (gameMechanics.currentTeam == 1) {
             gameMechanics.teamOneScore++
         } else {
@@ -82,14 +80,14 @@ class GameFragment : Fragment() {
         }
     }
 
-    fun startTimer(gameMechanics: GameMechanics, view: View) {
+    private fun startTimer(gameMechanics: GameMechanics, view: View) {
 
         val timeForGuessing = PreferenceManager.getDefaultSharedPreferences(context).getString("time_for_guessing", null).toLong()
 
         val progress = view.findViewById(R.id.time_progressBar) as ProgressBar
         progress.max = timeForGuessing.toInt()
 
-        var mp= MediaPlayer.create(this.context,R.raw.music)
+        val mp = MediaPlayer.create(this.context, R.raw.music)
 
         timer = object : CountDownTimer((timeForGuessing * 1000), 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -114,11 +112,11 @@ class GameFragment : Fragment() {
         }.start()
     }
 
-    fun stopTimer() {
+    private fun stopTimer() {
         timer.cancel()
     }
 
-    fun getNewCard(gameMechanics: GameMechanics, view: View) {
+    private fun getNewCard(gameMechanics: GameMechanics, view: View) {
         Log.v("CARD_SET", gameMechanics.cardSet.size.toString())
         if (gameMechanics.cardSet.size > 0) {
             val index = rand(gameMechanics.cardSet.size - 1)
@@ -149,7 +147,7 @@ class GameFragment : Fragment() {
                 getNewCard(gameMechanics, view)
             }
             else {
-                Toast.makeText(getActivity(), "Skip option is blocked", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Skip option is blocked", Toast.LENGTH_SHORT).show()
             }
         }
         else{
@@ -158,7 +156,7 @@ class GameFragment : Fragment() {
                     getNewCard(gameMechanics, view)
                 }
                 else {
-                    Toast.makeText(getActivity(), "Skip option is blocked", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Skip option is blocked", Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -181,11 +179,11 @@ class GameFragment : Fragment() {
         getNewCard(gameMechanics, view)
         startTimer(gameMechanics, view)
 
-        val card_layout = view.findViewById(R.id.card_layout) as LinearLayout
+        val cardLayout = view.findViewById(R.id.card_layout) as LinearLayout
 
-        card_layout?.setOnTouchListener(object :OnSwipeTouchListener(this.context!!){
+        cardLayout.setOnTouchListener(object : OnSwipeTouchListener(this.context!!) {
             override fun onSwipeRight() {
-               good(gameMechanics, view)
+                good(gameMechanics, view)
             }
 
             override fun onSwipeLeft() {

@@ -1,7 +1,6 @@
 package pwr.damodarlepski.integrationgame
 
 import android.content.Context
-import android.preference.MultiSelectListPreference
 import android.preference.PreferenceManager
 import java.io.Serializable
 
@@ -15,7 +14,9 @@ class GameMechanics : Serializable {
     var currentRound = 0
     lateinit var selectedRounds: ArrayList<Int>
 
+    var selectedCategoriesList = listOf<String>()
     var categoryLookupMap = mutableMapOf<Int, String>()
+    var categoryIdLookupMap = mutableMapOf<String, Int>()
 
     val cardDeck = mutableListOf<Card>()
     var cardSet = mutableListOf<Card>()

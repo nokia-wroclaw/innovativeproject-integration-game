@@ -29,11 +29,14 @@ class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener 
     private fun loadRules(gameMechanics: GameMechanics) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
-        val categories = prefs.getStringSet("categories", null)
+//        val categories = prefs.getStringSet("categories", null)
         val buildCategories = StringBuilder()
-        for (element in categories) {
-            buildCategories.append(gameMechanics.categoryLookupMap[element.toString().toInt()] + "\n")
+        for (element in gameMechanics.selectedCategoriesList) {
+            buildCategories.append(element + "\n")
         }
+//        for (element in categories) {
+//            buildCategories.append(gameMechanics.categoryLookupMap[element.toString().toInt()] + "\n")
+//        }
         textView_categories_value.text = buildCategories
 
         val time = prefs.getString("time_for_guessing", "30 sec")
