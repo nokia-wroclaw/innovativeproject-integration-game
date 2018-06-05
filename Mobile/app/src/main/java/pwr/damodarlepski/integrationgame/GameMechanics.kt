@@ -5,8 +5,7 @@ import android.preference.PreferenceManager
 import java.io.Serializable
 
 class GameMechanics : Serializable {
-    private var allowedSkipsOne = 0
-    private var allowedSkipsTwo = 0
+
     var currentTeam = 1
     var teamOneScore = 0
     var teamTwoScore = 0
@@ -54,25 +53,5 @@ class GameMechanics : Serializable {
     }
     fun getRoundDescriptionArray(): Array<String> {
         return roundDescription
-    }
-    fun getAllowedSkipsOne(): Int {
-        return allowedSkipsOne
-    }
-    fun decrementedAllowedSkipsOne(){
-        allowedSkipsOne--
-    }
-    fun setAllowedSkipsOne(context: Context) {
-        val skipped=PreferenceManager.getDefaultSharedPreferences(context).getString("number_of_skipped_cards", null).toInt()
-        allowedSkipsOne=skipped
-    }
-    fun getAllowedSkipsTwo(): Int {
-        return allowedSkipsTwo
-    }
-    fun decrementedAllowedSkipsTwo(){
-        allowedSkipsTwo--
-    }
-    fun setAllowedSkipsTwo(context: Context){
-        val skipped=PreferenceManager.getDefaultSharedPreferences(context).getString("number_of_skipped_cards", null).toInt()
-        allowedSkipsTwo=skipped
     }
 }

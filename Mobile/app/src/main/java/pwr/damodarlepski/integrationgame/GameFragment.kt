@@ -19,8 +19,11 @@ import android.widget.Toast
 import java.util.*
 
 class GameFragment : Fragment() {
+    private var allowedSkips = 2
 
     private lateinit var timer: CountDownTimer
+
+    private lateinit var mp: MediaPlayer
 
     private fun nextTeam(gameMechanics: GameMechanics) {
 
@@ -87,7 +90,7 @@ class GameFragment : Fragment() {
         val progress = view.findViewById(R.id.time_progressBar) as ProgressBar
         progress.max = timeForGuessing.toInt()
 
-        val mp = MediaPlayer.create(this.context, R.raw.music)
+        mp = MediaPlayer.create(this.context, R.raw.music)
 
         timer = object : CountDownTimer((timeForGuessing * 1000), 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -106,7 +109,7 @@ class GameFragment : Fragment() {
             }
 
             override fun onFinish() {
-
+                mp.stop()
                 nextPlayer(gameMechanics)
             }
         }.start()
@@ -114,6 +117,7 @@ class GameFragment : Fragment() {
 
     private fun stopTimer() {
         timer.cancel()
+        mp.stop()
     }
 
     private fun getNewCard(gameMechanics: GameMechanics, view: View) {
@@ -139,33 +143,20 @@ class GameFragment : Fragment() {
             transaction?.commit()
         }
     }
-
-    fun skip(gameMechanics: GameMechanics, view: View){
-        if(gameMechanics.currentTeam==1){
-            if (gameMechanics.getAllowedSkipsOne() > 0) {
-               gameMechanics.decrementedAllowedSkipsOne()
-                getNewCard(gameMechanics, view)
-            }
-            else {
-                Toast.makeText(activity, "Skip option is blocked", Toast.LENGTH_SHORT).show()
-            }
-        }
-        else{
-                if (gameMechanics.getAllowedSkipsTwo() > 0) {
-                    gameMechanics.decrementedAllowedSkipsTwo()
-                    getNewCard(gameMechanics, view)
-                }
-                else {
-                    Toast.makeText(activity, "Skip option is blocked", Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
-
-    fun good(gameMechanics: GameMechanics, view: View){
+    private fun good(gameMechanics: GameMechanics, view: View) {
+        // stopTimer()
         pointsCounter(gameMechanics)
         getNewCard(gameMechanics, view)
     }
-
+    private fun skip(gameMechanics: GameMechanics, view: View) {
+        if (allowedSkips > 0) {
+            allowedSkips--
+            //nextCardOrNewRound()
+            getNewCard(gameMechanics, view)
+        } else {
+            Toast.makeText(getActivity(), "Skip option is blocked", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
