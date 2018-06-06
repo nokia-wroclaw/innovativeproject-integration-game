@@ -6,7 +6,11 @@ import ReactSVG from 'react-svg';
 
 export const ImageLabel = styled.img`
     width: 90%;
-    padding-left: 170px;
+    // padding-left: 170px;
+`;
+
+export const Image = styled.img`
+    width: 40%;
 `;
 
 export const ImageClock = styled(ReactSVG)`
@@ -48,8 +52,8 @@ export const Wrapper = styled.div`
     flex-direction: column;
     box-shadow: 0 0 8px #aaa;
     border-radius: 5px;
-
-    background-image: url("../../../shattered.png");
+    background-color: #fefefa;
+    box-shadow: 0 0 8px lightgray;
 
         @media (max-width: 1280px) {
             height: 65%
@@ -69,7 +73,7 @@ export const Wrapper = styled.div`
 export const StyledIcon = styled(Icon)`
     position: absolute;
     padding-top: 100px;
-    color: ${colors.darkBlue};
+    color: ${colors.orange};
 `;
 
 export const Logo = styled.div`
