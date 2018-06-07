@@ -111,7 +111,7 @@ class GameActivity : AppCompatActivity() {
             drawRandomCards(PreferenceManager.getDefaultSharedPreferences(this).getString("total_number_of_cards", null).toInt())
 
             val transaction = manager.beginTransaction()
-            val fragment = RoundFragment()
+            val fragment = SkipActivity()
 
             val passBundle = Bundle()
             passBundle.putSerializable("GAME_MECHANICS", gameMechanics)
