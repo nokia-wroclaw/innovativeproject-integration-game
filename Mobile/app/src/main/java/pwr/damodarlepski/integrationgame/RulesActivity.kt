@@ -10,14 +10,11 @@ class RulesActivity : PreferenceActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         fragmentManager.beginTransaction().replace(android.R.id.content, RulesFragment()).commit()
     }
 
     class RulesFragment : PreferenceFragment() {
-
         private fun setListPreferenceDataRounds(lp: MultiSelectListPreference) {
-
             val values = mutableSetOf("1", "2", "3", "4")
             lp.values = values
         }
@@ -25,14 +22,6 @@ class RulesActivity : PreferenceActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             addPreferencesFromResource(R.xml.rules)
-
-//            val categories = findPreference("categories") as MultiSelectListPreference
-//            //setListPreferenceDataCategories(categories)
-//
-//            thread {
-//                getCategories(categories)
-//            }
-
             val rounds = findPreference("rounds") as MultiSelectListPreference
             setListPreferenceDataRounds(rounds)
         }

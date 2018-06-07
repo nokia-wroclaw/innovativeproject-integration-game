@@ -9,11 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 
 class RoundFragment : Fragment() {
-
-    val TAG = "FragmentRound"
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         val getBundle = arguments
         val gameMechanics = getBundle?.getSerializable("GAME_MECHANICS") as GameMechanics
 
@@ -25,25 +21,16 @@ class RoundFragment : Fragment() {
         val button = view.findViewById(R.id.button_round) as Button
 
         activity?.runOnUiThread {
-
-            //button.text = ArrayRounds[indexOfRound]
             button.text = gameMechanics.getCurrentRoundDescription()
-
-            (getActivity() as GameActivity).setRoundName(gameMechanics)
-
+            (activity as GameActivity).setRoundName(gameMechanics)
             gameMechanics.currentRound++
-            //indexOfRound++
-            //ArrayCategory = ArrayCategoryData.toMutableList()
-            //ArrayPeople = ArrayPeopleData.toMutableList()
 
             button.setOnClickListener {
                 val transaction = fragmentManager?.beginTransaction()
                 val fragment = TeamFragment()
-
                 val passBundle = Bundle()
                 passBundle.putSerializable("GAME_MECHANICS", gameMechanics)
                 fragment.arguments = passBundle
-
                 transaction?.replace(R.id.fragment_holder, fragment)
                 transaction?.addToBackStack(null)
                 transaction?.commit()

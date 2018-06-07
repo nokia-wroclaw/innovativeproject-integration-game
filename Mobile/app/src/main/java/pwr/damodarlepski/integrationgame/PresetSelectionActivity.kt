@@ -50,6 +50,7 @@ class PresetSelectionActivity : AppCompatActivity() {
 
         val chosePresetButton = Button(this)
         chosePresetButton.text = mutableListOfPresets[indexOfPreset].name
+        chosePresetButton.setBackgroundResource(R.drawable.rounded_buttons)
 
         val categoryNamesArray = mutableListOfPresets[indexOfPreset].categoryNameArray
         val checkedCategories = BooleanArray(mutableListOfPresets[indexOfPreset].numberOfCategories)

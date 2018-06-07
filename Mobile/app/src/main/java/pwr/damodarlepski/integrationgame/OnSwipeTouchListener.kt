@@ -8,7 +8,6 @@ import android.view.View
 import android.view.View.OnTouchListener
 
 open class OnSwipeTouchListener(ctx: Context) : OnTouchListener {
-
     private val gestureDetector: GestureDetector
 
     init {
@@ -20,11 +19,8 @@ open class OnSwipeTouchListener(ctx: Context) : OnTouchListener {
     }
 
     private inner class GestureListener : SimpleOnGestureListener() {
-
-
         private val SWIPE_THRESHOLD = 100
         private val SWIPE_VELOCITY_THRESHOLD = 100
-
         override fun onDown(e: MotionEvent): Boolean {
             return true
         }
@@ -54,16 +50,12 @@ open class OnSwipeTouchListener(ctx: Context) : OnTouchListener {
             } catch (exception: Exception) {
                 exception.printStackTrace()
             }
-
             return result
         }
     }
 
     open fun onSwipeRight() {}
-
     open fun onSwipeLeft() {}
-
     open fun onSwipeTop() {}
-
     open fun onSwipeBottom() {}
 }
