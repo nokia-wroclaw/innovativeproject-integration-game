@@ -21,7 +21,7 @@
         <activity android:name=".RulesActivity" />
         <activity
             android:name=".NewGameActivity"
-            android:label="New Game" />
+            android:label="Rules overview" />
         <activity
             android:name=".GameActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -34,7 +34,10 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".PresetSelectionActivity"></activity>
+        <activity
+            android:name=".PresetSelectionActivity"
+            android:label="Chose Preset"
+          />
     </application>
 
 </manifest>

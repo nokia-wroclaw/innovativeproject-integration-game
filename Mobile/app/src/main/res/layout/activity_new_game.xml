@@ -7,27 +7,10 @@
     tools:context="pwr.damodarlepski.integrationgame.NewGameActivity"
     android:background="@drawable/backgroundimage">
 
-    <TextView
-        android:id="@+id/textView_rules"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Rules overview"
-        android:textColor="@color/colorPrimary"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="261dp"
-        android:layout_height="303dp"
+        android:layout_width="295dp"
+        android:layout_height="294dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:orientation="vertical"
@@ -41,7 +24,7 @@
         <TableLayout
             android:id="@+id/table_rules_overview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:addStatesFromChildren="false"
             android:alwaysDrawnWithCache="false"
             android:animateLayoutChanges="false"
