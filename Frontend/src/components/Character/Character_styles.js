@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../utils/styles';
 
 export const Wrapper = styled.div`
     display: flex;
@@ -8,6 +7,7 @@ export const Wrapper = styled.div`
     align-items: center;
     padding-left: 10%;
     padding-bottom: 5px;
+    width: 120%;
 
     &:hover{
         cursor:pointer;

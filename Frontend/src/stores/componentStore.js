@@ -14,7 +14,8 @@ class ComponentStore extends EventEmmiter {
             inactive: [""],
             active: [""],
             action: "action",
-            id: "0"
+            id: "0",
+            presetId: "0"
         }
     }
 
@@ -48,13 +49,14 @@ class ComponentStore extends EventEmmiter {
         this.emit("change");
     }
 
-    addCategory(data, category, inactive, active, action) {
+    addCategory(data, category, inactive, active, action, presetId) {
         this.setState({
             data: data,
             category: category,
             inactive: inactive,
             active: active,
-            action: action
+            action: action,
+            presetId: presetId
         });
 
         this.emit("change");
@@ -92,6 +94,38 @@ class ComponentStore extends EventEmmiter {
         this.emit("change");
     }
 
+    editPreset(data, inactive, active, action, presetId) {
+        this.setState({
+            data: data,
+            inactive: inactive,
+            active: active,
+            action: action,
+            presetId: presetId
+        });
+
+        this.emit("change");
+    }
+
+    addPreset(data, inactive, active, action) {
+        this.setState({
+            data: data,
+            inactive: inactive,
+            active: active,
+            action: action
+        });
+
+        this.emit("change");
+    }
+
+    deletePreset(action, presetId) {
+        this.setState({
+            action: action,
+            presetId: presetId
+        });
+
+        this.emit("change");
+    }
+
     getAll() {
         return this.state;
     }
@@ -107,7 +141,7 @@ class ComponentStore extends EventEmmiter {
                 break;
             }
             case "ADD_CATEGORY": {
-                this.addCategory(action.data, action.category, action.inactive, action.active, action.action);
+                this.addCategory(action.data, action.category, action.inactive, action.active, action.action, action.presetId);
                 break;
             }
             case "ADD_CHARACTER": {
@@ -120,6 +154,18 @@ class ComponentStore extends EventEmmiter {
             }
             case "DELETE_CATEGORY": {
                 this.deleteCategory(action.action, action.id);
+                break;
+            }
+            case "EDIT_PRESET": {
+                this.editPreset(action.data, action.inactive, action.active, action.action, action.presetId);
+                break;
+            }
+            case "ADD_PRESET": {
+                this.addPreset(action.data, action.inactive, action.active, action.action);
+                break;
+            }
+            case "DELETE_PRESET": {
+                this.deletePreset(action.action, action.presetId);
                 break;
             }
             default: {

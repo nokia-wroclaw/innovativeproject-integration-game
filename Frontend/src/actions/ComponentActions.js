@@ -24,14 +24,15 @@ export function editCategory(data, category, inactive, active, action, id) {
     });
 }
 
-export function addCategory(data, category, inactive, active, action) {
+export function addCategory(data, category, inactive, active, action, presetId) {
     dispatcher.dispatch({
         type: "ADD_CATEGORY",
         data,
         category,
         inactive,
         active,
-        action
+        action,
+        presetId
     });
 }
 
@@ -61,5 +62,34 @@ export function deleteCategory(action, id) {
         type: "DELETE_CATEGORY",
         action,
         id
+    });
+}
+
+export function editPreset(data, inactive, active, action, presetId) {
+    dispatcher.dispatch({
+        type: "EDIT_PRESET",
+        data,
+        inactive,
+        active,
+        action,
+        presetId
+    });
+}
+
+export function addPreset(data, inactive, active, action) {
+    dispatcher.dispatch({
+        type: "ADD_PRESET",
+        data,
+        inactive,
+        active,
+        action
+    });
+}
+
+export function deletePreset(action, presetId) {
+    dispatcher.dispatch({
+        type: "DELETE_PRESET",
+        action,
+        presetId
     });
 }

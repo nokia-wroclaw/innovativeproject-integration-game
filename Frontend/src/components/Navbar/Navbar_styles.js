@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Menu } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
-import { colors } from '../../utils/styles';
+import {Menu} from 'semantic-ui-react';
+import {NavLink} from 'react-router-dom';
+import {colors} from '../../utils/styles';
 
 export const Wrapper = styled.div`
     padding: 60px 40px 0 0;
@@ -36,12 +36,6 @@ export const StyledItem = styled(Menu.Item)`
 `;
 
 export const Link = styled(NavLink)`
-    // padding: 20px 40px;
-    // text-decoration: none;
-    // color: ${colors.orange};
-    // font-size: 130%;
-    // border: 1px solid ${colors.orange}
-    // border-radius: 5px;
     margin-left: 40px;
     padding: 10px 30px;
     border-radius: 5px;
@@ -49,12 +43,14 @@ export const Link = styled(NavLink)`
     color: ${colors.orange};
     font-size: 110%;
     font-weight: bold;
+    transition: all 0.35s ease-in-out;
 
     &:hover {
         cursor: pointer;
         background-color: ${colors.orange};
         color: white;
-        box-shadow: 1px 3px 7px ${colors.darkBlue};
+        box-shadow: 1px 2px 10px #c17600;
+        transition: all 0.5s ease-in-out;
     }
 
     @media (max-width: 1280px) {

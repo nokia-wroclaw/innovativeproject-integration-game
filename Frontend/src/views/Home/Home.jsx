@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Rules from '../../components/Rules/Rules';
-import { ImageLabel, ImageClock, Wrapper, StyledIcon, Logo, Container, Div, A } from './Home_styles';
+import {ImageLabel, ImageClock, Wrapper, StyledIcon, Logo, Container, Div, A, Image} from './Home_styles';
+import logo from "../../images/business_6.png"
 
 class App extends Component {
   // scroll = (height = window.innerHeight) => {
@@ -13,18 +14,13 @@ class App extends Component {
         <Wrapper>
           <Logo>
             <div>
-              <ImageClock path='/alarm-clock.svg' />
-            </div>
+              </div>
             <div>
-              <ImageLabel src="https://fontmeme.com/permalink/180420/3cf41b4d6384de2d02f28fec3ea28057.png" />
+              <ImageLabel src="https://fontmeme.com/permalink/180602/1976952e083ea824eefc5355da4602cd.png" />
             </div>
-
           </Logo>
-
-            <A><StyledIcon><i class="fas fa-angle-down fa-3x"></i></StyledIcon></A>
-          
+          <A href="#rules"><StyledIcon><i class="fas fa-angle-down fa-3x"></i></StyledIcon></A>
         </Wrapper>
-        {/* <Div></Div> */}
         <Rules id="rules" />
       </Container>
     );

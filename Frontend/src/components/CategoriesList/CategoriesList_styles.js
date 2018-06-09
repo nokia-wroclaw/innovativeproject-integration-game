@@ -25,17 +25,25 @@ export const Wrapper = styled.div`
     color: #fefefa;
 `;
 
-export const CategoryFlexbox = styled.div`
-    display: flex;
-    align-items: center;
+export const Container = styled.div`
+    
 `;
 
-export const CharacterFlexbox = styled.div`
-    display: flex;
-    align-items: center;
-    margin: 10px;
+export const PresetWrapper = styled.div`
+    margin-top: 15px;
 `;
 
-export const StyledAccordion = styled(AccordionElement)`
-    width: 500px;
+export const Title = styled.p`
+    margin-top: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 120%;
+
+    &:hover{
+        cursor:pointer;
+    }
+
+    &:hover #icon{
+        display: block;
+    }
 `;

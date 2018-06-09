@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../utils/styles';
-import { Accordion } from 'semantic-ui-react'
+import {Accordion} from 'semantic-ui-react'
 
 export const StyledAccordion = styled.div`
     display: flex;
@@ -16,6 +15,7 @@ export const StyledCategory = styled.div`
 
 export const StyledContent = styled(Accordion.Content)`
     width: 100%;
+    transition: all 3s;
 `;
 
 export const StyledTitle = styled(Accordion.Title)`
@@ -27,7 +27,7 @@ export const StyledTitle = styled(Accordion.Title)`
 export const Title = styled.p`
     color: white;
     font-weight: bold;
-    font-size: 120%;
+    font-size: 110%;
     font-style: italic;
 
     &:hover{

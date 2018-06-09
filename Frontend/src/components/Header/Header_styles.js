@@ -11,7 +11,8 @@ export const Label = styled.div`
 export const Border = styled.div`
     width: 90%;
     margin: 0 auto;
-    border-bottom: 5px solid ${colors.orange};
+    height: 5px;
+    background-color: ${colors.orange};
 `;
 
 export const Wrapper = styled.div`

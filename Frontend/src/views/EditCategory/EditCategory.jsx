@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
-import { Container, Wrapper, List, StyledForm, Label, Button, StyledTextArea, StyledInput, StyledArea } from './EditCategory_styles';
-import { Input, Form, TextArea } from 'semantic-ui-react';
+import React, {Component} from 'react';
+import {
+    Button,
+    Container,
+    Label,
+    List,
+    StyledArea,
+    StyledForm,
+    StyledInput,
+    StyledTextArea,
+    Wrapper
+} from './EditCategory_styles';
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import Header from '../../components/Header/Header';
-import data from '../../components/CategoriesList/data.json';
 import ComponentStore from '../../stores/componentStore';
 import ListStore from '../../stores/listStore';
 import * as ListActions from '../../actions/ListActions';
@@ -31,8 +39,7 @@ class EditCategory extends Component {
                 document.getElementById(id).value = "";
             })
         }
-        else if (action === "deleteCharacter" || action === "deleteCategory") {
-      }
+        else if (action === "deleteCharacter" || action === "deleteCategory" || action === "deletePreset") {}
         else {
             document.getElementById('category').value = category;
 
@@ -79,8 +86,26 @@ class EditCategory extends Component {
             const store = ComponentStore.getAll();
             this.log(store.data, store.category, store.inactive, store.active, store.action);
             
-            if(store.action === "deleteCharacter") this.deleteCharacter(store.data.categoryId, store.data.id);
-            if(store.action === "deleteCategory") this.deleteCategory(store.id);
+            if(store.action === "deleteCharacter") {
+                let result = window.confirm("Do you want to delete this character?");
+                if (result) {
+                    this.deleteCharacter(store.data.categoryId, store.data.id);
+                }
+            }
+
+            if(store.action === "deleteCategory") {
+                let result = window.confirm("Do you want to delete this category?");
+                if (result) {
+                    this.deleteCategory(store.id);
+                }
+            }
+
+            if(store.action === "deletePreset") {
+                let result = window.confirm("Do you want to delete this preset?");
+                if (result) {
+                    this.deletePreset(store.presetId);
+                }
+            }
         });
 
         ListStore.on("change", () => {
@@ -92,24 +117,21 @@ class EditCategory extends Component {
 
     deleteCategory = (categoryId) => {
         axios.delete(`https://integrationgame.herokuapp.com/api/categories/${categoryId}`)
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-    }
+          .then(() => window.location.reload())
+          .catch(error => console.log(error));
+    };
 
     deleteCharacter = (categoryId, id) => {
         axios.delete(`https://integrationgame.herokuapp.com/api/categories/${categoryId}/people/${id}`)
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+          .then(() => window.location.reload())
+          .catch(error => console.log(error));
+    };
 
-    }
+    deletePreset = (id) => {
+        axios.delete(`https://integrationgame.herokuapp.com/api/preset/${id}`)
+            .then(() => window.location.reload())
+            .catch(error => console.log(error));
+    };
 
     saveAddedCharacter = () => {
         let categoryId = this.state.char.id;
@@ -119,25 +141,20 @@ class EditCategory extends Component {
             surname: document.getElementById('surname').value,
             nickname: document.getElementById('nickname').value,
         })
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-    }
+        .then(() => window.location.reload())
+        .catch(error => console.log(error))
+    };
 
     saveAddedCategory = () => {
-        axios.post('https://integrationgame.herokuapp.com/api/categories', {
+        let presetId = this.state.char.presetId;
+        console.log("add")
+
+        axios.post(`https://integrationgame.herokuapp.com/api/categories/preset/${presetId}`, {
             name: document.getElementById('category').value,
         })
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-    }
+        .then(() => window.location.reload())
+        .catch(error => console.log(error))
+    };
 
     saveEditedCategory = () => {
         let categoryId = this.state.char.id;
@@ -145,13 +162,9 @@ class EditCategory extends Component {
         axios.put(`https://integrationgame.herokuapp.com/api/categories/${categoryId}`, {
             name: document.getElementById('category').value,
         })
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-    }
+        .then(() => window.location.reload())
+        .catch(error => console.log(error))
+    };
 
     saveEditedCharacter = () => {
         if(document.getElementById('nickname').value.length === 0) {
@@ -171,13 +184,29 @@ class EditCategory extends Component {
             nickname: document.getElementById('nickname').value,
             description: document.getElementById('description').value
         })
-          .then((response) => {
-            window.location.reload();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-    }
+        .then(() => window.location.reload())
+        .catch(error => console.log(error))
+    };
+
+    saveEditedPreset = () => {
+        let presetId = this.state.char.presetId;
+
+        axios.put(`https://integrationgame.herokuapp.com/api/preset/${presetId}`, {
+            name: document.getElementById('preset').value,
+        })
+        .then(() => window.location.reload())
+        .catch((error) => console.log(error))
+    };
+
+    saveAddedPreset = () => {
+        const isDefault = false;
+        axios.post("https://integrationgame.herokuapp.com/api/preset", {
+            name: document.getElementById('preset').value,
+            isDefault: isDefault
+        })
+        .then(() => window.location.reload())
+        .catch((error) => console.log(error))
+    };
  
     save = () => {
         if(this.state.char.action === "editCharacter") {
@@ -192,10 +221,16 @@ class EditCategory extends Component {
         else if(this.state.char.action === "addCharacter") {
             this.saveAddedCharacter()
         }
+        else if(this.state.char.action === "editPreset") {
+            this.saveEditedPreset()
+        }
+        else if(this.state.char.action === "addPreset") {
+            this.saveAddedPreset()
+        }
         else {
             window.alert("You did not choose any option")
         }
-    }
+    };
 
     render() {
         return (
@@ -207,6 +242,10 @@ class EditCategory extends Component {
                     <Header label="Edit categories and characters" />
                     <div id="result"></div>
                     <StyledForm id="form">
+                        <div id="l-preset">
+                            <Label>preset</Label>
+                            <StyledInput id="preset" placeholder="preset" />
+                        </div>
                         <div id="l-category">
                             <Label>category</Label>
                             <StyledInput id="category" placeholder="category" />
@@ -222,17 +261,15 @@ class EditCategory extends Component {
                         <div id="l-nickname">
                             <Label>nickname</Label>
                             <StyledInput id="nickname" placeholder="nickname" />
+
                         </div>
-                        <StyledTextArea id="t-description">
+                        <div id="t-description">
                             <Label>description</Label>
                             <StyledArea id="description" placeholder="description" />
-                        </StyledTextArea>
+                        </div>
 
                         <Button onClick={this.save}>Save</Button>
                     </StyledForm>
-		    
-
-
                 </Wrapper>
             </Container>
         );

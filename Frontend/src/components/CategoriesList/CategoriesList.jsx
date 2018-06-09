@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Accordion, Icon } from 'semantic-ui-react'
-import { Header, Wrapper, StyledAccordion } from './CategoriesList_styles';
+import {Accordion} from 'semantic-ui-react'
+import {Container, Header, Wrapper} from './CategoriesList_styles';
 import ListStore from '../../stores/listStore';
-import * as ListActions from '../../actions/ListActions';
-import Character from '../../components/Character/Character';
-import AddCategoryButton from '../../components/AddCategoryButton/AddCategoryButton';
+import ExternalAccordion from "../ExternalAccordion/ExternalAccordion";
+import AddPresetButton from "../AddPresetButton/AddPresetButton";
 
 class categoriesList extends Component {
     constructor(props) {
@@ -14,20 +13,13 @@ class categoriesList extends Component {
             data: ListStore.getAll(),
         }
     }
-    
+
     renderCategories() {
-        console.log(this.state.data)
         return (
-            this.state.data.map((rowdata, index) => 
-            <div key={index}>{
-                <StyledAccordion activeIndex={index} index={index} name={rowdata.name} id={rowdata.id}
-                    characters={rowdata.people.map((subRowData, k) => {
-                    return <div>
-                        <Character character={subRowData} category={rowdata.name}/>
-                    </div>
-                })}
-            />
-            }</div>)
+            <Container>
+                <AddPresetButton />
+                {this.state.data.map(preset => <ExternalAccordion preset={preset}/>)}
+            </Container>
         )
     }
 
@@ -45,7 +37,6 @@ class categoriesList extends Component {
                 <Header>List of categories</Header>
                 <Wrapper>
                     <Accordion>
-                        <AddCategoryButton />
                         {this.renderCategories()}
                     </Accordion>
                 </Wrapper>

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Navbar from './components/Navbar/Navbar';
 import Home from './views/Home/Home';
 import Categories from './views/Categories/Categories';
-import AddCategory from './views/AddCategory/AddCategory';
 import EditCategory from './views/EditCategory/EditCategory';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -16,7 +15,6 @@ ReactDOM.render(
             <Switch>
                 <Route path="/categories/edit/:category/:id" component={EditCategory} />
                 <Route path="/categories/edit" component={EditCategory} />
-                <Route path="/categories/add" component={AddCategory} />
                 <Route path="/categories/display" component={Categories} />
                 <Route path="/" component={Home} />
             </Switch>
