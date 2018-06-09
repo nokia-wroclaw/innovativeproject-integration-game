@@ -112,7 +112,7 @@ export const StyledArea = styled.textarea`
 
 export const Label = styled.label`
     display: block;
-    margin: 15px 0 5px 20px;
+    margin: 15px 0 5px 5px;
 `;
 
 export const Button = styled.button`
