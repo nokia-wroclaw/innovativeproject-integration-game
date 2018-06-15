@@ -67,7 +67,7 @@ export default class ExternalAccordion extends Component {
                         </Accordion.Content>
                     </Wrapper>
                     <PresetWrapper>
-                        <Preset presetId={this.props.preset.id} isDefault={this.props.preset.isDefault}/>
+                        <Preset presetId={this.props.preset.id} presetName={this.props.preset.name} isDefault={this.props.preset.isDefault}/>
                     </PresetWrapper>
                 </StyledAccordion>
             </Container>

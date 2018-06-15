@@ -28,7 +28,7 @@ class EditCategory extends Component {
         }
     }
 
-    log(value, category, inactive, active, action) {
+    log(value, category, inactive, active, action, presetName) {
         if(action === "addCharacter") {
             inactive.map((id) => {
                 document.getElementById(id).style = "display: none;";
@@ -42,6 +42,7 @@ class EditCategory extends Component {
         else if (action === "deleteCharacter" || action === "deleteCategory" || action === "deletePreset") {}
         else {
             document.getElementById('category').value = category;
+            document.getElementById('preset').value = presetName;
 
             if(value === null) {
                 inactive.map((id) => {
@@ -84,7 +85,7 @@ class EditCategory extends Component {
             });
 
             const store = ComponentStore.getAll();
-            this.log(store.data, store.category, store.inactive, store.active, store.action);
+            this.log(store.data, store.category, store.inactive, store.active, store.action, store.presetName);
             
             if(store.action === "deleteCharacter") {
                 let result = window.confirm("Do you want to delete this character?");

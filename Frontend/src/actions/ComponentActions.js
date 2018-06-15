@@ -65,14 +65,15 @@ export function deleteCategory(action, id) {
     });
 }
 
-export function editPreset(data, inactive, active, action, presetId) {
+export function editPreset(data, inactive, active, action, presetId, presetName) {
     dispatcher.dispatch({
         type: "EDIT_PRESET",
         data,
         inactive,
         active,
         action,
-        presetId
+        presetId,
+        presetName
     });
 }
 

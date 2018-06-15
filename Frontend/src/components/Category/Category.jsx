@@ -11,8 +11,10 @@ class Category extends Component {
             data: null,
             category: this.props.category,
             id: this.props.id,
-            inactive: ["l-name", "l-surname", "l-nickname", "t-description"],
+            inactive: ["l-preset", "l-name", "l-surname", "l-nickname", "t-description"],
             active: ["l-category"],
+            activeForAddCharacter: ["l-name", "l-surname", "l-nickname", "t-description"],
+            inactiveForAddCharacters: ["l-preset", "l-category"],
             editAction: "editCategory",
             addAction: "addCharacter",
             deleteAction: "deleteCategory"
@@ -24,7 +26,7 @@ class Category extends Component {
     };
 
     addCharacter = () => {
-        ComponentActions.addCharacter(this.state.data, this.state.category, this.state.active, this.state.inactive, this.state.addAction, this.state.id);
+        ComponentActions.addCharacter(this.state.data, this.state.category, this.state.inactiveForAddCharacters, this.state.activeForAddCharacter, this.state.addAction, this.state.id);
     };
 
     deleteCategory = () => {
