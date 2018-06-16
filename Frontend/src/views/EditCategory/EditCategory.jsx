@@ -34,10 +34,17 @@ class EditCategory extends Component {
                 document.getElementById(id).style = "display: none;";
             })
 
+            document.getElementById('name').value = "";
+            document.getElementById('surname').value = "";
+            document.getElementById('nickname').value = "";
+            document.getElementById('description').value = "";
+
             active.map((id) => {
                 document.getElementById(id).style = "display: block;";
-                document.getElementById(id).value = "";
             })
+        }
+        else if (action === "addPreset") {
+            document.getElementById('preset').value = "";
         }
         else if (action === "deleteCharacter" || action === "deleteCategory" || action === "deletePreset") {}
         else {
