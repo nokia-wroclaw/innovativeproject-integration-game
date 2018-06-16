@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { colors } from '../../utils/styles';
 import { Icon } from 'semantic-ui-react';
 import ReactSVG from 'react-svg';
-// import image from '../../../public/shattered.png';
 
 export const ImageLabel = styled.img`
     width: 90%;
@@ -26,18 +25,8 @@ export const Container = styled.div`
 `;
 
 export const A = styled.a`
-   &:hover {
-       cursor: pointer;
-   }
+   
 `;
-
-// export const Div = styled.div`
-//     position: absolute;
-//     height: 50vh;
-//     width: 100vw;
-//     margin: 50vh;
-//     background: ${colors.darkBlue};
-// `
 
 export const Wrapper = styled.div`
     position: absolute;
@@ -72,7 +61,7 @@ export const Wrapper = styled.div`
 
 export const StyledIcon = styled(Icon)`
     position: absolute;
-    padding-top: 100px;
+    padding-top: 80px;
     color: ${colors.orange};
 `;
 

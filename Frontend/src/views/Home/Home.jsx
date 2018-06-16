@@ -19,7 +19,7 @@ class App extends Component {
               <ImageLabel src="https://fontmeme.com/permalink/180602/1976952e083ea824eefc5355da4602cd.png" />
             </div>
           </Logo>
-          <A href="#rules"><StyledIcon><i class="fas fa-angle-down fa-3x"></i></StyledIcon></A>
+          <A><StyledIcon><i class="fas fa-angle-down fa-3x"></i></StyledIcon></A>
         </Wrapper>
         <Rules id="rules" />
       </Container>
