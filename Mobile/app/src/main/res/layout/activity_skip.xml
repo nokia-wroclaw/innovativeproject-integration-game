@@ -3,15 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/green_arrow"
         android:layout_width="225dp"
         android:layout_height="114dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:srcCompat="@drawable/greenarrow"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="182dp"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -30,8 +36,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Start"
         android:background="@drawable/rounded_buttons"
+        android:text="Start"
+        android:textColor="#ff9c00"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -39,28 +47,27 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="17dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="88dp"
         android:text="Good answer swipe into  right"
-        app:layout_constraintBottom_toTopOf="@+id/green_arrow"
+        android:textColor="#212121"
+        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906"
         tools:text="Good answer swipe into  right" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
         android:text="If you want to skip card, swipe into left"
+        android:textColor="#212121"
+        android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/red_arrow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/green_arrow"
-        app:layout_constraintVertical_bias="0.76"
         tools:text="If you want to skip card, swipe into left" />
 </android.support.constraint.ConstraintLayout>

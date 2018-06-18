@@ -124,8 +124,8 @@ class GameFragment : Fragment() {
         Log.v("CARD_SET", gameMechanics.cardSet.size.toString())
         if (gameMechanics.cardSet.size > 0) {
             val index = rand(gameMechanics.cardSet.size - 1)
-            val category = view.findViewById(R.id.category_text) as TextView
-            category.text = gameMechanics.cardSet[index].category
+          //  val category = view.findViewById(R.id.category_text) as TextView
+           // category.text = gameMechanics.cardSet[index].category
             val people = view.findViewById(R.id.people_text) as TextView
             people.text = gameMechanics.cardSet[index].name
             gameMechanics.cardSet.removeAt(index)

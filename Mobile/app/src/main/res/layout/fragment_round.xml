@@ -9,7 +9,7 @@
         android:id="@+id/button_round"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/backgroundimage"
+        android:background="@color/white"
         android:fontFamily="@font/actor"
         android:lineSpacingExtra="8sp"
         android:padding="50dp"

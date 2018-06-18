@@ -3,6 +3,6 @@
     android:id="@+id/fragment_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundimage">
+    android:background="@color/white">
 
 </android.support.constraint.ConstraintLayout>

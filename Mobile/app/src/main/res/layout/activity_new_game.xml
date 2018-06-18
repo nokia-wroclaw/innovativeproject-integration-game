@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pwr.damodarlepski.integrationgame.NewGameActivity"
-    android:background="@drawable/backgroundimage">
+    android:background="@color/white"
+    tools:context="pwr.damodarlepski.integrationgame.NewGameActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -169,6 +169,8 @@
         android:layout_marginStart="8dp"
         android:background="@drawable/rounded_buttons"
         android:text="Start game"
+        android:textColor="#ff9c00"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

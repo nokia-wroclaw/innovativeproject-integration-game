@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
         <activity android:name=".MainMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,17 +19,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RulesActivity" />
+        <activity android:name=".RulesActivity"
+            android:label="Rules"/>
         <activity
             android:name=".NewGameActivity"
-            android:label="Rules overview" />
+            android:label="Rules overview"
+           />
         <activity
             android:name=".GameActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="Game" />
+            android:label="Game"
+          />
         <activity
             android:name=".DescriptionRulesActivity"
-            android:label="Rules" />
+            android:label="Rules"
+            />
 
         <meta-data
             android:name="preloaded_fonts"

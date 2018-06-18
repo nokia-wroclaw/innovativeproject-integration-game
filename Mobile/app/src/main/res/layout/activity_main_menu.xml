@@ -4,24 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/start_background"
+    android:background="@color/white"
     tools:context="pwr.damodarlepski.integrationgame.MainMenuActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="360dp"
-        android:layout_height="267dp"
+        android:layout_height="483dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="370dp"
+            android:layout_height="219dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo_app" />
 
         <Button
             android:id="@+id/button_new_game"
@@ -32,6 +39,8 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/rounded_buttons"
             android:text="New Game"
+            android:textColor="#ff9c00"
+            android:textSize="18dp"
             tools:layout_editor_absoluteX="67dp"
             tools:layout_editor_absoluteY="273dp" />
 
@@ -45,7 +54,8 @@
             android:background="@drawable/rounded_buttons"
             android:text="Rules"
             android:textAlignment="center"
-            android:textStyle="italic"
+            android:textColor="#ff9c00"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"

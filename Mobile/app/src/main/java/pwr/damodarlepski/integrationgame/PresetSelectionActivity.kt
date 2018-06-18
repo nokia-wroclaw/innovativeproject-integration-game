@@ -1,11 +1,15 @@
 package pwr.damodarlepski.integrationgame
 
+import android.annotation.SuppressLint
+import android.app.ActionBar
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.activity_preset_selection.*
 import okhttp3.Response
 import org.json.JSONArray
@@ -44,6 +48,7 @@ class PresetSelectionActivity : AppCompatActivity() {
                 })
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun setupButtons(indexOfPreset: Int) {
 
         val checkedCategoriesList = mutableListOf<Int>()
@@ -51,6 +56,9 @@ class PresetSelectionActivity : AppCompatActivity() {
         val chosePresetButton = Button(this)
         chosePresetButton.text = mutableListOfPresets[indexOfPreset].name
         chosePresetButton.setBackgroundResource(R.drawable.rounded_buttons)
+
+        chosePresetButton.setTextColor(R.color.orange)
+
 
         val categoryNamesArray = mutableListOfPresets[indexOfPreset].categoryNameArray
         val checkedCategories = BooleanArray(mutableListOfPresets[indexOfPreset].numberOfCategories)
@@ -66,6 +74,7 @@ class PresetSelectionActivity : AppCompatActivity() {
                         checkedCategoriesList.remove(Integer.valueOf(position))
                     }
                 })
+
 
                 categorySelectionDialogBuilder.setCancelable(false)
                 categorySelectionDialogBuilder.setPositiveButton("OK", { dialogInterface, which ->

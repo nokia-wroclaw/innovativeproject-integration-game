@@ -17,9 +17,9 @@ class TeamFragment : Fragment() {
 
         activity?.runOnUiThread {
             if (gameMechanics.currentTeam == 1) {
-                button.text = "Team One"
+                button.text = "Team\nOne"
             } else {
-                button.text = "Team Two"
+                button.text = "Team \n Two"
             }
 
             button.isClickable = true

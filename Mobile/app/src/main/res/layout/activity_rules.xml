@@ -4,23 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundimage">
+    android:background="#357880">
 
-    <TextView
-        android:id="@+id/text_rules"
-        android:layout_width="362dp"
-        android:layout_height="478dp"
-        android:background="@drawable/backgroundimage"
-        android:fontFamily="@font/actor"
-        android:padding="10dp"
-        android:text="Rules"
-        android:textAlignment="textStart"
-        android:textSize="15sp"
+    <LinearLayout
+        android:layout_width="358dp"
+        android:layout_height="450dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.398"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595" />
+        app:layout_constraintVertical_bias="0.822">
+
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#357880"
+            android:fontFamily="@font/actor"
+            android:padding="10dp"
+            android:text="Description"
+            android:textAlignment="center"
+            android:textColor="#ff9c00"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="In round 1, the Cluegiver draws a name card and begins giving clues to his teammates (Guessers). The Cluegiver can sing, hum, point, charade, give full descriptions of the person, etc."
+            android:textAlignment="viewStart"
+            android:textColor="#fefefa"
+            android:textSize="16dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="69dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="One word"
+            android:textAlignment="center"
+            android:textColor="#ff9c00"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="76dp"
+            tools:layout_editor_absoluteY="131dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="In round 2, the Cluegiver may give only one word for each clue, which may be repeated as often as desired. Once the word is said, only non-verbal clues (sound effects, charades) may be given."
+            android:textColor="#fefefa"
+            android:textSize="16dp"
+            tools:layout_editor_absoluteY="174dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="Showing without speaking"
+            android:textAlignment="center"
+            android:textColor="#ff9c00"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="102dp"
+            tools:layout_editor_absoluteY="249dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="In round 3, the Cluegiver may not use any words at all. Only sounds and charades may be used for each clue."
+            android:textColor="#fefefa"
+            android:textSize="16dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="281dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pose"
+            android:textAlignment="center"
+            android:textColor="#ff9c00"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="353dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="In round 4, the Guesser starts with their eyes closed while the Cluegiver freezes in a pose depicting their clue. Once frozen, the Guesser opens their eyes and must give one guess."
+            android:textColor="#fefefa"
+            android:textSize="16dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="411dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
