@@ -7,6 +7,8 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_preset_selection.*
 import okhttp3.Response
 import org.json.JSONArray
@@ -39,6 +41,7 @@ class PresetSelectionActivity : AppCompatActivity() {
                                 mutableListOfPresets.add(Preset(it.getInt("id"), it.getString("name")))
                                 setupButtons(mutableListOfPresets.size - 1)
                             }
+                    this.runOnUiThread { loading_image_view.setImageResource(0) }
                 },
                 fun() {
                     Log.v("INFO", "Failed")
@@ -127,6 +130,16 @@ class PresetSelectionActivity : AppCompatActivity() {
 
         gameMechanics = intent.getSerializableExtra("GAME_MECHANICS") as GameMechanics
 
+        val imageView = ImageView(this)
+//        imageView.layoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT)
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.loading)
+                .into(loading_image_view)
+//        preset_constraint_layout.addView(imageView)
+
         getPresets()
+
+        //this.runOnUiThread { loading_image_view.setImageResource(0) }
     }
 }
