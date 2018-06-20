@@ -19,7 +19,7 @@ class TeamFragment : Fragment() {
             if (gameMechanics.currentTeam == 1) {
                 button.text = "Team\nOne"
             } else {
-                button.text = "Team \n Two"
+                button.text = "Team\nTwo"
             }
 
             button.isClickable = true

@@ -1,15 +1,12 @@
 package pwr.damodarlepski.integrationgame
 
 import android.annotation.SuppressLint
-import android.app.ActionBar
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.ViewGroup
 import android.widget.Button
-import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.activity_preset_selection.*
 import okhttp3.Response
 import org.json.JSONArray
@@ -54,6 +51,7 @@ class PresetSelectionActivity : AppCompatActivity() {
         val checkedCategoriesList = mutableListOf<Int>()
 
         val chosePresetButton = Button(this)
+        chosePresetButton.layoutParams = preset_list.layoutParams
         chosePresetButton.text = mutableListOfPresets[indexOfPreset].name
         chosePresetButton.setBackgroundResource(R.drawable.rounded_buttons)
 

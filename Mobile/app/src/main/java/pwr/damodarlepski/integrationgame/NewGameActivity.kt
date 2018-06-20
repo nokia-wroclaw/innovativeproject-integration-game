@@ -23,7 +23,7 @@ class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener 
 
     override fun onValueChange(p0: NumberPicker, p1: Int, p2: Int) {
         Toast.makeText(this, "Selected number of players: " + p0.value, Toast.LENGTH_SHORT).show()
-        editText_players.setText(p0.value.toString())
+//        editText_players.setText(p0.value.toString())
     }
 
     private fun loadRules(gameMechanics: GameMechanics) {
@@ -31,8 +31,13 @@ class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener 
 
 //        val categories = prefs.getStringSet("categories", null)
         val buildCategories = StringBuilder()
-        for (element in gameMechanics.selectedCategoriesList) {
-            buildCategories.append(element + "\n")
+//        for (element in gameMechanics.selectedCategoriesList) {
+//            buildCategories.append(element + "\n")
+//        }
+
+        for (i in 0 until gameMechanics.selectedCategoriesList.size) {
+            if (i < gameMechanics.selectedCategoriesList.size - 1) buildCategories.append(gameMechanics.selectedCategoriesList[i] + "\n")
+            if (i == gameMechanics.selectedCategoriesList.size - 1) buildCategories.append(gameMechanics.selectedCategoriesList[i])
         }
 //        for (element in categories) {
 //            buildCategories.append(gameMechanics.categoryLookupMap[element.toString().toInt()] + "\n")
@@ -75,8 +80,12 @@ class NewGameActivity : AppCompatActivity(), NumberPicker.OnValueChangeListener 
         gameMechanics = intent.getSerializableExtra("GAME_MECHANICS") as GameMechanics
         loadRules(gameMechanics)
 
-        editText_players.setOnClickListener {
-            showNumberPicker()
+//        editText_players.setOnClickListener {
+//            showNumberPicker()
+//        }
+        table_rules_overview.setOnClickListener {
+            val menu = MenuBar()
+            menu.goToRulesSettings(this)
         }
 
         button_start_game.setOnClickListener {

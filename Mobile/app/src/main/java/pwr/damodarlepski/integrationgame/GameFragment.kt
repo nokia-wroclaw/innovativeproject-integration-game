@@ -100,7 +100,7 @@ class GameFragment : Fragment() {
                 progress.progress += 1
 
                 //start music
-                if(progress.progress==15)
+                if (progress.progress.toLong() == timeForGuessing - 15)
                     mp.start()
 
                 val percentageTime = millisUntilFinished / 1000 * 100 / timeForGuessing
@@ -154,7 +154,7 @@ class GameFragment : Fragment() {
             //nextCardOrNewRound()
             getNewCard(gameMechanics, view)
         } else {
-            Toast.makeText(getActivity(), "Skip option is blocked", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, "Skip option is blocked", Toast.LENGTH_SHORT).show()
         }
     }
 

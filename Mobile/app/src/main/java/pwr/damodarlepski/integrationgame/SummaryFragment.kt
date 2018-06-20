@@ -33,6 +33,12 @@ class SummaryFragment : Fragment() {
         val timeViewTwo = view.findViewById(R.id.points_team_two_text) as TextView
         timeViewTwo.text = gameMechanics.teamTwoScore.toString()
 
+        if (gameMechanics.currentTeam == 1) {
+            ++gameMechanics.currentTeam
+        } else {
+            --gameMechanics.currentTeam
+        }
+
         button.setOnClickListener {
             if (gameMechanics.currentRound < gameMechanics.selectedRounds.size) {
                 val transaction = fragmentManager?.beginTransaction()
