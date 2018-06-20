@@ -2,6 +2,7 @@ package pwr.damodarlepski.integrationgame
 
 import android.annotation.SuppressLint
 import android.app.ActionBar
+import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -13,6 +14,17 @@ import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.activity_preset_selection.*
 import okhttp3.Response
 import org.json.JSONArray
+import android.widget.VideoView
+import android.webkit.WebView
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.TransformationUtils.fitCenter
+import kotlinx.android.synthetic.main.activity_main_menu.*
+import pwr.damodarlepski.integrationgame.R.drawable.loading
+import java.security.AccessController.getContext
+import android.util.DisplayMetrics
+
+
 
 
 class PresetSelectionActivity : AppCompatActivity() {
@@ -127,8 +139,15 @@ class PresetSelectionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preset_selection)
 
-        gameMechanics = intent.getSerializableExtra("GAME_MECHANICS") as GameMechanics
-
+        val imageView = ImageView(this)
+        imageView.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.loading)
+                .into(imageView)
+                preset_list.addView(imageView)
         getPresets()
     }
+
 }
+
