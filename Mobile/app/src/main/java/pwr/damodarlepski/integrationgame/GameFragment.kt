@@ -1,6 +1,8 @@
 
 package pwr.damodarlepski.integrationgame
 
+import android.animation.ArgbEvaluator
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.media.MediaPlayer
@@ -16,7 +18,9 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_game.*
 import java.util.*
+
 
 class GameFragment : Fragment() {
     private var allowedSkips = 2
@@ -24,6 +28,26 @@ class GameFragment : Fragment() {
     private lateinit var timer: CountDownTimer
 
     private lateinit var mp: MediaPlayer
+
+    private fun blinkRed() {
+        val anim = ObjectAnimator.ofInt(fragment_game, "backgroundColor", Color.WHITE, Color.RED,
+                Color.WHITE)
+        anim.duration = 1500
+        anim.setEvaluator(ArgbEvaluator())
+        //anim.repeatMode = Animation.REVERSE
+        anim.repeatCount = 0
+        anim.start()
+    }
+
+    private fun blinkGreen() {
+        val anim = ObjectAnimator.ofInt(fragment_game, "backgroundColor", Color.WHITE, Color.GREEN,
+                Color.WHITE)
+        anim.duration = 1500
+        anim.setEvaluator(ArgbEvaluator())
+        //anim.repeatMode = Animation.REVERSE
+        anim.repeatCount = 0
+        anim.start()
+    }
 
     private fun nextTeam(gameMechanics: GameMechanics) {
 
@@ -145,12 +169,14 @@ class GameFragment : Fragment() {
     }
     private fun good(gameMechanics: GameMechanics, view: View) {
         // stopTimer()
+        blinkGreen()
         pointsCounter(gameMechanics)
         getNewCard(gameMechanics, view)
     }
     private fun skip(gameMechanics: GameMechanics, view: View) {
         if (allowedSkips > 0) {
             allowedSkips--
+            blinkRed()
             //nextCardOrNewRound()
             getNewCard(gameMechanics, view)
         } else {
